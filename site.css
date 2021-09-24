@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
+
+
+*{
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+}
+a{
+    color: #f2f2f2;
+    margin: 30px;
+    font-weight: bold;
+    text-decoration: none;
+}
+button{
+    border-radius: 20px;
+    width: 70px;
+    height: 30px;
+    background-color: #ffc200;
+    margin-left: 16%;
+    margin-top: 10px;
+    border-color: #f2f2f2;
+    color: #252525;
+    font-weight: bold;
+}
+hr{
+    border-color: #ffc200;
+    width: 38%;
+}
+.img-logo{
+    width: 5%;
+    height: 5%;
+    margin-top: 10px;
+    float: left;
+}
+a:hover{ 
+    text-decoration: underline;
+    text-decoration-color: #ffc200;
+}
+
+#div-menu{
+    position: fixed;
+    font-size: 20px;
+    width: 100%;
+}
+.img-fundo{
+    width: 100%;
+}
+#div-inicio{
+    background-image: url('fundo_site.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+}
+#div-solucao{
+    padding-top: 300px;
+    height: 40vh;
+
+}
+#solucao{
+    font-size: 2em;
+    color: white;
+    font-weight: bold;
+    margin-left: 30%;
+}
+#links-menu{
+    margin-top: 10px;
+}
+
+/*
+cores:
+    branco = #f2f2f2
+    preto = #252525
+    amarelo = #ffc200
+    azul = #127cb3
+*/
