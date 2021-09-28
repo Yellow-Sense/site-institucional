@@ -4,29 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yellow Sensor</title>
     <link rel="stylesheet" href="site.css">
     <link rel="shortcut icon" href="icone_topo.ico" type="image/x-icon">
-   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <title>Yellow Sensor</title>
+
 </head>
 <body>
-    <div id="div-inicio">
-            <div id="div-menu">
+    <section id="sec_inicio">
+        <div id="div_inicio">
+            <div id="div_menu">
                 <img src="logo.png" class="img-logo">
-                <div id="links-menu">
-                    <a href="" style="margin-left: 20%;">Início</a> 
-                    <a href="">Sobre nós</a> 
-                    <a href="">Produtos</a>
-                    <a href="">Contato</a>
-                    <a href="">Simulador</a>
+                <div id="links_menu">
+                    <a id="link_inicio" href="#sec_inicio" style="margin-left: 20%;">Início</a> 
+                    <a id="link_sobre" href="#sec_sobre">Sobre nós</a> 
+                    <a id="link_produto" href="">Produtos</a>
+                    <a id="link_contato" href="">Contato</a>
+                    <a id="link_simulador" href="">Simulador</a>
                     <a href=""><Button>Entrar</Button></a>
                 </div>
             </div>
-            <div id="div-solucao">
+            <div id="div_solucao">
                 <span id="solucao">Solucionando e inovando como nunca!</span>
-                <hr style="margin-left: 30%">
+                <hr class="hr_solucao">
             </div>
-    </div>    
+        </div>  
+    </section>
+    <section id="sec_sobre">
+        <div id="div_sobre">
+            <div id="div_sobre_conteudo">
+                <p id="titulo_sobre">Sobre Nós</p>
+                <hr class="hr_sobre_nos">
+                <p id="text_sobre">Uma equipe de soluções tecnológicas que busca trazer uma solução prática para as Granjas</p>
+                <div id="div_missao">
+                    <img class="img-missao" src="icones/missao_icone.png">
+                    <p style="margin: 10px 0 0 70px; font-weight: 900; font-family: 'Poppins', sans-serif;">Missão</p>
+                    <p id="text_missao">Ser conhecido no mercado por nossas qualidades de entrega, comprometimentos e responsabilidades</p>
+                </div>
+                <div id="div_visao">
+                    <img class="img-visao" src="icones/visao.png">
+                    <p style="margin: 10px 0 0 70px; font-weight: 900; font-family: 'Poppins', sans-serif;">Visão</p>
+                    <p id="text_visao">Facilitar a rotina e desempenho das granjas e promover a solução tecnológico do agronegócio</p>
+                </div>
+                <div id="div_valores">
+                    <img class="img-valores" src="icones/valores.png">
+                    <p style="margin: 10px 0 0 70px; font-weight: 900; font-family: 'Poppins', sans-serif;">Valores</p>
+                    <p id="text_visao">Criatividade, flexibilidade, responsabilidades, eficiência e qualidade</p>
+                </div>
+            </div>
+            <div id="equipe">
+                
+            </div>
+        </div>
+    </section>  
 </body>
 </html>
 <div>
