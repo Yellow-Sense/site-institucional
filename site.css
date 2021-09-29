@@ -29,19 +29,45 @@ button{
     position: fixed;
     font-size: 20px;
     width: 100%;
+    height: 10%;
 }
 .img-fundo{
     width: 100%;
 }
 #links_menu{
-    margin-top: 10px;
+    margin-top: 2%;
+}
+#div_img_logo{
+    float: left;
+    width: 8%;
+    margin-left: 7%;
+    height: 100%;
 }
 .img-logo{
-    width: 5%;
-    height: 5%;
-    margin-top: 10px;
-    float: left;
-    margin-bottom: 5px;
+    width: 70%;
+    height: 90%;
+    margin-top: 5%;
+}
+#btn_entrar_fundo{
+    width: 8%;
+    height: 4vh;
+    float: right;
+    margin-right: 5%;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+}
+#btn_entrar_frente{
+    width: 80%;
+    height: 100%;
+    float: right;
+    margin-right: 10%;
+    background-color: #ffc200;
+    color: #252525;
+    border-radius: 20px;
+    text-align: center;
+}
+#p_btn_entrar{
+    margin-top: 5%;
 }
 /* Área da Parte 'Inicio' */
 
@@ -59,13 +85,14 @@ button{
     font-size: 2em;
     color: #f2f2f2;
     font-weight: bold;
-    margin-left: 30%;
+    margin: 0 auto;
+    text-align: center;
 }
 .hr_solucao{
-    border-color: #ffc200;
+    border-style: none;
     width: 39%;
-    margin-left: 30%;
-    height: 2px;
+    margin: 0 auto;
+    height: 3px;
     background-color: #ffc200;
 }
 
