@@ -101,12 +101,12 @@ button{
 
 #div_sobre{
     background-color: #252525;
-    height: 100vh;
+    height: 200vh;
     padding: 8% 3% 3% 3%;
 }
 #div_sobre_conteudo{
     background-color: #ffc200;
-    height: 90%;
+    height: 45%;
     border-radius: 15px 15px 0 0;
     box-shadow: 15px 15px rgba(0, 0, 0, 0.425);
 }
@@ -174,6 +174,7 @@ button{
     margin-left: 150px;
     margin-top: 4.9%;
     float: left;
+    margin-bottom: 10%;
 }
 .img-valores{
     width: 30%;
@@ -184,9 +185,85 @@ button{
     font-weight: bold;
     text-align: center;
 }
-#equipe{
-    background-color: #127cb3;
+
+/* Conteúdo Sobre Nós - Equipe */
+
+#div_equipe{
+    border-top: 4px solid #252525;
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.425);
+    border-radius: 4px 4px 15px 15px;
+    height: 56%;
 }
+#div_conteudo_equipe{
+    background-color: #127cb3;
+    border-radius: 4px 4px 15px 15px;
+    height: 100%;
+} 
+#titulo_equipe{
+    font-size: 3em;
+    color: #f2f2f2;
+    font-weight: 900;
+    text-align: center;
+    padding-top: 19px;
+    text-shadow: 2px 2px black;
+    font-family: 'Poppins', sans-serif;
+}
+#hr_equipe{
+    border-style: none;
+    width: 15%;
+    margin: 0 auto;
+    height: 3px;
+    background-color: #ffc200;
+}
+/* Conteúdo nomes */
+
+.div-nomes-cima{
+    height: 35%;
+    margin-top: 5%;
+    width: 10%;
+    float: left;
+    margin-left: 18%;
+}
+.div-matheus{
+    height: 35%;
+    margin-top: 5%;
+    width: 10%;
+    float: left;
+    margin-left: 32%;
+    margin-right: 20%;
+}
+.div-felipe{
+    height: 35%;
+    margin-top: 5%;
+    width: 10%;
+    float: left; 
+}
+.img-equipe-baixo{
+    border-style: solid;
+    height: 50%;
+    border-radius: 70%;
+    border-color: #252525;
+    float: left;
+}
+.img-equipe{
+    border-style: solid;
+    border-radius: 50%;
+    border-color: #252525;
+    height: 50%;
+    margin-left: 6%;
+}
+.text-nomes{
+    font-weight: 600;
+    text-align: center;
+    color: #f2f2f2;
+    font-family: 'Poppins', sans-serif;
+}
+.text-funcao{
+    text-align: center;
+    color: #f2f2f2;
+}
+
+
 /*
 cores:
     branco = #f2f2f2
