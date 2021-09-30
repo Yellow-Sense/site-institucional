@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    
+    <!-- Referenciando estilização externa do site (CSS)  -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="img/icone_topo.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body id="body_dashboard">
+    <!-- Menu lateral  -->
+    <div id="Menu_Dashboard">
+            <img id="home_icon" src="img/icones/pagina-inicial.png" alt="">
+            <p>Home</p>
+            <img id="graficoM_icon" src="img/icones/graficos.png" alt="">
+            <p>Grafico Mensal</p>
+            <img id="graficoA_icon" src="img/icones/graficos.png" alt="">
+            <p>Grafico Anual</p>
+    </div>
+    
+    <!-- Conteudo  -->
+    <div id="container_dashboard">
+            <p id="txt_msg">Bom dia, nome_granja</p>
+            <hr id="hr_msg">
+
+        <div id="card01">
+            <div id="card01_temp">
+                <div id="tempAtual">
+                    <img id="img_temp_atual" src="img/icones/temperatura-alta.png" alt="">
+                    <p>25°C</p>
+                </div>
+            </div>
+            <div id="card01_alertas">
+                <p id="titulo_alertas">Alertas</p>
+                <hr id="hr_alertas">
+                <div id="div_alertas">
+                    <p id="txt_alertas">Area A: Temperatura abaixo do recomendado</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="div_card_graficos">
+            <div id="card02">
+                <canvas id="myChart" width="100" height="100"></canvas>
+            </div>
+            <div id="card03"></div>
+        </div>
+    
+    </div>
+</body>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    </script>
+</html>
