@@ -1,4 +1,8 @@
+
+//Função que verifica a posição do scrool ao ser movimentado
 $(window).on("scroll touchmove", function() {
+
+    //Função que se o scrollTop da pagina estiver na seção inicio, altera o css da pagina
     if ($(document).scrollTop() >= $("#sec_inicio").position().top){
         $('#div_menu').css('background-color', 'rgba(0, 0, 0, 0)');
         $('#link_inicio').css('text-decoration','underline');
@@ -17,6 +21,8 @@ $(window).on("scroll touchmove", function() {
         
         $('#link_sobre').css('text-decoration','none');
     }
+
+    //Função que se o scrollTop da pagina estiver na seção Sobre, altera o css da pagina
     if ($(document).scrollTop() >= $("#sec_sobre").position().top){
         $('#div_menu').css('background-color', '#f2f2f2');
         $('#link_sobre').css('text-decoration','underline');

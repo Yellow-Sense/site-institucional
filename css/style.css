@@ -72,7 +72,7 @@ button{
 /* Área da Parte 'Inicio' */
 
 #div_inicio{
-    background-image: url('fundo_site.jpeg');
+    background-image: url('../img/fundo_site.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
