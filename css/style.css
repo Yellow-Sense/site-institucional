@@ -262,7 +262,6 @@ button{
     border-radius: 50%;
     border-color: #252525;
     height: 50%;
-    margin-left: 6%;
 }
 .text-nomes{
     font-weight: 600;
@@ -322,6 +321,7 @@ button{
     height: 0.7%;
     border-style: none;
     margin-left: 5%;
+    border-radius: 20px;
 }
 #card01{
     background-color: #252525;
@@ -405,6 +405,7 @@ button{
     margin-left:3%;
     height: 2%;
     border-style: none;
+    border-radius: 20px;
 }
 #txt_alertas{
     color: #f2f2f2;
