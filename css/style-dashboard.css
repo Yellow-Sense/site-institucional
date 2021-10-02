@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/* Estilização dashboard */
+
+/* Estilização Menu dashboard */
+#Menu_Dashboard{
+    background-color: #252525;
+    height: 100vh;
+    width: 5%;
+    position: fixed;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    color: #f2f2f2;
+    font-size: 15px;
+}
+
+#home_icon{
+    width: 60%;
+    margin-top: 20vh;
+}
+#graficoM_icon{
+    width: 60%;
+    margin-top: 150%;
+}
+#graficoA_icon{
+    width: 60%;
+    margin-top: 150%;
+}
+
+/* Estilização Conteudo dashboard */
+
+#container_dashboard{
+    height: 100vh;
+    width: 95%;
+    float: right;
+}
+#txt_msg{
+    color: #252525;
+    font-size: 25px;
+    font-family: 'Roboto', sans-serif;
+    margin-left: 5%;
+    margin-top: 1%;
+}
+#hr_msg{
+    background-color: #ffc200;
+    width: 19%;
+    height: 0.7%;
+    border-style: none;
+    margin-left: 5%;
+    border-radius: 20px;
+}
+#card01{
+    background-color: #252525;
+    width: 60%;
+    height: 40%;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 2%;
+    box-shadow: 10px 10px 0px #0000003b ;
+}
+#div_card_graficos{
+    background-color: #252525;
+    width: 80%;
+    height: 40%;
+    margin: 0 auto;
+    border-radius: 20px;
+    margin-top: 2%;
+    box-shadow: 10px 10px 0px #0000003b ;
+}
+
+#card02{
+    background-color: #2D2C2C;
+    width: 45%;
+    height: 85%;
+    margin-top: 2%;
+    margin-left: 4%;
+    float: left;
+    border-radius: 20px;
+}
+#card03{
+    background-color: #2D2C2C;
+    width: 45%;
+    height: 85%;
+    margin-top: 2%;
+    margin-right: 4%;
+    float: right;
+    border-radius: 20px;
+}
+
+#card01_temp{
+    height: 100%;
+    width: 30%;
+    float: left;
+}
+#tempAtual{
+    width: 55%;
+    height: 50%;
+    background-color: #ffc200;
+    border-radius: 100%;
+    margin: 0 auto;
+    margin-top: 30%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 10px 10px 0px #0000003b ;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #f2f2f2;
+    text-shadow: 3px 3px 0px #0000003b;
+}
+#img_temp_atual{
+    width: 50%;
+    margin-top: 10%;
+}
+#card01_alertas{
+    background-color: #2D2C2C;
+    height: 80%;    
+    width: 60%;
+    margin-top: 3%;
+    float: left;
+    border-radius: 20px;
+}
+#titulo_alertas{
+    color: #f2f2f2;
+    margin-top: 4%;
+    margin-left:5%;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+#hr_alertas{
+    background-color: #ffc200;
+    width: 18%;
+    margin-left:3%;
+    height: 2%;
+    border-style: none;
+    border-radius: 20px;
+}
+#txt_alertas{
+    color: #f2f2f2;
+    margin-left:3% ;
+    margin-top:3% ;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+#body_dashboard{
+    background-color: #F2F2F2;
+}

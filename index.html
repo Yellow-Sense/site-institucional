@@ -16,29 +16,36 @@
 
 </head>
 <body>
+    <div id="div_menu">
+        
+        <div class="div_img_logo">
+            <img src="img/logo.png" class="img-logo">
+        </div>
+
+        <div class="links_menu">
+            <a class="link_inicio" href="#sec_inicio" >Início</a> 
+            <a class="link_sobre" href="#sec_sobre">Sobre nós</a> 
+            <a class="link_produto" href="">Produtos</a>
+            <a class="link_contato" href="">Contato</a>
+            <a class="link_simulador" href="">Simulador</a>
+            <a href="">
+                <div id="fundo_btn_entrar">
+                    <button id="btn_entrar">
+                        <p class="p_btn_entrar">Entrar</p>
+                    </button>
+                </div>
+            </a>
+        </div>
+    </div>
 
     <section id="sec_inicio">
 
-        <div id="div_inicio">
-            <div id="div_menu">
-
-                <div id="div_img_logo">
-                    <img src="img/logo.png" class="img-logo">
-                </div>
-
-                <div id="links_menu">
-                    <a id="link_inicio" href="#sec_inicio" style="margin-left: 10%;">Início</a> 
-                    <a id="link_sobre" href="#sec_sobre">Sobre nós</a> 
-                    <a id="link_produto" href="">Produtos</a>
-                    <a id="link_contato" href="">Contato</a>
-                    <a id="link_simulador" href="">Simulador</a>
-                    <a href=""><div id="btn_entrar_fundo"><div id="btn_entrar_frente"><p id="p_btn_entrar">Entrar</p></div></div></a>
-                </div>
-            </div>
+        <div class="div_inicio">
             
-            <div id="div_solucao">
-                <p id="solucao">Solucionando e inovando como nunca!</p>
-                <hr class="hr_solucao">
+            
+            <div class="div_solucao">
+                <p>Solucionando e inovando como nunca!</p>
+                <hr>
             </div>
         </div>  
 
@@ -46,73 +53,94 @@
 
     <section id="sec_sobre">
 
-        <div id="div_sobre">
-            <div id="div_sobre_conteudo">
+        <div class="div_sobre">
+            <div class="container">
 
-                <p id="titulo_sobre">Sobre Nós</p>
-                <hr class="hr_sobre_nos">
+                <p class="titulo">Sobre Nós</p>
+                <hr>
 
-                <p id="text_sobre">Uma equipe de soluções tecnológicas que busca trazer uma solução prática para as Granjas</p>
+                <p class="text">Uma equipe de soluções tecnológicas que busca trazer uma solução prática para as Granjas</p>
                 
-                <div id="div_missao">
-                    <img class="img-missao" src="img/icones/missao_icone.png">
-                    <p style="margin: 10px 0 0 70px; font-weight: 900; font-family: 'Poppins', sans-serif;">Missão</p>
-                    <p id="text_missao">Ser conhecido no mercado por nossas qualidades de entrega, comprometimentos e responsabilidades</p>
+                <div class="linha_sobre">
+                    <div class="div_missao">
+                        <div class="div_img_missao">
+                            <img class="img-missao" src="img/icones/missao_icone.png">
+                        </div>
+                        <p class="titulo_missao">Missão</p>
+                        <p class="text_missao">Ser conhecido no mercado por nossas qualidades de entrega, comprometimentos e responsabilidades</p>
+                    </div>
+                    
+                    <div class="div_visao">
+                        <div class="div_img_visao">
+                            <img class="img-visao" src="img/icones/visao.png">
+                        </div>
+                        <p class="titulo_visao">Visão</p>
+                        <p class="text_visao">Facilitar a rotina e desempenho das granjas e promover a solução tecnológico do agronegócio</p>
+                    </div>
+                    
+                    <div class="div_valores">
+                        <div class="div_img_valores">
+                            <img class="img-valores" src="img/icones/valores.png">
+                        </div>
+                        <p class="titulo_valores">Valores</p>
+                        <p class="text_visao">Criatividade, flexibilidade, responsabilidades, eficiência e qualidade</p>
+                    </div>
                 </div>
-                
-                <div id="div_visao">
-                    <img class="img-visao" src="img/icones/visao.png">
-                    <p style="margin: 10px 0 0 70px; font-weight: 900; font-family: 'Poppins', sans-serif;">Visão</p>
-                    <p id="text_visao">Facilitar a rotina e desempenho das granjas e promover a solução tecnológico do agronegócio</p>
-                </div>
-                
-                <div id="div_valores">
-                    <img class="img-valores" src="img/icones/valores.png">
-                    <p style="margin: 10px 0 0 70px; font-weight: 900; font-family: 'Poppins', sans-serif;">Valores</p>
-                    <p id="text_visao">Criatividade, flexibilidade, responsabilidades, eficiência e qualidade</p>
-                </div>
-                
+
             </div>
 
-            <div id="div_equipe">
+            <div class="div_equipe">
                 
-                <div id="div_conteudo_equipe">
+                <div class="container">
                     
-                    <div id="titulo_equipe">Equipe</div>
-                    <hr id="hr_equipe">
+                    <div class="titulo_equipe">Equipe</div>
+                    <hr class="hr_equipe">
                     
-                    <div class="div-nomes-cima">
-                        <img class="img-equipe" src="img/fotos_equipe/lucas.jfif" >
-                        <p class="text-nomes">Lucas Soares</p>
-                        <p class="text-funcao">Full-Stack</p>
-                    </div>
+                    <div class="linha1_equipe">
+                        <div class="card_equipe"style="margin-left:0;">
+                            <div class="card_img">
+                                <img class="img-equipe" src="img/fotos_equipe/lucas.jfif" >
+                            </div>
+                            <p class="text-nomes">Lucas Soares</p>
+                            <p class="text-funcao">Full-Stack</p>
+                        </div>
 
-                    <div class="div-nomes-cima">
-                        <img class="img-equipe" src="img/fotos_equipe/leandro.jfif" >
-                        <p class="text-nomes">Leandro S. Cotrim</p>
-                        <p class="text-funcao">Project Owner</p>
-                        <p class="text-funcao">Full-Stack</p>
+                        <div class="card_equipe">
+                            <div class="card_img">
+                                <img class="img-equipe" src="img/fotos_equipe/leandro.jfif" >
+                            </div>
+                            <p class="text-nomes">Leandro S. Cotrim</p>
+                            <p class="text-funcao">Project Owner-Full stack</p>
+                        </div>
+                        
+                        <div class="card_equipe">
+                            <div class="card_img">
+                                <img class="img-equipe" style="width: 95%;" src="img/fotos_equipe/joao.jfif" >
+                            </div>
+                            <p class="text-nomes">João Pedro Noleto</p>
+                            <p class="text-funcao">Scrum Master-Full Stack</p>
+                        </div>
                     </div>
                     
-                    <div class="div-nomes-cima">
-                        <img class="img-equipe" src="img/fotos_equipe/joao.jfif" >
-                        <p class="text-nomes">João Pedro Noleto</p>
-                        <p class="text-funcao">Scrum Master</p>
-                        <p class="text-funcao">Full-Stack</p>
-                    </div>
-                    
-                    <div class="div-matheus">
-                        <img class="img-equipe-baixo" src="img/fotos_equipe/matheus.png" >
-                        <p class="text-nomes">Matheus Araujo</p>
-                        <p class="text-funcao">Full-Stack</p>
-                    </div>
-                    
-                    <div class="div-felipe">
-                        <img class="img-equipe-baixo" src="img/fotos_equipe/felipe.jfif" >
-                        <p class="text-nomes">Felipe Andrade</p>
-                        <p class="text-funcao">Full-Stack</p>
-                    </div>
+                    <div class="linha2_equipe">
 
+                        <div class="card_equipe">
+                            <div>
+                                <img class="img-equipe" style="margin-left:0;" src="img/fotos_equipe/matheus.png" >
+                            </div>
+                            <p class="text-nomes">Matheus Araujo</p>
+                            <p class="text-funcao">Full-Stack</p>
+                        </div>
+                        
+                        <div class="card_equipe">
+                            <div>
+                                <img class="img-equipe" src="img/fotos_equipe/felipe.jfif" >
+                            </div>
+                            <p class="text-nomes">Felipe Andrade</p>
+                            <p class="text-funcao">Full-Stack</p>
+                        </div>
+                    </div>
+                    
                 </div>
 
             </div>
