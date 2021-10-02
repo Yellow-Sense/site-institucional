@@ -42,6 +42,7 @@ body{
 .links_menu{
     display: flex;
     justify-content:space-evenly;
+    text-decoration-color: #ffc200;
 }
 .div_img_logo{
     float: left;
@@ -104,7 +105,7 @@ body{
 
 .div_sobre{
     height: 200vh;
-    margin-top: 10%;
+    margin-top: 5%;
 }
 .div_sobre .container{
     background-color: #ffc200;
@@ -227,7 +228,7 @@ body{
     background-color: #127cb3;
     border-radius: 0px 0px 15px 15px;
     width: 80%;
-    height: 80%;
+    height: 95%;
 } 
 .titulo_equipe{
     font-size: 3em;
@@ -297,6 +298,72 @@ body{
     color: #f2f2f2;
 }
 
+/* Área da Parte 'Produto' */
+
+.div_produto{
+    height: 100vh;
+}
+.div_produto .container{
+    background-color: #ffc200;
+    height: 80%;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.425);
+    align-content: center;
+    margin:auto;
+}
+.container .titulo{
+    font-size: 3em;
+    color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 70px;
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
+    font-family: 'Josefin Sans', sans-serif;
+}
+.container .text{
+    width: 80%;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 45px;
+    margin: auto;
+}
+.container hr{
+    background-color: #252525;
+    width: 20%;
+    height: 4px;
+    border-radius: 20px;
+    border-style: none;
+    margin-left: 40%;
+}
+.linha_produto{
+    display: flex;
+    justify-content: center;
+}
+.card_produto{
+    width: 20%;
+    height: 10%;
+    margin-top: 5%;
+    justify-content: center;
+    margin-left: 10%;
+}
+.div_img_produto{
+    display: flex;
+    justify-content: center;
+}
+.img-produto{
+    width: 30%;
+}
+.titulo_produto{
+    margin-top: 4%; 
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.text_produto{
+    margin-top: 2%; 
+    text-align: center;
+}
 /*
 cores:
     branco = #f2f2f2
