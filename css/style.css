@@ -279,26 +279,6 @@ body{
     width: 60%;
     margin: auto;
 }
-.div-matheus{
-    height: 35%;
-    margin-top: 5%;
-    width: 10%;
-    float: left;
-    margin-left: 32%;
-    margin-right: 20%;
-}
-.div-felipe{
-    height: 35%;
-    margin-top: 5%;
-    width: 10%;
-    float: left; 
-}
-.img-equipe-baixo{
-    border-style: solid;
-    height: 50%;
-    border-radius: 50%;
-    float: left;
-}
 .img-equipe{
     border-style: solid;
     border-radius: 50%;
