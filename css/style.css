@@ -364,6 +364,85 @@ body{
     margin-top: 2%; 
     text-align: center;
 }
+
+/* Área da Parte 'Contato' */
+
+.div_contato{
+    width: 100%;
+    height: 90vh;
+    display: flex;
+}
+.div_contato .container_A{
+    background-image: url('../img/bg-contato.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 40%;
+    height: 100%;
+
+}
+.container_A .formas{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.74);
+    font-size: 25px;
+}
+.formas img{
+    width: 13%;
+}
+.container_A .email{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 40%;
+}
+.email p{
+    color: #F2F2F2;
+    margin:auto;
+}
+.container_A .numero{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+
+}
+.numero p{
+    color: #F2F2F2;
+    margin: auto;
+}
+.div_contato .container_B{
+    float: left;
+    width: 60%;
+    background-color: #ffc200;
+}
+.container_B .titulo{
+    font-size: 50px;
+    color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5%;
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
+    font-family: 'Josefin Sans', sans-serif;
+}
+.container_B hr{
+    background-color: #252525;
+    border-style: none;
+    width: 20%;
+    height: 4px;
+    border-radius: 20px;
+    margin: auto;
+}
+.container_B input{
+    border-radius: 20px;
+    background-color: #252525;
+    color: #f2f2f2;
+    font-size: 20px;
+    border-style: none;
+    width: 35%;
+    height: 30px;
+}
 /*
 cores:
     branco = #f2f2f2
