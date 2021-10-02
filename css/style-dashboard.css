@@ -55,7 +55,7 @@
     background-color: #252525;
     width: 60%;
     height: 40%;
-    margin: 0 auto;
+    margin: auto;
     border-radius: 20px;
     margin-top: 2%;
     box-shadow: 10px 10px 0px #0000003b ;
@@ -64,7 +64,7 @@
     background-color: #252525;
     width: 80%;
     height: 40%;
-    margin: 0 auto;
+    margin: auto;
     border-radius: 20px;
     margin-top: 2%;
     box-shadow: 10px 10px 0px #0000003b ;
@@ -99,7 +99,7 @@
     height: 50%;
     background-color: #ffc200;
     border-radius: 100%;
-    margin: 0 auto;
+    margin: auto;
     margin-top: 30%;
     text-align: center;
     font-size: 30px;
