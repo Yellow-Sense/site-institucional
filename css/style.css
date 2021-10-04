@@ -105,7 +105,7 @@ body{
 
 .div_sobre{
     height: 200vh;
-    margin-top: 5%;
+    padding-top: 5%;
 }
 .div_sobre .container{
     background-color: #ffc200;
@@ -302,6 +302,7 @@ body{
 
 .div_produto{
     height: 100vh;
+    padding-top: 5%;
 }
 .div_produto .container{
     background-color: #ffc200;
@@ -371,6 +372,7 @@ body{
     width: 100%;
     height: 90vh;
     display: flex;
+    padding-top: 5%;
 }
 .div_contato .container_A{
     background-image: url('../img/bg-contato.jpg');
@@ -506,14 +508,14 @@ body{
 
 /* Area rodapé da pagina */
 .footer_index{
-    height: 5vw;
+    height: 3vw;
     width: 100%;
     background-color: #252525;
 }
 .footer_index .div_img{
     margin: auto;
     height: 100%;
-    width: 4%;
+    width: 2%;
     padding-top: 1%;
 
 }
@@ -522,7 +524,7 @@ body{
 }
 .footer_index p{
     color: #f2f2f2;
-    font-size: 15px;
+    font-size: 12px;
     text-align: center;
 }
 .footer_index a{
