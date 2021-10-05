@@ -507,6 +507,7 @@ body{
 }
 
 /* Area rodapé da pagina */
+
 .footer_index{
     height: 3vw;
     width: 100%;
@@ -529,8 +530,17 @@ body{
 }
 .footer_index a{
     margin: auto;
-
 }
+
+/* Correção inicio das seções */
+
+#sec_produto{
+    margin-top: 5px;
+}
+#sec_contato{
+    margin-top: 5px;
+}
+
 
 /*
 cores:
