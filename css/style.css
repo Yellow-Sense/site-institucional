@@ -370,7 +370,7 @@ body{
 
 .div_contato{
     width: 100%;
-    height: 90vh;
+    height: 93vh;
     display: flex;
     padding-top: 5%;
 }
@@ -535,10 +535,10 @@ body{
 /* Correção inicio das seções */
 
 #sec_produto{
-    margin-top: 5px;
+    margin-top: 1%;
 }
 #sec_contato{
-    margin-top: 5px;
+    margin-top: 1%;
 }
 
 
