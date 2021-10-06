@@ -7,7 +7,7 @@
     <title>Dashboard</title>
     
     <!-- Referenciando estilização externa do site (CSS)  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-dashboard.css">
     <link rel="shortcut icon" href="img/icone_topo.ico" type="image/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,9 +24,9 @@
             <img id="home_icon" src="img/icones/pagina-inicial.png" alt="">
             <p>Home</p>
             <img id="graficoM_icon" src="img/icones/graficos.png" alt="">
-            <p>Grafico Mensal</p>
+            <p>Mensal</p>
             <img id="graficoA_icon" src="img/icones/graficos.png" alt="">
-            <p>Grafico Anual</p>
+            <p>Anual</p>
     </div>
     
     <!-- Conteudo  -->
@@ -94,7 +94,7 @@
         data: {
             labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
             datasets: [{
-                label: '# of Votes',
+                label: 'Temperatura Média anual',
                 data: [12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -123,5 +123,6 @@
             }
         }
     });
+    
     </script>
 </html>

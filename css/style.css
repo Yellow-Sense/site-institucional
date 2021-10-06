@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
 
 body::-webkit-scrollbar {
     width: 12px;               /* largura do scroll */
@@ -16,23 +16,19 @@ body::-webkit-scrollbar-thumb {
 *{
     font-family: 'Josefin Sans', sans-serif;
     margin: 0;
+    color: #252525;
 }
 a{
     margin: 30px;
-    font-weight: bold;
     text-decoration: none;
     color: #f2f2f2;
 }
 button{
-    border-radius: 15px;
-    width: 70px;
-    height: 30px;
-    background-color: #ffc200;
-    margin-left:8%;
-    margin-top: 10px;
-    border-color: #f2f2f2;
     color: #252525;
     font-weight: bold;
+}
+body{
+    background-color: #252525;
 }
 
 /* Área Menu + img do fundo */
@@ -43,380 +39,509 @@ button{
     width: 100%;
     height: 10%;
 }
-.img-fundo{
-    width: 100%;
+.links_menu{
+    display: flex;
+    justify-content:space-evenly;
+    text-decoration-color: #ffc200;
 }
-#links_menu{
-    margin-top: 2%;
-}
-#div_img_logo{
+.div_img_logo{
     float: left;
     width: 8%;
-    margin-left: 7%;
     height: 100%;
+    margin-left: 2%;
 }
 .img-logo{
     width: 70%;
     height: 90%;
-    margin-top: 5%;
 }
-#btn_entrar_fundo{
-    width: 8%;
+#fundo_btn_entrar{
     height: 4vh;
+    width: 150%;
     float: right;
-    margin-right: 5%;
-    background-color: #f2f2f2;
+    background-color: #F2F2F2;
     border-radius: 20px;
 }
-#btn_entrar_frente{
+#btn_entrar{
     width: 80%;
     height: 100%;
-    float: right;
-    margin-right: 10%;
     background-color: #ffc200;
     color: #252525;
     border-radius: 20px;
-    text-align: center;
-}
-#p_btn_entrar{
-    margin-top: 5%;
+    border-style: none;
+    margin-left: 10%;
+    font-size: 18px;
 }
 /* Área da Parte 'Inicio' */
 
-#div_inicio{
+.div_inicio{
     background-image: url('../img/fundo_site.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    
 }
-#div_solucao{
-    padding-top: 300px;
-    height: 40vh;
+.div_solucao{
+    margin-top: 50vh;
+    height: 25%;
 }
-#solucao{
-    font-size: 2em;
+.div_solucao p{
+    font-size: 30px;
     color: #f2f2f2;
-    font-weight: bold;
-    margin: 0 auto;
     text-align: center;
 }
-.hr_solucao{
+.div_solucao hr{
     border-style: none;
-    width: 39%;
+    width: 100%;
     margin: 0 auto;
-    height: 3px;
+    height: 4px;
+    border-radius: 20px;
     background-color: #ffc200;
 }
 
 
 /* Área da Parte 'Sobre Nós' */
 
-#div_sobre{
-    background-color: #252525;
+.div_sobre{
     height: 200vh;
-    padding: 8% 3% 3% 3%;
+    padding-top: 5%;
 }
-#div_sobre_conteudo{
+.div_sobre .container{
     background-color: #ffc200;
-    height: 45%;
+    height: 35%;
+    width: 80%;
     border-radius: 15px 15px 0 0;
     box-shadow: 15px 15px rgba(0, 0, 0, 0.425);
+    align-content: center;
+    margin:auto;
 }
-#titulo_sobre{
+.div_sobre .titulo{
     font-size: 3em;
     color: #f2f2f2;
-    font-weight: 900;
+    font-weight: bold;
     text-align: center;
     padding-top: 70px;
-    text-shadow: 2px 2px black;
-    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
+    font-family: 'Josefin Sans', sans-serif;
 }
-#text_sobre{
+.div_sobre .text{
     font-size: 20px;
     text-align: center;
     padding-top: 45px;
-    font-weight: bold;
 }
-.hr_sobre_nos{
-    border-color: #252525;
+.div_sobre hr{
+    background-color: #252525;
     width: 20%;
+    height: 4px;
+    border-radius: 20px;
+    border-style: none;
     margin-left: 40%;
+}
+.linha_sobre{
+    display: flex;
+    justify-content: center;
 }
 
 /* Conteúdo Missão */
 
-#div_missao{
-    width: 200px;
-    margin-left: 170px;
+.div_missao{
+    width: 25%;
     margin-top: 5%;
-    float: left;
+    justify-content: center;
+}
+.div_img_missao{
+    display: flex;
+    justify-content: center;
 }
 .img-missao{
     width: 30%;
-    margin-left: 33%;
 }
-#text_missao{
-    margin-top: 10px; 
-    font-weight: bold;
+.titulo_missao{
+    text-align: center;
+    font-weight: 900;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.text_missao{
+    margin-top: 2%; 
     text-align: center;
 }
 
 /* Conteúdo Visão */
 
-#div_visao{
-    width: 200px;
-    margin-left: 150px;
+.div_visao{
+    width: 25%;
+    margin-left: 5%;
     margin-top: 6.85%;
-    float: left;
+    justify-content: center;
+}
+.div_img_visao{
+    display: flex;
+    justify-content: center;
 }
 .img-visao{
     width: 30%;
-    margin-left: 33%;
 }
-#text_visao{
-    margin-top: 10px; 
-    font-weight: bold;
+.titulo_visao{
+    text-align: center;
+    margin-top: 2%;
+    font-weight: 900;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.text_visao{
+    margin-top: 2%; 
     text-align: center;
 }
 
 /* Conteúdo Valores */
 
-#div_valores{
-    width: 200px;
-    margin-left: 150px;
+.div_valores{
+    width: 25%;
+    margin-left: 5%;
     margin-top: 4.9%;
     float: left;
-    margin-bottom: 10%;
+}
+.div_img_valores{
+    display: flex;
+    justify-content: center;
 }
 .img-valores{
     width: 30%;
-    margin-left: 33%;
 }
-#text_valores{
-    margin-top: 10px; 
+.titulo_valores{
+    text-align: center;
     font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.text_valores{
+    margin-top: 2%; 
     text-align: center;
 }
 
 /* Conteúdo Sobre Nós - Equipe */
 
-#div_equipe{
+.div_equipe{
     border-top: 4px solid #252525;
-    box-shadow: 15px 15px rgba(0, 0, 0, 0.425);
-    border-radius: 4px 4px 15px 15px;
     height: 56%;
 }
-#div_conteudo_equipe{
+.div_equipe .container{
     background-color: #127cb3;
-    border-radius: 4px 4px 15px 15px;
-    height: 100%;
+    border-radius: 0px 0px 15px 15px;
+    width: 80%;
+    height: 95%;
 } 
-#titulo_equipe{
+.titulo_equipe{
     font-size: 3em;
     color: #f2f2f2;
-    font-weight: 900;
+    font-weight: bold;
     text-align: center;
     padding-top: 19px;
-    text-shadow: 2px 2px black;
-    font-family: 'Poppins', sans-serif;
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
+    font-family: 'Josefin Sans', sans-serif;
 }
-#hr_equipe{
+.div_equipe .hr_equipe{
     border-style: none;
     width: 15%;
     margin: 0 auto;
-    height: 3px;
+    margin-top: 1%;
+    height: 4px;
     background-color: #ffc200;
 }
 /* Conteúdo nomes */
+.linha1_equipe{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.linha1_equipe .card_equipe{
+    height: 40%;
+    margin-top: 5%;
+    margin-left: 10%;
+    width: 20%;
+    float: left;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.514);
+}
+.linha2_equipe{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+}
+.linha2_equipe .card_equipe{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 12%;
+    float: left;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.514);
+}
 
-.div-nomes-cima{
-    height: 35%;
-    margin-top: 5%;
-    width: 10%;
-    float: left;
-    margin-left: 18%;
-}
-.div-matheus{
-    height: 35%;
-    margin-top: 5%;
-    width: 10%;
-    float: left;
-    margin-left: 32%;
-    margin-right: 20%;
-}
-.div-felipe{
-    height: 35%;
-    margin-top: 5%;
-    width: 10%;
-    float: left; 
-}
-.img-equipe-baixo{
-    border-style: solid;
-    height: 50%;
-    border-radius: 70%;
-    border-color: #252525;
-    float: left;
+.card_img{
+    width: 60%;
+    margin: auto;
 }
 .img-equipe{
     border-style: solid;
     border-radius: 50%;
+    border-width: 5px;
     border-color: #252525;
-    height: 50%;
-    margin-left: 6%;
+    width: 100%;
 }
 .text-nomes{
-    font-weight: 600;
+    font-weight: bold;
     text-align: center;
     color: #f2f2f2;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
 }
 .text-funcao{
     text-align: center;
     color: #f2f2f2;
 }
 
-/* Estilização dashboard */
+/* Área da Parte 'Produto' */
 
-/* Estilização Menu dashboard */
-#Menu_Dashboard{
-    background-color: #252525;
+.div_produto{
     height: 100vh;
-    width: 5%;
-    position: fixed;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
+    padding-top: 5%;
+}
+.div_produto .container{
+    background-color: #ffc200;
+    height: 80%;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.425);
+    align-content: center;
+    margin:auto;
+}
+.container .titulo{
+    font-size: 3em;
     color: #f2f2f2;
-    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 70px;
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
+    font-family: 'Josefin Sans', sans-serif;
+}
+.container .text{
+    width: 80%;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 45px;
+    margin: auto;
+}
+.container hr{
+    background-color: #252525;
+    width: 20%;
+    height: 4px;
+    border-radius: 20px;
+    border-style: none;
+    margin-left: 40%;
+}
+.linha_produto{
+    display: flex;
+    justify-content: center;
+}
+.card_produto{
+    width: 20%;
+    height: 10%;
+    margin-top: 5%;
+    justify-content: center;
+    margin-left: 10%;
+}
+.div_img_produto{
+    display: flex;
+    justify-content: center;
+}
+.img-produto{
+    width: 30%;
+}
+.titulo_produto{
+    margin-top: 4%; 
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.text_produto{
+    margin-top: 2%; 
+    text-align: center;
 }
 
-#home_icon{
-    width: 60%;
-    margin-top: 20vh;
-}
-#graficoM_icon{
-    width: 60%;
-    margin-top: 150%;
-}
-#graficoA_icon{
-    width: 60%;
-    margin-top: 150%;
-}
+/* Área da Parte 'Contato' */
 
-/* Estilização Conteudo dashboard */
-
-#container_dashboard{
-    height: 100vh;
-    width: 95%;
-    float: right;
+.div_contato{
+    width: 100%;
+    height: 93vh;
+    display: flex;
+    padding-top: 5%;
 }
-#txt_msg{
-    color: #252525;
+.div_contato .container_A{
+    background-image: url('../img/bg-contato.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 40%;
+    height: 100%;
+
+}
+.container_A .formas{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.74);
     font-size: 25px;
-    font-family: 'Roboto', sans-serif;
+}
+.formas img{
+    width: 13%;
+}
+.container_A .email{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 40%;
+}
+.email p{
+    color: #F2F2F2;
+    margin:auto;
+}
+.container_A .numero{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+
+}
+.numero p{
+    color: #F2F2F2;
+    margin: auto;
+}
+.div_contato .container_B{
+    float: left;
+    width: 60%;
+    background-color: #ffc200;
+}
+.container_B .titulo{
+    font-size: 45px;
+    color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5%;
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
+    font-family: 'Josefin Sans', sans-serif;
+}
+.container_B .sub-titulo{
+    font-size: 25px;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    color: #252525;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.container_B hr{
+    background-color: #252525;
+    border-style: none;
+    width: 25%;
+    height: 4px;
+    border-radius: 20px;
+    margin: auto;
+}
+.container_B form{
+    width: 45%;
+    margin: auto;
+}
+.container_B label{
+    display: flex;
+    margin-top: 6%;
     margin-left: 5%;
+    font-size: 20px;
+}
+.container_B input{
+    border-radius: 20px;
+    background-color: #252525;
+    color: #f2f2f2;
+    font-size: 20px;
+    border-style: none;
+    width: 100%;
+    height: 30px;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.514);
+    text-align: center;
+    outline: 0;
+}
+.container_B input::placeholder{
+    text-align: start;
+    padding-left: 5%;
+    
+}
+.container_B textarea{
+    width: 100%;
+    border-radius: 20px;
+    background-color: #252525;
+    color: #f2f2f2;
+    border-style: none;
+    resize: none;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.514);
+    font-size: 20px;
+    text-align: center;
+}
+.container_B textarea::placeholder{
+    text-align: start;
+    padding-left: 5%;
+    padding-top: 3%;
+}
+.fundo_btn_enviar{
+    height: 30px;
+    width: 30%;
+    background-color: #252525;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 2%;
+}
+.btn_enviar{
+    width: 80%;
+    height: 100%;
+    background-color: #F2F2F2;
+    color: #252525;
+    border-radius: 20px;
+    border-style: none;
+    margin-left: 10%;
+    font-size: 18px;
+}
+
+/* Area rodapé da pagina */
+
+.footer_index{
+    height: 3vw;
+    width: 100%;
+    background-color: #252525;
+}
+.footer_index .div_img{
+    margin: auto;
+    height: 100%;
+    width: 2%;
+    padding-top: 1%;
+
+}
+.footer_index img{
+    width: 100%;
+}
+.footer_index p{
+    color: #f2f2f2;
+    font-size: 12px;
+    text-align: center;
+}
+.footer_index a{
+    margin: auto;
+}
+
+/* Correção inicio das seções */
+
+#sec_produto{
     margin-top: 1%;
 }
-#hr_msg{
-    background-color: #ffc200;
-    width: 19%;
-    height: 0.7%;
-    border-style: none;
-    margin-left: 5%;
-}
-#card01{
-    background-color: #252525;
-    width: 60%;
-    height: 40%;
-    margin: 0 auto;
-    border-radius: 20px;
-    margin-top: 2%;
-    box-shadow: 10px 10px 0px #0000003b ;
-}
-#div_card_graficos{
-    background-color: #252525;
-    width: 80%;
-    height: 40%;
-    margin: 0 auto;
-    border-radius: 20px;
-    margin-top: 2%;
-    box-shadow: 10px 10px 0px #0000003b ;
-}
-
-#card02{
-    background-color: #2D2C2C;
-    width: 45%;
-    height: 85%;
-    margin-top: 2%;
-    margin-left: 4%;
-    float: left;
-    border-radius: 20px;
-}
-#card03{
-    background-color: #2D2C2C;
-    width: 45%;
-    height: 85%;
-    margin-top: 2%;
-    margin-right: 4%;
-    float: right;
-    border-radius: 20px;
-}
-
-#card01_temp{
-    height: 100%;
-    width: 30%;
-    float: left;
-}
-#tempAtual{
-    width: 55%;
-    height: 50%;
-    background-color: #ffc200;
-    border-radius: 100%;
-    margin: 0 auto;
-    margin-top: 30%;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 10px 10px 0px #0000003b ;
-    font-family: 'Josefin Sans', sans-serif;
-    color: #f2f2f2;
-    text-shadow: 3px 3px 0px #0000003b;
-}
-#img_temp_atual{
-    width: 50%;
-    margin-top: 10%;
-}
-#card01_alertas{
-    background-color: #2D2C2C;
-    height: 80%;    
-    width: 60%;
-    margin-top: 3%;
-    float: left;
-    border-radius: 20px;
-}
-#titulo_alertas{
-    color: #f2f2f2;
-    margin-top: 4%;
-    margin-left:5%;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
-}
-#hr_alertas{
-    background-color: #ffc200;
-    width: 18%;
-    margin-left:3%;
-    height: 2%;
-    border-style: none;
-}
-#txt_alertas{
-    color: #f2f2f2;
-    margin-left:3% ;
-    margin-top:3% ;
-    font-family: 'Roboto', sans-serif;
+#sec_contato{
+    margin-top: 1%;
 }
 
 
-#body_dashboard{
-    background-color: #F2F2F2;
-}
 /*
 cores:
     branco = #f2f2f2
