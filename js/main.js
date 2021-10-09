@@ -13,10 +13,9 @@ $(window).on("scroll touchmove", function() {
         $('.link_produto').css('color', '#f2f2f2');
         $('.link_contato').css('color', '#f2f2f2');
         $('.link_simulador').css('color', '#f2f2f2');
-        $('#btn_entrar').css('background-color', '#FFC200');
-        $('#fundo_btn_entrar').css('background-color', '#F2F2F2');
+        $('#btn_entrar').css('border-color', '#FFC200');
+        $('.p_btn_entrar').css('color', '#F2F2F2');
         div_menu.style.transition = "0.2s";//Controle do tempo da duração da transição de cor
-        fundo_btn_entrar.style.transition = "0.2s";//Controle do tempo da duração da transição de cor
         btn_entrar.style.transition = "0.5s";//Controle do tempo da duração da transição de cor
         
         $('.link_sobre').css('text-decoration','none');
@@ -36,10 +35,9 @@ $(window).on("scroll touchmove", function() {
         $('.link_produto').css('color', '#252525');
         $('.link_contato').css('color', '#252525');
         $('.link_simulador').css('color', '#252525');
-        $('#btn_entrar').css('background-color', '#FFC200');
-        $('#fundo_btn_entrar').css('background-color', '#252525');
+        $('#btn_entrar').css('border-color', '#252525');
+        $('.p_btn_entrar').css('color', '#252525');
         div_menu.style.transition = "0.2s";//Controle do tempo da duração da transição de cor
-        fundo_btn_entrar.style.transition = "0.2s";//Controle do tempo da duração da transição de cor
         btn_entrar.style.transition = "0.5s";//Controle do tempo da duração da transição de cor
 
 
@@ -59,10 +57,9 @@ $(window).on("scroll touchmove", function() {
         $('.link_produto').css('color', '#252525');
         $('.link_contato').css('color', '#252525');
         $('.link_simulador').css('color', '#252525');
-        $('#btn_entrar').css('background-color', '#FFC200');
-        $('#fundo_btn_entrar').css('background-color', '#252525');
+        $('#btn_entrar').css('border-color', '#252525');
+        $('.p_btn_entrar').css('color', '#252525');
         div_menu.style.transition = "0.2s";//Controle do tempo da duração da transição de cor
-        fundo_btn_entrar.style.transition = "0.2s";//Controle do tempo da duração da transição de cor
         btn_entrar.style.transition = "0.5s";//Controle do tempo da duração da transição de cor
 
 
@@ -82,10 +79,9 @@ $(window).on("scroll touchmove", function() {
         $('.link_produto').css('color', '#252525');
         $('.link_contato').css('color', '#252525');
         $('.link_simulador').css('color', '#252525');
-        $('#btn_entrar').css('background-color', '#FFC200');
-        $('#fundo_btn_entrar').css('background-color', '#252525');
+        $('#btn_entrar').css('border-color', '#252525');
+        $('.p_btn_entrar').css('color', '#252525');
         div_menu.style.transition = "0.2s";//Controle do tempo da duração da transição de cor
-        fundo_btn_entrar.style.transition = "0.2s";//Controle do tempo da duração da transição de cor
         btn_entrar.style.transition = "0.5s";//Controle do tempo da duração da transição de cor
 
 
