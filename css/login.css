@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
 
+*{
+  font-family:'Josefin Sans', sans-serif;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -52,6 +56,9 @@ input {
   justify-content: center;
   align-content: center;
   margin: auto;
+  border-bottom: #252525 2px outset;
+  font-weight: bold;
+  font-size: 12px;
 }
 
 input::placeholder{
@@ -120,4 +127,8 @@ input::placeholder{
   margin-left: 2%;
 }
 
+#input_login{
+  font-weight: bold;
+  color: #252525;
+}
 
