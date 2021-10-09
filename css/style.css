@@ -23,7 +23,7 @@ a{
     color: #f2f2f2;
 }
 body{
-    background-color: #111111;
+    background-color: #1D1D1D;
 }
 
 /* Área Menu + img do fundo */
@@ -230,7 +230,7 @@ body{
 /* Conteúdo Sobre Nós - Equipe */
 
 .div_equipe{
-    border-top: 4px solid #111111;
+    border-top: 4px solid #1D1D1D;
     height: 56%;
 }
 .div_equipe .container{
@@ -496,7 +496,7 @@ body{
     padding-left: 5%;
     padding-top: 3%;
 }
-.fundo_btn_enviar{
+.div_btn_enviar{
     height: 30px;
     width: 30%;
     background-color: #252525;
