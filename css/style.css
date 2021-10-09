@@ -25,7 +25,9 @@ a{
 body{
     background-color: #1D1D1D;
 }
-
+html{
+    scroll-behavior: smooth;
+ }
 /* Área Menu + img do fundo */
 
 #div_menu{
@@ -82,6 +84,11 @@ body{
 #btn_entrar p{
     color: #f2f2f2;
 }
+#div_btn_entrar :hover{
+    background-color: #ffc200;
+    color: #F2F2F2;
+    transition: 1s;
+}
     /* Área da Parte 'Inicio' */
 
 .div_inicio{
@@ -115,16 +122,15 @@ body{
 /* Área da Parte 'Sobre Nós' */
 
 .div_sobre{
-    height: 200vh;
-    padding-top: 5%;
+    height: 160vh;
+    padding-top: 7%;
 }
 .div_sobre .container{
     background-color: #ffc200;
-    height: 35%;
+    height: 45%;
     width: 80%;
     border-radius: 15px 15px 0 0;
     box-shadow: 15px 15px rgba(0, 0, 0, 0.425);
-    align-content: center;
     margin:auto;
 }
 .div_sobre .container .titulo{
@@ -139,12 +145,11 @@ body{
     text-align: center;
     padding-top: 45px;
 }
-.div_sobre .container hr{
-    background-color: #252525;
+.div_sobre .container .hr_sobre{
+    background-color: #148ECC;
     border-radius: 20px;
-    width: 22%;
+    width: 20%;
     height: 4px;
-    border-radius: 20px;
     border-style: none;
 }
 .linha_sobre{
@@ -162,6 +167,7 @@ body{
 .div_img_missao{
     display: flex;
     justify-content: center;
+    filter: drop-shadow(3px 4px 0px #25252599);
 }
 .img-missao{
     width: 30%;
@@ -187,6 +193,7 @@ body{
 .div_img_visao{
     display: flex;
     justify-content: center;
+    filter: drop-shadow(3px 4px 0px #25252599);
 }
 .img-visao{
     width: 30%;
@@ -213,6 +220,7 @@ body{
 .div_img_valores{
     display: flex;
     justify-content: center;
+    filter: drop-shadow(3px 4px 0px #25252599);
 }
 .img-valores{
     width: 30%;
@@ -234,10 +242,10 @@ body{
     height: 56%;
 }
 .div_equipe .container{
-    background-color: #127cb3;
+    background-color: #148ECC;
     border-radius: 0px 0px 15px 15px;
     width: 80%;
-    height: 95%;
+    height: 100%;
 } 
 .titulo_equipe{
     font-size: 3em;
@@ -311,10 +319,10 @@ body{
 
 .div_produto{
     height: 100vh;
-    padding-top: 5%;
+    padding-top: 7%;
 }
 .div_produto .container{
-    background-color: #ffc200;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,194,0,1) 0%, rgba(255,148,13,1) 59.1% );
     height: 80%;
     width: 80%;
     border-radius: 15px;
@@ -333,13 +341,14 @@ body{
 }
 .container .text{
     width: 80%;
+    color: #252525;
     font-size: 20px;
     text-align: center;
     padding-top: 45px;
     margin: auto;
 }
 .container hr{
-    background-color: #252525;
+    background-color: #148ECC;
     width: 20%;
     height: 4px;
     border-radius: 20px;
@@ -360,6 +369,7 @@ body{
 .div_img_produto{
     display: flex;
     justify-content: center;
+    filter: drop-shadow(3px 4px 0px #25252599);
 }
 .img-produto{
     width: 30%;
@@ -381,7 +391,6 @@ body{
     width: 100%;
     height: 93vh;
     display: flex;
-    padding-top: 5%;
 }
 .div_contato .container_A{
     background-image: url('../img/bg-contato.jpg');
@@ -426,7 +435,7 @@ body{
 .div_contato .container_B{
     float: left;
     width: 60%;
-    background-color: #ffc200;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,194,0,1) 0%, rgba(255,148,13,1) 59.1% );
 }
 .container_B .titulo{
     font-size: 45px;
@@ -442,13 +451,14 @@ body{
     text-align: center;
     margin-top: 2%;
     margin-bottom: 3%;
-    color: #252525;
+    color: #f2f2f2;
     font-family: 'Josefin Sans', sans-serif;
+    text-shadow: 2px 2px 0px #00000080;
 }
 .container_B hr{
-    background-color: #252525;
+    background-color: #148ECC;
     border-style: none;
-    width: 25%;
+    width: 20%;
     height: 4px;
     border-radius: 20px;
     margin: auto;
@@ -462,6 +472,8 @@ body{
     margin-top: 6%;
     margin-left: 5%;
     font-size: 20px;
+    color: #f2f2f2;
+    text-shadow: 1px 2px 2px #000000;
 }
 .container_B input{
     border-radius: 20px;
@@ -472,13 +484,12 @@ body{
     width: 100%;
     height: 30px;
     box-shadow: 4px 4px rgba(0, 0, 0, 0.514);
-    text-align: center;
     outline: 0;
+    text-indent: 15px;
 }
 .container_B input::placeholder{
     text-align: start;
-    padding-left: 5%;
-    
+    padding-left: 5%;    
 }
 .container_B textarea{
     width: 100%;
@@ -489,7 +500,8 @@ body{
     resize: none;
     box-shadow: 4px 4px rgba(0, 0, 0, 0.514);
     font-size: 20px;
-    text-align: center;
+    text-indent: 15px;
+    outline: 0;
 }
 .container_B textarea::placeholder{
     text-align: start;
@@ -499,20 +511,28 @@ body{
 .div_btn_enviar{
     height: 30px;
     width: 30%;
-    background-color: #252525;
-    border-radius: 20px;
     margin: auto;
     margin-top: 2%;
 }
 .btn_enviar{
-    width: 80%;
+    width: 100%;
     height: 100%;
-    background-color: #F2F2F2;
-    color: #252525;
+    background-color: #00000000;
+    border-style: solid;
+    border-color: #148ECC;
     border-radius: 20px;
-    border-style: none;
     margin-left: 10%;
     font-size: 18px;
+    box-shadow: 0 0 0;
+       
+}
+.btn_enviar p{
+    color: #148ECC;
+}
+.div_btn_enviar :hover{
+    background-color: #148ECC;
+    color: #F2F2F2;
+    transition: 0.6s;
 }
 
 /* Area rodapé da pagina */
@@ -520,7 +540,6 @@ body{
 .footer_index{
     height: 3vw;
     width: 100%;
-    background-color: #252525;
 }
 .footer_index .div_img{
     margin: auto;
