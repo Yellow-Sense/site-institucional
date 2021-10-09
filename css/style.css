@@ -167,7 +167,6 @@ html{
 .div_img_missao{
     display: flex;
     justify-content: center;
-    filter: drop-shadow(3px 4px 0px #25252599);
 }
 .img-missao{
     width: 30%;
@@ -193,7 +192,6 @@ html{
 .div_img_visao{
     display: flex;
     justify-content: center;
-    filter: drop-shadow(3px 4px 0px #25252599);
 }
 .img-visao{
     width: 30%;
@@ -220,7 +218,6 @@ html{
 .div_img_valores{
     display: flex;
     justify-content: center;
-    filter: drop-shadow(3px 4px 0px #25252599);
 }
 .img-valores{
     width: 30%;
@@ -369,7 +366,6 @@ html{
 .div_img_produto{
     display: flex;
     justify-content: center;
-    filter: drop-shadow(3px 4px 0px #25252599);
 }
 .img-produto{
     width: 30%;
