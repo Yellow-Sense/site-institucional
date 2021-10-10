@@ -531,6 +531,76 @@ html{
     transition: 0.6s;
 }
 
+/* Area simulador */
+
+#sec_simulador{
+    color: #252525;
+    background-color: #252525;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.simulador{
+    height: 150vh;
+    margin-top: 5%;
+    border-radius: 15px 15px 15px 15px;
+}
+.container_simu{
+    margin: auto;
+    background-color: #FFC200;
+    height: 53%;
+    width: 95%;
+    border-radius: 15px 15px 15px 15px;
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.425);
+}
+.container_simu .titulo_simu{
+    display: flex;
+    justify-content: center;
+}
+.titulo_simu  .titulo1_simu{
+    font-size: 3em;
+    color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
+    font-family: 'Josefin Sans', sans-serif;
+}
+.titulo_simu hr{
+    background-color: #252525;
+    width: 110%;
+    height: 4px;
+    border-radius: 20px;
+    border-style: none;
+    margin: 0;
+    margin-bottom: 123px;
+}
+.conteudo_simu input{
+    border-radius: 5px;
+}
+.conteudo_simu button{
+    border-radius: 5px;
+    background-color: #ffc200;
+    color: #F2F2F2;
+    
+}
+.simulador .container_simu .conteudo_simu{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.simulador .container_simu .resultado_simu{
+    display: flex;
+    justify-content: space-evenly;
+}
+.dados_simu{
+    margin: auto;
+}
+.h2-js{
+    display: flex;
+    justify-content: center;
+}
+
 /* Area rodapé da pagina */
 
 .footer_index{
