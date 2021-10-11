@@ -6,14 +6,15 @@
 
 /* Estilização Menu dashboard */
 #Menu_Dashboard{
-    background-color: #252525;
+    background-color: #EAEAEA;
     height: 100vh;
     width: 5%;
     position: fixed;
     font-family: 'Roboto', sans-serif;
     text-align: center;
-    color: #f2f2f2;
+    color: #252525;
     font-size: 15px;
+    font-weight: bold;
 }
 
 #home_icon{
@@ -37,7 +38,7 @@
     float: right;
 }
 #txt_msg{
-    color: #252525;
+    color: #f2f2f2;
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
     margin-left: 5%;
@@ -46,14 +47,14 @@
 #hr_msg{
     background-color: #ffc200;
     width: 19%;
-    height: 0.7%;
+    height: 0.6%;
     border-style: none;
     margin-left: 5%;
     border-radius: 20px;
 }
 #card01{
-    background-color: #252525;
-    width: 60%;
+    background-color: #404040;
+    width: 70%;
     height: 40%;
     margin: auto;
     border-radius: 20px;
@@ -61,7 +62,7 @@
     box-shadow: 10px 10px 0px #0000003b ;
 }
 #div_card_graficos{
-    background-color: #252525;
+    background-color: #404040;
     width: 80%;
     height: 40%;
     margin: auto;
@@ -71,7 +72,7 @@
 }
 
 #card02{
-    background-color: #2D2C2C;
+    background-color: #dddddd;
     width: 45%;
     height: 85%;
     margin-top: 2%;
@@ -80,7 +81,7 @@
     border-radius: 20px;
 }
 #card03{
-    background-color: #2D2C2C;
+    background-color: #EAEAEA;
     width: 45%;
     height: 85%;
     margin-top: 2%;
@@ -95,12 +96,13 @@
     float: left;
 }
 #tempAtual{
-    width: 55%;
+    width: 50%;
     height: 50%;
-    background-color: #ffc200;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,194,0,1) 0%, rgba(255,148,13,1) 59.1% );
     border-radius: 100%;
     margin: auto;
-    margin-top: 30%;
+    margin-top: 25%;
+    font-weight: bold;
     text-align: center;
     font-size: 30px;
     box-shadow: 10px 10px 0px #0000003b ;
@@ -113,7 +115,7 @@
     margin-top: 10%;
 }
 #card01_alertas{
-    background-color: #2D2C2C;
+    background-color: #EAEAEA;
     height: 80%;    
     width: 60%;
     margin-top: 3%;
@@ -121,11 +123,12 @@
     border-radius: 20px;
 }
 #titulo_alertas{
-    color: #f2f2f2;
+    color: #252525;
     margin-top: 4%;
     margin-left:5%;
     font-size: 20px;
     font-family: 'Roboto', sans-serif;
+    font-weight: bold;
 }
 #hr_alertas{
     background-color: #ffc200;
@@ -136,13 +139,17 @@
     border-radius: 20px;
 }
 #txt_alertas{
-    color: #f2f2f2;
+    color: #252525;
     margin-left:3% ;
     margin-top:3% ;
     font-family: 'Roboto', sans-serif;
 }
+#txt_alertas .area{
+    color: #148ECC;
+    font-weight: bold;
+}
 
 
 #body_dashboard{
-    background-color: #F2F2F2;
+    background-color: #1D1D1D;
 }

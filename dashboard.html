@@ -45,7 +45,10 @@
                 <p id="titulo_alertas">Alertas</p>
                 <hr id="hr_alertas">
                 <div id="div_alertas">
-                    <p id="txt_alertas">Area A: Temperatura abaixo do recomendado</p>
+                    <p id="txt_alertas"><span class="area">Area A:</span> Temperatura abaixo do recomendado</p>
+                    <p id="txt_alertas"><span class="area">Area B:</span> Temperatura acima do recomendado</p>
+                    <p id="txt_alertas"><span class="area">Area C:</span> Temperatura abaixo do recomendado</p>
+                    <p id="txt_alertas"><span class="area">Area D:</span> Temperatura acima do recomendado</p>
                 </div>
             </div>
         </div>
@@ -72,12 +75,12 @@
             fill: 'start',
                 data: [15, 25, 23, 30, 32, 35,20, 35, 40, 40, 20, 25,15, 25, 23, 30, 32, 35,20, 35, 40, 40, 20, 25,35,20, 35, 40, 40, 20, 25],
                 backgroundColor: [
-                    '#ffc40050',
+                    'rgba(54, 162, 235, 0.2)',
                 ],
                 borderColor: [
-                    '#FFC200'
+                    'rgba(54, 162, 235, 1)'
                 ],
-                borderWidth: 1
+                borderWidth: 1.5
             }]
         },
         options: {
