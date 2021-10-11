@@ -132,3 +132,17 @@ input::placeholder{
   color: #252525;
 }
 
+.btn_login{
+  margin-top: 40px;
+  width: 90px;
+  height: 35px;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: 5px 4px #252525;
+  font-family:'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #252525;
+  text-align: center;
+}
+
