@@ -15,19 +15,19 @@ function calculo(){
     var total = (sensor + instalacao);
 
     resultado.innerHTML = `
-    <h2 class="h2-js"> Potencial de ganhos </h2>
+    <h2 class="h2-js"> Potencial de ganhos</h2>
 
         <b class="b-js"> Sem o <span class="span-yellow">Yellow Sensor</span>,você teve um lucro de aproximadamente R$ ${lucro_solo}. <br>
 
         <b class="b-js">Com a nossa ajuda <span class="span-yellow"> Yellow Sensor</span> você poderá obter um lucro de aproximadente R$ ${lucro_projeto}.</b> <br>
 
-        <b class="b-js">O <span class="span-yellow">Yellow Sensor</span> teria o potencial de lucrar aproximadamente ${potencial}% a mais. <br>
-
+        <b class="b-js">O <span class="span-yellow">Yellow Sensor</span> teria o potencial de lucrar aproximadamente ${potencial}% a mais. <br><br><br><br>
+ 
     <h2 class="h2-js">Diferença de lucro com o projeto</h2>
 
         <b class="b-js"> Rendendo um lucro a mais de aproximadamente R$ ${mes} ao mês. </b> <br>
 
-        <b class="b-js"> Rendendo um lucro a mais de aproximadamente R$ ${ano} ao ano. </b> <br>
+        <b class="b-js"> Rendendo um lucro a mais de aproximadamente R$ ${ano} ao ano. </b> <br><br><br><br>
 
         <h2 class="h2-js">Orçamento</h2>
 
