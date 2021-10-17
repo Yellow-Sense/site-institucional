@@ -1,0 +1,129 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.amarelo{
+    background-color: #ffc200;
+    float: left;
+    height: 100vh;
+    width: 65%;
+}
+.amarelo .titulo{
+    background-color: #1D1D1D;
+    border-radius: 7px;
+    margin: 15% 0 10% 35%;
+    color: white;
+    width: 30%;
+    height: 6%;
+    font-size: 25px;
+    font-weight: 600;
+}
+.titulo .cliente{
+    margin-left: 5%;
+    padding-top: 2%;
+}
+.nome{
+    width: 50%;
+    float: left;
+    height: 20%;
+    
+}
+.senha{
+    width: 50%;
+    float: left;
+    height: 20%;
+}
+.telefone{
+    width: 50%;
+    float: left;
+    height: 20%;
+}
+.email{
+    width: 50%;
+    float: left;
+    height: 20%;
+}
+.span-nome{
+    font-weight: 900;
+    font-size: 19px;
+    color: #1D1D1D;
+    margin: 7% 0 0 39%;
+    
+}
+.span-senha{
+    font-weight: 900;
+    font-size: 19px;
+    color: #1D1D1D;
+    margin: 7% 0 0 12%;
+}
+.span-telefone{
+    font-weight: 900;
+    font-size: 19px;
+    color: #1D1D1D;
+    margin: 3% 0 0 39%;
+}
+.span-email{
+    font-weight: 900;
+    font-size: 19px;
+    color: #1D1D1D;
+    margin: 3% 0 0 12%;
+}
+.input-nome{
+    background-color: #1D1D1D;
+    color: white;
+    border-radius: 5px;
+    width: 45%;
+    height: 23%;
+    border: none;
+    margin: 0 0 0 39%;
+}
+.input-senha{
+    background-color: #1D1D1D;
+    color: white;
+    border-radius: 5px;
+    width: 45%;
+    height: 23%;
+    border: none;
+    margin: 0 0 0 12%;
+}
+.input-telefone{
+    background-color: #1D1D1D;
+    color: white;
+    border-radius: 5px;
+    width: 45%;
+    height: 23%;
+    border: none;
+    margin: 0 0 0 39%;
+}
+.input-email{
+    background-color: #1D1D1D;
+    color: white;
+    border-radius: 5px;
+    width: 45%;
+    height: 23%;
+    border: none;
+    margin: 0 0 0 12%;
+}
+.preto{
+    background-color: #1D1D1D;
+    float: right;
+    height: 100vh;
+    width: 35%; 
+}
+.preto img{
+    width: 58%;
+    padding-top: 48%;
+    padding-left: 23%;
+}
+button{
+    font-family: 'Josefin Sans', sans-serif;
+    border: solid #1a9094;
+    background-color: #ffc200;
+    border-radius: 50px;
+    width: 14%;
+    height: 6%;
+    color: #1a9094;
+    font-size: 20px;
+    margin-left: 43%;
+}

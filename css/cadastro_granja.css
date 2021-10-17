@@ -1,0 +1,117 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.amarelo{
+    background-color: #ffc200;
+    float: left;
+    height: 100vh;
+    width: 65%;
+}
+.amarelo .titulo{
+    background-color: #1D1D1D;
+    border-radius: 7px;
+    margin: 15% 0 10% 35%;
+    color: white;
+    width: 30%;
+    height: 6%;
+    font-size: 25px;
+    font-weight: 600;
+}
+.titulo .cliente{
+    margin-left: 5%;
+    padding-top: 2%;
+}
+.nome{
+    width: 33%;
+    height: 20%;
+    float: left;
+}
+.cnpj{
+    width: 33%;
+    height: 20%;
+    float: left;
+}
+.estado{
+    width: 33%;
+    height: 20%;
+    float: left;
+}
+.cep{
+    width: 50%;
+    height: 20%;
+    float: left;
+}
+.numero{
+    width: 50%;
+    height: 20%;
+    float: left;
+}
+.preto{
+    background-color: #1D1D1D;
+    float: right;
+    height: 100vh;
+    width: 35%; 
+}
+.preto img{
+    width: 58%;
+    padding-top: 48%;
+    padding-left: 23%;
+}
+.span-cima{
+    font-weight: 900;
+    font-size: 19px;
+    color: #1D1D1D;
+    margin: 10% 0 0 15%
+}
+.span-cep{
+    font-weight: 900;
+    font-size: 19px;
+    color: #1D1D1D;
+    margin: 5% 0 0 35%
+}
+.span-numero{
+    font-weight: 900;
+    font-size: 19px;
+    color: #1D1D1D;
+    margin: 5% 0 0 10%
+}
+.input-cima{
+    background-color: #1D1D1D;
+    color: white;
+    border-radius: 5px;
+    width: 200px;
+    height: 23%;
+    border: none;
+    margin-left: 15%;
+}
+.input-cep{
+    background-color: #1D1D1D;
+    color: white;
+    border-radius: 5px;
+    width: 200px;
+    height: 23%;
+    border: none;
+    margin-left: 35%;
+}
+.input-numero{
+    background-color: #1D1D1D;
+    color: white;
+    border-radius: 5px;
+    width: 200px;
+    height: 23%;
+    border: none;
+    margin-left: 10%;
+}
+button{
+    font-family: 'Josefin Sans', sans-serif;
+    border: solid #1a9094;
+    background-color: #ffc200;
+    border-radius: 50px;
+    width: 14%;
+    height: 6%;
+    color: #1a9094;
+    font-size: 20px;
+    margin-left: 42%;
+}
