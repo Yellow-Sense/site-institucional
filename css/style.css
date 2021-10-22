@@ -87,7 +87,7 @@ html{
 #div_btn_entrar :hover{
     background-color: #ffc200;
     color: #F2F2F2;
-    transition: 1s;
+    transition: 0.5s;
 }
     /* Área da Parte 'Inicio' */
 
@@ -523,12 +523,12 @@ html{
        
 }
 .btn_enviar p{
-    color: #148ECC;
+    color: #252525;
 }
 .div_btn_enviar :hover{
     background-color: #148ECC;
     color: #F2F2F2;
-    transition: 0.6s;
+    transition: 0.3s;
 }
 
 
