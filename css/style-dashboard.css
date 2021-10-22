@@ -7,7 +7,7 @@
 /* Estilização Menu dashboard */
 #Menu_Dashboard{
     background-color: #EAEAEA;
-    height: 100vh;
+    height: 100%;
     width: 5%;
     position: fixed;
     font-family: 'Roboto', sans-serif;
@@ -15,19 +15,32 @@
     color: #252525;
     font-size: 15px;
     font-weight: bold;
+    display: flexbox;
 }
-
+.boxes_icon{
+    margin-top: 25vh;
+}
+.box_icon{
+    background-color: #148ECCaa;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #148ECC;
+    width: 80%;
+    border-radius: 7px;
+    margin: auto;
+    margin-top: 100%;
+    color:#f2f2f2;
+    text-shadow: 1.5px 1px 0px #252525;
+    font-size: 13px;
+}
 #home_icon{
     width: 60%;
-    margin-top: 20vh;
 }
 #graficoM_icon{
     width: 60%;
-    margin-top: 150%;
 }
 #graficoA_icon{
     width: 60%;
-    margin-top: 150%;
 }
 
 /* Estilização Conteudo dashboard */
