@@ -20,20 +20,25 @@
 </head>
 <body id="body_dashboard">
     <!-- Menu lateral  -->
-    <div id="Menu_Dashboard">
-        <div class="boxes_icon">
-            <div class="box_icon">
-                <img id="home_icon" src="img/icones/pagina-inicial.png" alt="">
-                <p>Home</p>
-            </div>
-            <div class="box_icon">
-                <img id="graficoM_icon" src="img/icones/graficos.png" alt="">
-                <p>Mensal</p>
-            </div>
-            <div class="box_icon">
-                <img id="graficoA_icon" src="img/icones/graficos.png" alt="">
-                <p>Anual</p>
-            </div>
+    <div class="Menu_Dashboard">
+        <div class="container">
+                <div style="margin-top: 0;" class="box_icon_select">
+                    <img class="home_icon" src="img/icones/pagina-inicial.png" alt="">
+                    <p>Home</p>
+                </div>
+                <div class="box_icon">
+                    <img class="graficoM_icon" src="img/icones/graficos.png" alt="">
+                    <p>Mensal</p>
+                </div>
+                <div class="box_icon">
+                    <img class="graficoA_icon" src="img/icones/graficos.png" alt="">
+                    <p>Anual</p>
+                </div>
+                <div class="logout">
+                    <a href="">
+                        <img class="logout_icon" src="img/icones/logout.png" alt="">
+                    </a>
+                </div>
         </div>
     </div>
     
@@ -59,6 +64,39 @@
                     <p id="txt_alertas"><span class="area">Area D:</span> Temperatura acima do recomendado</p>
                 </div>
             </div>
+            <div class="card_quant_alertas">
+                <div class="container">
+                    <div class="div_box_qtd">
+                        <div class="box_temp_ideal">
+                            <p>5</p>
+                        </div>
+                        <div class="box_temp_alerta">
+                            <p>2</p>
+                        </div>
+                        <div class="box_temp_critico">
+                            <p>1</p>
+                        </div>
+                    </div>
+
+                    <div class="div_legenda">
+                        <p style="margin-left: 0;" class="titulo">Legendas</p>
+                        <hr>
+                        <div class="legenda_ideal">
+                            <div class="circulo"></div>
+                            <p>Temperaturas na faixa ideal</p>
+                        </div>
+                        <div class="legenda_alerta">
+                            <div class="circulo"></div>
+                            <p>Temperaturas na faixa de alerta</p>
+                        </div>
+                        <div class="legenda_critica">
+                            <div class="circulo"></div>
+                            <p>Temperaturas na faixa critica</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div id="div_card_graficos">
