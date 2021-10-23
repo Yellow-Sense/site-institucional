@@ -214,7 +214,7 @@
                     <input id="input_assunto" required placeholder="Ex: Orçamento" type="text">
                     
                     <label for="input_msg">Mensagem</label>
-                    <textarea onkeypress="conta_char()" value="300" id="input_msg" required placeholder="Insira aqui a mensagem que você deseja nos enviar" maxlength="300" cols="30" rows="10"></textarea>
+                    <textarea onkeyup="conta_char()" value="300" id="input_msg" required placeholder="Insira aqui a mensagem que você deseja nos enviar" maxlength="300" cols="30" rows="10"></textarea>
                     <span id="caracteres"  style="margin-left: 10%;">300</span><span> restante</span>
                     <div class="div_btn_enviar">
                         <button class="btn_enviar">
@@ -271,7 +271,27 @@
 </body>
 </html>
 <script>
+    var qtd_char = 0;
+    
     function conta_char(){
-        caracteres.innerHTML = Number(caracteres.innerHTML) - 1;
+        
+        var msg = input_msg.value;
+
+        qtd_char ++;
+        
+
+         if(msg.length+1 < qtd_char){
+            caracteres.innerHTML = 300 - msg.length ;
+         }else {
+            caracteres.innerHTML = Number(caracteres.innerHTML) -  1;
+         }
+    }
+
+    function valida_contato(){
+        email = input_email.value;
+
+        if (email.indexOf('.com') == -1 ){
+            alert("Campo e-mail incompleto, falta o '.com'");
+        }
     }
 </script>
