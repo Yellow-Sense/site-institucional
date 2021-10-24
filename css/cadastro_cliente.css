@@ -111,6 +111,18 @@ body{
     height: 100vh;
     width: 35%; 
 }
+#erro_nome{
+    margin-left: 49%;
+}
+#erro_senha{
+    margin-left: 22%;
+}
+#erro_telefone{
+    margin-left: 49%;
+}
+#erro_email{
+    margin-left: 22%
+}
 .preto img{
     width: 58%;
     padding-top: 48%;

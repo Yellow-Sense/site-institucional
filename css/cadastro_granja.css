@@ -48,6 +48,17 @@ body{
     height: 20%;
     float: left;
 }
+.erro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.erro-1{
+    margin-left: 45%;
+}
+.erro-2{
+    margin-left: 20%
+}
 .preto{
     background-color: #1D1D1D;
     float: right;

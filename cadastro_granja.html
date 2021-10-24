@@ -19,26 +19,31 @@
                 <h3 class="cliente">Cadastro granja<h3>
             </div>
             <div class="nome">
-                <div class="span-cima"><span>Nome da granja</span></div>
-                <input class="input-cima">
+                <div class="span-cima"><span>Nome da granja*</span></div>
+                <input id="input_nome" class="input-cima" required>
+                <div class="erro" id="erro_1"></div>
             </div>
             <div class="cnpj">
-                <div class="span-cima"><span>CNPJ</span></div>
-                <input class="input-cima">
+                <div class="span-cima"><span>CNPJ*</span></div>
+                <input id="input_cnpj" class="input-cima" required>
+                <div class="erro" id="erro_2"></div>
             </div>
             <div class="estado">
-                <div class="span-cima"><span>Estado</span></div>
-                <input class="input-cima">
+                <div class="span-cima"><span>Estado*</span></div>
+                <input id="input_estado" class="input-cima" required>
+                <div class="erro" id="erro_3"></div>
             </div>
             <div class="cep">
-                <div class="span-cep"><span>CEP</span></div>
-                <input class="input-cep">
+                <div class="span-cep"><span>CEP*</span></div>
+                <input id="input_cep" class="input-cep" required>
+                <div class="erro-1" id="erro_4"></div>
             </div>
             <div class="numero">
-                <div class="span-numero"><span>Numero(propriedade)</span></div>
-                <input class="input-numero">
+                <div class="span-numero"><span>Numero(propriedade)*</span></div>
+                <input id="input_numero" class="input-numero" required>
+                <div class="erro-2" id="erro_5"></div>
             </div>
-            <button>Cadastrar</button>
+            <button onclick="cadastrar()">Cadastrar</button>
 
         </div>
 
@@ -49,3 +54,63 @@
     </div>
 </body>
 </html>
+<script>
+    
+    function cadastrar() {
+        var nome = input_nome.value.trim();
+        var cnpj = input_cnpj.value.trim();
+        var estado = input_estado.value.trim();
+        var cep = input_cep.value.trim();
+        var numero = input_numero.value.trim();
+
+        if (nome.length < 3) {
+            erro_1.innerHTML = "Campo incorreto"
+            input_nome.style.border = "solid";
+            input_nome.style.borderColor = "red";
+        } else {
+            erro_1.innerHTML = ""
+            input_nome.style.border = "";
+            input_nome.style.borderColor = "";
+        }
+
+        if (cnpj.length < 14 ||cnpj.length > 14 ) {
+            erro_2.innerHTML = "Campo incorreto"
+            input_cnpj.style.border = "solid";
+            input_cnpj.style.borderColor = "red";
+        } else {
+            erro_2.innerHTML = ""
+            input_cnpj.style.border = "";
+            input_cnpj.style.borderColor = "";
+        }
+        if (estado.length < 3) {
+            erro_3.innerHTML = "Campo incorreto"
+            input_estado.style.border = "solid";
+            input_estado.style.borderColor = "red";
+        } else {
+            erro_3.innerHTML = ""
+            input_estado.style.border = "";
+            input_estado.style.borderColor = "";
+        }
+
+        if (cep.length < 8) {
+            erro_4.innerHTML = "Campo incorreto"
+            input_cep.style.border = "solid";
+            input_cep.style.borderColor = "red";
+        } else {
+            erro_4.innerHTML = ""
+            input_cep.style.border = "";
+            input_cep.style.borderColor = "";
+        }
+
+        if (numero.length < 10 || numero.length > 11) {
+            erro_5.innerHTML = "Campo incorreto"
+            input_numero.style.border = "solid";
+            input_numero.style.borderColor = "red";
+        } else {
+            erro_5.innerHTML = ""
+            input_numero.style.border = "";
+            input_numero.style.borderColor = "";
+        }
+    }
+
+</script>

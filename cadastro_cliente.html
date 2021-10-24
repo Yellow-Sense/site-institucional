@@ -20,21 +20,25 @@
             </div>
             <div class="nome">
                 <div class="span-nome"><span>Nome Completo</span></div>
-                <input class="input-nome">
+                <input id="input_nome" class="input-nome" required>
+                <div id="erro_nome"></div>
             </div>
             <div class="senha">
                 <div class="span-senha"><span>Senha</span></div>
-                <input class="input-senha">
+                <input id="input_senha" class="input-senha" required>
+                <div id="erro_senha"></div>
             </div>
             <div class="telefone">
                 <div class="span-telefone"><span>Telefone Fixo</span></div>
-                <input class="input-telefone">
+                <input id="input_telefone" class="input-telefone" required>
+                <div id="erro_telefone"></div>
             </div>
             <div class="email">
                 <div class="span-email"><span>E-mail</span></div>
-                <input class="input-email">
+                <input id="input_email" class="input-email" required>
+                <div id="erro_email"></div>
             </div>
-            <button>Cadastrar</button>
+            <button onclick="cadastrar()">Cadastrar</button>
 
         </div>
 
@@ -45,3 +49,53 @@
     </div>
 </body>
 </html>
+<script>
+
+    function cadastrar() {
+        var nome = input_nome.value.trim();
+        var senha = input_senha.value.trim();
+        var telefone = input_telefone.value.trim();
+        var email = input_email.value.trim();
+
+        if (nome.length < 3) {
+            erro_nome.innerHTML = "Campo incorreto";
+            input_nome.style.border = "solid";
+            input_nome.style.borderColor = "red";
+        } else {
+            erro_nome.innerHTML = "";
+            input_nome.style.border = "";
+            input_nome.style.borderColor = "";
+        }
+
+        if (senha.length < 4) {
+            erro_senha.innerHTML = "Campo incorreto";
+            input_senha.style.border = "solid";
+            input_senha.style.borderColor = "red";
+        } else {
+            erro_senha.innerHTML = "";
+            input_senha.style.border = "";
+            input_senha.style.borderColor = "";
+        }
+
+        if (telefone.length < 10 || telefone.length > 10) {
+            erro_telefone.innerHTML = "Campo incorreto"
+            input_telefone.style.border = "solid";
+            input_telefone.style.borderColor = "red";
+        } else {
+            erro_telefone.innerHTML = ""
+            input_telefone.style.border = "";
+            input_telefone.style.borderColor = "";
+        }
+
+        if (email.indexOf("@") <= -1 && email.indexOf(".com") <= -1) {
+            erro_email.innerHTML = "Campo incorreto"
+            input_email.style.border = "solid";
+            input_email.style.borderColor = "red";
+        } else {
+            erro_email.innerHTML = ""
+            input_email.style.border = "";
+            input_email.style.borderColor = "";
+        }
+    }
+
+</script>
