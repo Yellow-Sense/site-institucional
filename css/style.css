@@ -87,7 +87,7 @@ html{
 #div_btn_entrar :hover{
     background-color: #ffc200;
     color: #F2F2F2;
-    transition: 1s;
+    transition: 0.5s;
 }
     /* Área da Parte 'Inicio' */
 
@@ -523,28 +523,28 @@ html{
        
 }
 .btn_enviar p{
-    color: #148ECC;
+    color: #252525;
 }
 .div_btn_enviar :hover{
     background-color: #148ECC;
     color: #F2F2F2;
-    transition: 0.6s;
+    transition: 0.3s;
 }
 
 
 /* Area simulador */
 
 .simulador{
-    height: 150vh;
-    margin-top: 5%;
-    border-radius: 15px 15px 15px 15px;
+    height: 100vh;
+    border-radius: 15px;
+    padding-top: 7%;
 }
 .container_simu{
     margin: auto;
     background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,194,0,1) 0%, rgba(255,148,13,1) 59.1% );
-    height: 55%;
+    height: 90%;
     width: 80%;
-    border-radius: 15px 15px 15px 15px;
+    border-radius: 15px;
     box-shadow: 15px 15px rgba(0, 0, 0, 0.425);
 }
 .container_simu .titulo_simu{
@@ -552,19 +552,19 @@ html{
     justify-content: center;
 }
 .titulo_simu  .titulo1_simu{
-    font-size: 3em;
+    font-size: 45px;
     color: #f2f2f2;
     font-weight: bold;
     text-align: center;
     padding-top: 10px;
     text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
     font-family: 'Josefin Sans', sans-serif;
-    margin-top: 35px;
+    margin-top: 3%;
 }
 .titulo_simu hr{
-    background-color: #252525;
-    width: 110%;
-    height: 4px;
+    background-color: #148ECC;
+    width: 100%;
+    height: 4%;
     border-radius: 20px;
     border-style: none;
     margin: 0;
@@ -581,19 +581,18 @@ input[type=number] {
 }
 .conteudo_simu input{
     border-radius: 5px;
-    
 }
 
 .conteudo_simu{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 90%;
+    height: 60%;
     margin: auto;
 }
 
 .simulador .container_simu .resultado_simu{
     display: flex;
-    justify-content: space-evenly;
 }
 .dados_simu input{
     border-radius: 20px;
@@ -611,7 +610,12 @@ input[type=number] {
 .dados_simu{
     margin-right: 3.5%;
 }
-
+.dados_simu h2{
+    font-size: 20px;
+}
+.b-js{
+    font-weight: normal;
+}
 .container_simu button :hover{
     background-color: #148ECC;
     color: #F2F2F2;
@@ -640,6 +644,8 @@ input[type=number] {
 }
 
 .h2-js{
+    color: #252525;
+    font-size: 20px;
     display: flex;
     justify-content: center;
 }
@@ -650,15 +656,16 @@ input[type=number] {
 /* Area rodapé da pagina */
 
 .footer_index{
-    height: 3vw;
+    height: 3%;
     width: 100%;
+    background-color: #252525;
+    border-top: solid #ffc200;
 }
 .footer_index .div_img{
     margin: auto;
     height: 100%;
     width: 2%;
-    padding-top: 1%;
-
+    margin-top: 1%;
 }
 .footer_index img{
     width: 100%;
@@ -667,6 +674,7 @@ input[type=number] {
     color: #f2f2f2;
     font-size: 12px;
     text-align: center;
+    margin-top: 1%;
 }
 .footer_index a{
     margin: auto;
@@ -678,6 +686,9 @@ input[type=number] {
     margin-top: 1%;
 }
 #sec_contato{
+    margin-top: 1%;
+}
+#sec_simulador{
     margin-top: 1%;
 }
 

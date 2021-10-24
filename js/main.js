@@ -127,4 +127,25 @@ $(window).on("scroll touchmove", function() {
         $('.link_produto').css('text-decoration','none');
         $('.link_simulador').css('text-decoration','none');
     }
+    if ($(document).scrollTop() >= $("#sec_simulador").position().top){
+        $('#div_menu').css('background-color', '#f2f2f2');
+        $('.link_simulador').css('text-decoration','underline');
+        $('.link_simulador').css('text-decoration-color','#ffc200');
+
+        $('.link_inicio').css('color', '#252525');
+        $('.link_sobre').css('color', '#252525');
+        $('.link_produto').css('color', '#252525');
+        $('.link_contato').css('color', '#252525');
+        $('.link_simulador').css('color', '#252525');
+        $('#btn_entrar').css('border-color', '#252525');
+        $('.p_btn_entrar').css('color', '#252525');
+        div_menu.style.transition = "0.2s";//Controle do tempo da duração da transição de cor
+        btn_entrar.style.transition = "0.5s";//Controle do tempo da duração da transição de cor
+
+
+        $('.link_inicio').css('text-decoration','none');
+        $('.link_sobre').css('text-decoration','none');
+        $('.link_produto').css('text-decoration','none');
+        $('.link_contato').css('text-decoration','none');
+    }
 });

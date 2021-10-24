@@ -115,7 +115,7 @@
                         
                         <div class="card_equipe">
                             <div class="card_img">
-                                <img class="img-equipe" style="width: 95%;" src="img/fotos_equipe/joao.jfif" >
+                                <img class="img-equipe" style="width: 95%;" src="img/fotos_equipe/joao.jpeg" >
                             </div>
                             <p class="text-nomes">João Pedro Noleto</p>
                             <p class="text-funcao">Scrum Master-Full Stack</p>
@@ -126,7 +126,7 @@
 
                         <div class="card_equipe">
                             <div>
-                                <img class="img-equipe" style="margin-left:0;" src="img/fotos_equipe/matheus.png" >
+                                <img class="img-equipe" style="margin-left:0;" src="img/fotos_equipe/matheus.jfif" >
                             </div>
                             <p class="text-nomes">Matheus Araujo</p>
                             <p class="text-funcao">Full-Stack</p>
@@ -206,15 +206,16 @@
                 <p class="titulo">Contato</p>
                 <hr>
                 <p class="sub-titulo">Envie aqui um email para entrar em contato conosco!</p>
-                <form action="" method="post">
+                <form onsubmit="javascript:validar_contato()" method="post">
                     <label for="input_email">Seu Email</label>
-                    <input id="input_email" placeholder="meuemail@hotmail.com.br" type="email">
+                    <input id="input_email" required placeholder="meuemail@hotmail.com.br" type="email">
                     
                     <label for="input_assunto">Assunto</label>
-                    <input id="input_assunto" placeholder="Ex: Orçamento" type="text">
+                    <input id="input_assunto" required placeholder="Ex: Orçamento" type="text">
                     
                     <label for="input_msg">Mensagem</label>
-                    <textarea name="" id="" placeholder="Insira aqui a mensagem que você deseja nos enviar" cols="30" rows="10"></textarea>
+                    <textarea onkeyup="conta_char()" value="300" id="input_msg" required placeholder="Insira aqui a mensagem que você deseja nos enviar" maxlength="300" cols="30" rows="10"></textarea>
+                    <span id="caracteres"  style="margin-left: 10%;">300</span><span> restante</span>
                     <div class="div_btn_enviar">
                         <button class="btn_enviar">
                             <p class="p_btn_enviar">Enviar</p>
@@ -253,18 +254,44 @@
                     
                 </div>
                 <div id="analisar">
-                <button onclick="calculo()" class="botao_simu"><i>   Analizar lucros   </i></button>
+                <button onclick="calculo()" class="botao_simu">Analizar lucros</button>
             </div>
             </div>
         </div>
     </section>
+
     <footer class="footer_index">
         <div class="div_img">
             <a href="https://github.com/Yellow-Sense/site-institucional">
                 <img src="img/icones/github.png" alt="">
             </a>
         </div>
-            <p>2021-Yellow Sensor</p>
+        <p>2021-Yellow Sensor</p>
     </footer>
 </body>
 </html>
+<script>
+    var qtd_char = 0;
+    
+    function conta_char(){
+        
+        var msg = input_msg.value;
+
+        qtd_char ++;
+        
+
+         if(msg.length+1 < qtd_char){
+            caracteres.innerHTML = 300 - msg.length ;
+         }else {
+            caracteres.innerHTML = Number(caracteres.innerHTML) -  1;
+         }
+    }
+
+    function valida_contato(){
+        email = input_email.value;
+
+        if (email.indexOf('.com') == -1 ){
+            alert("Campo e-mail incompleto, falta o '.com'");
+        }
+    }
+</script>
