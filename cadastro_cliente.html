@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap">
     <link rel="stylesheet" href="css/cadastro_cliente.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
     
 </head>
 <body>
@@ -50,6 +52,10 @@
 </body>
 </html>
 <script>
+
+    $(document).ready(function(){
+            $('#input_telefone').mask('(99)99999-9999');
+    });
 
     function cadastrar() {
         var nome = input_nome.value.trim();
