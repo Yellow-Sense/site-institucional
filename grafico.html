@@ -3,10 +3,14 @@
 <html>
 
 <head>
-	<title>Line Chart</title>
+	<title>Temperatura</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
 	<script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
 	<script src="http://www.chartjs.org/samples/latest/utils.js"></script>
+	
+	<link rel="stylesheet" href="css/style-dashboard.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="img/icone_topo.ico" type="image/x-icon">
 	<style>
 		canvas {
 			-moz-user-select: none;
@@ -16,13 +20,35 @@
 	</style>
 </head>
 
-<body>
-	<div>
+<body id="bg_grafico" >
+	<div class="Menu_Dashboard">
+        <div class="container">
+                <div style="margin-top: 0;" class="box_icon_select">
+                    <img class="home_icon" src="img/icones/pagina-inicial.png" alt="">
+                    <p>Home</p>
+                </div>
+                <div class="box_icon">
+                    <img class="graficoM_icon" src="img/icones/graficos.png" alt="">
+                    <p>Mensal</p>
+                </div>
+                <div class="box_icon">
+                    <img class="graficoA_icon" src="img/icones/graficos.png" alt="">
+                    <p>Anual</p>
+                </div>
+                <div class="logout">
+                    <a href="index.html">
+                        <img class="logout_icon" src="img/icones/logout.png" alt="">
+                    </a>
+                </div>
+        </div>
+    </div>
+
+	<div class="container2">
 		<h1>Sensor LM35 - Temperatura</h1>
 			<section>
 				<h2>Média: <label id='average'>0.00</label></h2>
 			</section>
-			<section style="width:100%">
+			<section>
 				<canvas id="chart"></canvas>
 		<section>
 	</div>
@@ -39,8 +65,8 @@
 				datasets: [{
 					label: "Temperatura",
 					type: 'line',
-					borderColor: ['#ff3232'],
-					backgroundColor: ['#ff7f7f']
+					borderColor: ['#FFC300'],
+					backgroundColor: ['#FFC300aa']
 				}]
 			},
 			options: {

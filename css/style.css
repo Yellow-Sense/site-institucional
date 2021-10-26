@@ -693,6 +693,23 @@ input[type=number] {
 }
 
 
+/* Estilização grafico node */
+#bg_grafico{
+    background-color:"#404040";
+}
+#bg_grafico h2,h1{
+    color: #148ECC;
+
+}
+#bg_grafico .container2{
+    text-align: center;
+    margin-top: 10%;
+    position: absolute;
+    width: 70%;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    margin-left: 15%;
+}
 /*
 cores:
     branco = #f2f2f2
