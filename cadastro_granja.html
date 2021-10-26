@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Cadastro - Granja</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap">
     <link rel="stylesheet" href="css/cadastro_granja.css">
@@ -73,8 +73,9 @@
                 <input maxlength="4" id="input_numero" class="input-numero" required>
                 <div class="erro-2" id="erro_5"></div>
             </div>
-            <button onclick="cadastrar()">Cadastrar</button>
-
+            <div id="botao">
+                <button onclick="cadastrar()">Cadastrar</button>
+            </div>
         </div>
 
         <div class="preto">
@@ -112,7 +113,7 @@
             input_cnpj.style.border = "";
             input_cnpj.style.borderColor = "";
         }
-        if (estado.length < 3) {
+        if (estado.length < 2) {
             erro_3.innerHTML = "Campo incorreto"
             input_estado.style.border = "solid";
             input_estado.style.borderColor = "red";

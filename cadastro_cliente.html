@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Cadastro - Cliente</title>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap">
     <link rel="stylesheet" href="css/cadastro_cliente.css">
@@ -40,8 +40,9 @@
                 <input id="input_email" class="input-email" required>
                 <div id="erro_email"></div>
             </div>
-            <button onclick="cadastrar()">Cadastrar</button>
-
+            <div id="botao">
+                <button onclick="cadastrar()">Cadastrar</button>
+            </div>
         </div>
 
         <div class="preto">
@@ -83,7 +84,7 @@
             input_senha.style.borderColor = "";
         }
 
-        if (telefone.length < 10 || telefone.length > 10) {
+        if (telefone.length < 14 || telefone.length > 14) {
             erro_telefone.innerHTML = "Campo incorreto"
             input_telefone.style.border = "solid";
             input_telefone.style.borderColor = "red";
