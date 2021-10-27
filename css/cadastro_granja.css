@@ -12,16 +12,19 @@ body{
 .amarelo .titulo{
     background-color: #1D1D1D;
     border-radius: 7px;
-    margin: 15% 0 10% 35%;
+    margin: 15% auto 10% auto;
     color: white;
     width: 30%;
     height: 6%;
     font-size: 25px;
     font-weight: 600;
 }
+input:focus{
+    outline-color: #148ECC;
+}
 .titulo .cliente{
-    margin-left: 5%;
-    padding-top: 2%;
+    padding-top: 3%;
+    text-align: center;
 }
 .nome{
     width: 33%;

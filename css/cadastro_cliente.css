@@ -12,7 +12,7 @@ body{
 .amarelo .titulo{
     background-color: #1D1D1D;
     border-radius: 7px;
-    margin: 15% 0 10% 35%;
+    margin: 15% auto 10% auto;
     color: white;
     width: 30%;
     height: 6%;
@@ -20,8 +20,8 @@ body{
     font-weight: 600;
 }
 .titulo .cliente{
-    margin-left: 5%;
-    padding-top: 2%;
+    text-align: center;
+    padding-top: 3%;
 }
 .nome{
     width: 50%;
@@ -77,6 +77,9 @@ body{
     height: 23%;
     border: none;
     margin: 0 0 0 39%;
+}
+input:focus{
+    outline-color: #148ECC;
 }
 .input-senha{
     background-color: #1D1D1D;
