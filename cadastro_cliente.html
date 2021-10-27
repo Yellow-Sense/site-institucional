@@ -94,7 +94,7 @@
             input_telefone.style.borderColor = "";
         }
 
-        if (email.indexOf("@") <= -1 && email.indexOf(".com") <= -1) {
+        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
             erro_email.innerHTML = "Campo incorreto"
             input_email.style.border = "solid";
             input_email.style.borderColor = "red";
