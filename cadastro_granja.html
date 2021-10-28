@@ -19,17 +19,23 @@
             <div class="titulo">
                 <h3 class="cliente">Cadastro granja<h3>
             </div>
-            <div class="nome">
+            <div class="div-input">
                 <div class="span-cima"><span>Nome da granja*</span></div>
                 <input id="input_nome" class="input-cima" required>
                 <div class="erro" id="erro_1"></div>
             </div>
-            <div class="cnpj">
+            <div class="div-input">
                 <div class="span-cima"><span>CNPJ*</span></div>
                 <input maxlength="14" id="input_cnpj" class="input-cima" required>
                 <div class="erro" id="erro_2"></div>
             </div>
-            <div class="estado">
+            
+            <div class="div-input">
+                <div class="span-cima"><span>CEP*</span></div>
+                <input maxlength="10" id="input_cep" class="input-cima" required>
+                <div class="erro" id="erro_4"></div>
+            </div>
+            <div class="div-input">
                 <div class="span-cima"><span>Estado*</span></div>
                 <select id="input_estado" class="input-cima" required>
                     <option></option>
@@ -63,15 +69,15 @@
                 </select>
                 <div class="erro" id="erro_3"></div>
             </div>
-            <div class="cep">
-                <div class="span-cep"><span>CEP*</span></div>
-                <input maxlength="10" id="input_cep" class="input-cep" required>
-                <div class="erro-1" id="erro_4"></div>
+            <div class="div-input">
+                <div class="span-cima"><span>Numero(propriedade)*</span></div>
+                <input maxlength="4" id="input_numero" class="input-cima" required>
+                <div class="erro" id="erro_5"></div>
             </div>
-            <div class="numero">
-                <div class="span-numero"><span>Numero(propriedade)*</span></div>
-                <input maxlength="4" id="input_numero" class="input-numero" required>
-                <div class="erro-2" id="erro_5"></div>
+            <div class="div-input">
+                <div class="span-cima"><span>Rua*</span></div>
+                <input id="input_rua" class="input-cima" required>
+                <div class="erro" id="erro_6"></div>
             </div>
             <div id="botao">
                 <button onclick="cadastrar()">Cadastrar</button>
@@ -93,6 +99,7 @@
         var estado = input_estado.value.trim();
         var cep = input_cep.value.trim();
         var numero = input_numero.value.trim();
+        var rua = input_rua.value.trim();
 
         if (nome.length < 3) {
             erro_1.innerHTML = "Campo incorreto"
@@ -141,6 +148,16 @@
             erro_5.innerHTML = ""
             input_numero.style.border = "";
             input_numero.style.borderColor = "";
+        }
+
+        if (rua.length < 5) {
+            erro_6.innerHTML = "Campo incorreto";
+            input_rua.style.border = "solid";
+            input_rua.style.borderColor = "red";
+        } else {
+            erro_6.innerHTML = "";
+            input_rua.style.border = "";
+            input_rua.style.borderColor = "";
         }
     }
 
