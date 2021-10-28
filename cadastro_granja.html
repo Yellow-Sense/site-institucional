@@ -103,6 +103,7 @@
 
         if (nome.length < 3) {
             erro_1.innerHTML = "Campo incorreto"
+            alert("Nome muito curto");
             input_nome.style.border = "solid";
             input_nome.style.borderColor = "red";
         } else {
@@ -113,6 +114,7 @@
 
         if (cnpj.length < 18 ||cnpj.length > 18 ) {
             erro_2.innerHTML = "Campo incorreto"
+            alert("cnpj incompleto");
             input_cnpj.style.border = "solid";
             input_cnpj.style.borderColor = "red";
         } else {
@@ -132,6 +134,7 @@
 
         if (cep.length < 8) {
             erro_4.innerHTML = "Campo incorreto"
+            alert("cep incompleto");
             input_cep.style.border = "solid";
             input_cep.style.borderColor = "red";
         } else {
@@ -142,6 +145,7 @@
 
         if (numero.length < 1 || numero.length > 4) {
             erro_5.innerHTML = "Campo incorreto"
+            alert("cep incorreto");
             input_numero.style.border = "solid";
             input_numero.style.borderColor = "red";
         } else {
@@ -152,6 +156,7 @@
 
         if (rua.length < 5) {
             erro_6.innerHTML = "Campo incorreto";
+            alert("Campo rua incompleto");
             input_rua.style.border = "solid";
             input_rua.style.borderColor = "red";
         } else {
@@ -185,7 +190,7 @@
             success: function(resposta){
                 //Agora basta definir os valores que você deseja preencher
                 //automaticamente nos campos acima.
-                $("#rua").val(resposta.rua);
+                $("#input_rua").val(resposta.logradouro);
                 $("#input_estado").val(resposta.uf);
                 //Vamos incluir para que o Número seja focado automaticamente
                 //melhorando a experiência do usuário

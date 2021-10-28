@@ -66,6 +66,7 @@
 
         if (nome.length < 3) {
             erro_nome.innerHTML = "Campo incorreto";
+            alert("nome muito curto");
             input_nome.style.border = "solid";
             input_nome.style.borderColor = "red";
         } else {
@@ -76,6 +77,7 @@
 
         if (senha.length < 4) {
             erro_senha.innerHTML = "Campo incorreto";
+            alert("senha muito curta");
             input_senha.style.border = "solid";
             input_senha.style.borderColor = "red";
         } else {
@@ -86,6 +88,7 @@
 
         if (telefone.length < 14 || telefone.length > 14) {
             erro_telefone.innerHTML = "Campo incorreto"
+            alert("Telefone incompleto");
             input_telefone.style.border = "solid";
             input_telefone.style.borderColor = "red";
         } else {
@@ -95,6 +98,7 @@
         }
 
         if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+            alert("E-mail Incorreto");
             erro_email.innerHTML = "Campo incorreto"
             input_email.style.border = "solid";
             input_email.style.borderColor = "red";
