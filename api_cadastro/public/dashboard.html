@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    
+    <!-- Referenciando estilização externa do site (CSS)  -->
+    <link rel="stylesheet" href="css/style-dashboard.css">
+    <link rel="shortcut icon" href="img/icone_topo.ico" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body id="body_dashboard">
+    <!-- Menu lateral  -->
+    <div class="Menu_Dashboard">
+        <div class="container">
+                <div style="margin-top: 0;" class="box_icon_select">
+                    <img class="home_icon" src="img/icones/pagina-inicial.png" alt="">
+                    <p>Home</p>
+                </div>
+                <div class="box_icon">
+                    <img class="graficoM_icon" src="img/icones/graficos.png" alt="">
+                    <p>Mensal</p>
+                </div>
+                <div class="box_icon">
+                    <img class="graficoA_icon" src="img/icones/graficos.png" alt="">
+                    <p>Anual</p>
+                </div>
+                <div class="logout">
+                    <a href="login.html">
+                        <img class="logout_icon" src="img/icones/logout.png" alt="">
+                    </a>
+                </div>
+        </div>
+    </div>
+    
+    <!-- Conteudo  -->
+    <div id="container_dashboard">
+            <p id="txt_msg">Bom dia, nome_granja</p>
+            <hr id="hr_msg">
+
+        <div id="card01">
+            <div id="card01_temp">
+                <div id="tempAtual">
+                    <img id="img_temp_atual" src="img/icones/temperatura-alta.png" alt="">
+                    <p>25°C</p>
+                </div>
+            </div>
+            <div id="card01_alertas">
+                <p id="titulo_alertas">Alertas</p>
+                <hr id="hr_alertas">
+                <div id="div_alertas">
+                    <p id="txt_alertas"><span class="area">Area A:</span> Temperatura abaixo do recomendado</p>
+                    <p id="txt_alertas"><span class="area">Area B:</span> Temperatura acima do recomendado</p>
+                    <p id="txt_alertas"><span class="area">Area C:</span> Temperatura abaixo do recomendado</p>
+                    <p id="txt_alertas"><span class="area">Area D:</span> Temperatura acima do recomendado</p>
+                </div>
+            </div>
+            <div class="card_quant_alertas">
+                <div class="container">
+                    <div class="div_box_qtd">
+                        <div class="box_temp_ideal">
+                            <p>5</p>
+                        </div>
+                        <div class="box_temp_alerta">
+                            <p>2</p>
+                        </div>
+                        <div class="box_temp_critico">
+                            <p>1</p>
+                        </div>
+                    </div>
+
+                    <div class="div_legenda">
+                        <p style="margin-left: 0;" class="titulo">Legendas</p>
+                        <hr>
+                        <div class="legenda_ideal">
+                            <div class="circulo"></div>
+                            <p>Temperaturas na faixa ideal</p>
+                        </div>
+                        <div class="legenda_alerta">
+                            <div class="circulo"></div>
+                            <p>Temperaturas na faixa de alerta</p>
+                        </div>
+                        <div class="legenda_critica">
+                            <div class="circulo"></div>
+                            <p>Temperaturas na faixa critica</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="div_card_graficos">
+            <div id="card02">
+                <canvas id="myChart" width="100" height="48"></canvas>
+            </div>
+            <div id="card03">
+                <canvas id="myChart02" width="100" height="48"></canvas>
+            </div>
+        </div>
+    
+    </div>
+</body>
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Dia 01', 'Dia 02', 'Dia 03', 'Dia 04', 'Dia 05', 'Dia 06','Dia 07', 'Dia 08', 'Dia 09', 'Dia 10', 'Dia 11', 'Dia 12','Dia 13', 'Dia 14', 'Dia 15', 'Dia 16', 'Dia 17', 'Dia 18','Dia 19', 'Dia 20', 'Dia 21', 'Dia 22', 'Dia 23', 'Dia 24','Dia 25', 'Dia 26', 'Dia 27', 'Dia 28','Dia 29', 'Dia 30','Dia 31' ],
+            datasets: [{
+                label: 'Temperatura Média Janeiro',
+            fill: 'start',
+                data: [15, 25, 23, 30, 32, 35,20, 35, 40, 40, 20, 25,15, 25, 23, 30, 32, 35,20, 35, 40, 40, 20, 25,35,20, 35, 40, 40, 20, 25],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)',
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1.5
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    var ctx = document.getElementById('myChart02').getContext('2d');
+    var myChart02 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+            datasets: [{
+                label: 'Temperatura Média anual',
+                data: [12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+    
+    </script>
+</html>

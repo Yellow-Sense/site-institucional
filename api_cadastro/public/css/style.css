@@ -1,0 +1,720 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+body::-webkit-scrollbar {
+    width: 12px;               /* largura do scroll */
+}  
+body::-webkit-scrollbar-track {
+    background: #ffc200;        /* cor do scroll */
+} 
+body::-webkit-scrollbar-thumb {
+    background-color: #252525;    /* cor do fundo do scroll */
+    border-radius: 20px;
+    border: 2px solid #ffc200;  /* cria uma borda ao redor do scroll */
+}
+
+*{
+    font-family: 'Josefin Sans', sans-serif;
+    margin: 0;
+    color: #252525;
+}
+a{
+    text-decoration: none;
+    color: #f2f2f2;
+}
+body{
+    background-color: #1D1D1D;
+}
+html{
+    scroll-behavior: smooth;
+ }
+/* Área Menu + img do fundo */
+
+#div_menu{
+    position: fixed;
+    font-size: 20px;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+}
+.links_menu{
+    text-align: center;
+    width: 87%;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    text-decoration-color: #ffc200;
+}
+.links_menu a{
+    margin-right: 6%;
+}
+.div_img_logo{
+    float: left;
+    width: 8%;
+    height: 100%;
+    margin-left: 2%;
+}
+.img-logo{
+    width: 70%;
+    height: 90%;
+}
+/* #fundo_btn_entrar{
+    height: 4vh;
+    width: 150%;
+    float: right;
+    background-color: #F2F2F2;
+    border-radius: 20px;
+} */
+#div_btn_entrar{
+    width: 8%;
+    margin-right: 3%;
+    display: flex;
+}
+#btn_entrar {
+    align-self: center;
+    width: 100%;
+    height: 50%;
+    background-color: #00000000;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: #ffc200;
+    font-size: 18px;
+}
+#btn_entrar p{
+    color: #f2f2f2;
+}
+#div_btn_entrar :hover{
+    background-color: #ffc200;
+    color: #F2F2F2;
+    transition: 0.5s;
+}
+    /* Área da Parte 'Inicio' */
+
+.div_inicio{
+    background-image: url('../img/fundo_site.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    
+}
+.div_solucao{
+    margin-top: 50vh;
+    height: 25%;
+}
+.div_solucao p{
+    font-size: 30px;
+    color: #f2f2f2;
+    text-align: center;
+}
+.div_solucao hr{
+    border-style: none;
+    width: 100%;
+    margin: 0 auto;
+    height: 4px;
+    border-radius: 20px;
+    background-color: #ffc200;
+}
+
+
+/* Área da Parte 'Sobre Nós' */
+
+.div_sobre{
+    height: 160vh;
+    padding-top: 7%;
+}
+.div_sobre .container{
+    background-color: #ffc200;
+    height: 45%;
+    width: 80%;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.425);
+    margin:auto;
+}
+.div_sobre .container .titulo{
+    font-size: 3em;
+    color: #f2f2f2;
+    font-weight: bold;
+    padding-top: 5%;
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
+}
+.div_sobre .container .text{
+    font-size: 20px;
+    text-align: center;
+    padding-top: 45px;
+}
+.div_sobre .container .hr_sobre{
+    background-color: #148ECC;
+    border-radius: 20px;
+    width: 20%;
+    height: 4px;
+    border-style: none;
+}
+.linha_sobre{
+    display: flex;
+    justify-content: center;
+}
+
+/* Conteúdo Missão */
+
+.div_missao{
+    width: 25%;
+    margin-top: 5%;
+    justify-content: center;
+}
+.div_img_missao{
+    display: flex;
+    justify-content: center;
+}
+.img-missao{
+    width: 30%;
+}
+.titulo_missao{
+    text-align: center;
+    font-weight: 900;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.text_missao{
+    margin-top: 2%; 
+    text-align: center;
+}
+
+/* Conteúdo Visão */
+
+.div_visao{
+    width: 25%;
+    margin-left: 5%;
+    margin-top: 6.85%;
+    justify-content: center;
+}
+.div_img_visao{
+    display: flex;
+    justify-content: center;
+}
+.img-visao{
+    width: 30%;
+}
+.titulo_visao{
+    text-align: center;
+    margin-top: 2%;
+    font-weight: 900;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.text_visao{
+    margin-top: 2%; 
+    text-align: center;
+}
+
+/* Conteúdo Valores */
+
+.div_valores{
+    width: 25%;
+    margin-left: 5%;
+    margin-top: 4.9%;
+    float: left;
+}
+.div_img_valores{
+    display: flex;
+    justify-content: center;
+}
+.img-valores{
+    width: 30%;
+}
+.titulo_valores{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.text_valores{
+    margin-top: 2%; 
+    text-align: center;
+}
+
+/* Conteúdo Sobre Nós - Equipe */
+
+.div_equipe{
+    border-top: 4px solid #1D1D1D;
+    height: 56%;
+}
+.div_equipe .container{
+    background-color: #148ECC;
+    border-radius: 0px 0px 15px 15px;
+    width: 80%;
+    height: 100%;
+} 
+.titulo_equipe{
+    font-size: 3em;
+    color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 19px;
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
+    font-family: 'Josefin Sans', sans-serif;
+}
+.div_equipe .hr_equipe{
+    border-style: none;
+    width: 15%;
+    margin: 0 auto;
+    margin-top: 1%;
+    height: 4px;
+    background-color: #ffc200;
+}
+/* Conteúdo nomes */
+.linha1_equipe{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.linha1_equipe .card_equipe{
+    height: 40%;
+    margin-top: 5%;
+    margin-left: 10%;
+    width: 20%;
+    float: left;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.514);
+}
+.linha2_equipe{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+}
+.linha2_equipe .card_equipe{
+    margin-top: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 12%;
+    float: left;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.514);
+}
+
+.card_img{
+    width: 60%;
+    margin: auto;
+}
+.img-equipe{
+    border-style: solid;
+    border-radius: 50%;
+    border-width: 5px;
+    border-color: #252525;
+    width: 100%;
+}
+.text-nomes{
+    font-weight: bold;
+    text-align: center;
+    color: #f2f2f2;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.text-funcao{
+    text-align: center;
+    color: #f2f2f2;
+}
+
+/* Área da Parte 'Produto' */
+
+.div_produto{
+    height: 100vh;
+    padding-top: 7%;
+}
+.div_produto .container{
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,194,0,1) 0%, rgba(255,148,13,1) 59.1% );
+    height: 80%;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.425);
+    align-content: center;
+    margin:auto;
+}
+.container .titulo{
+    font-size: 3em;
+    color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 70px;
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
+    font-family: 'Josefin Sans', sans-serif;
+}
+.container .text{
+    width: 80%;
+    color: #252525;
+    font-size: 20px;
+    text-align: center;
+    padding-top: 45px;
+    margin: auto;
+}
+.container hr{
+    background-color: #148ECC;
+    width: 20%;
+    height: 4px;
+    border-radius: 20px;
+    border-style: none;
+    margin-left: 40%;
+}
+.linha_produto{
+    display: flex;
+    justify-content: center;
+}
+.card_produto{
+    width: 20%;
+    height: 10%;
+    margin-top: 5%;
+    justify-content: center;
+    margin-left: 10%;
+}
+.div_img_produto{
+    display: flex;
+    justify-content: center;
+}
+.img-produto{
+    width: 30%;
+}
+.titulo_produto{
+    margin-top: 4%; 
+    text-align: center;
+    font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+}
+.text_produto{
+    margin-top: 2%; 
+    text-align: center;
+}
+
+/* Área da Parte 'Contato' */
+
+.div_contato{
+    width: 100%;
+    height: 93vh;
+    display: flex;
+}
+.div_contato .container_A{
+    background-image: url('../img/bg-contato.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 40%;
+    height: 100%;
+
+}
+.container_A .formas{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.74);
+    font-size: 25px;
+}
+.formas img{
+    width: 13%;
+}
+.container_A .email{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 40%;
+}
+.email p{
+    color: #F2F2F2;
+    margin:auto;
+}
+.container_A .numero{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    padding-top: 10%;
+
+}
+.numero p{
+    color: #F2F2F2;
+    margin: auto;
+}
+.div_contato .container_B{
+    float: left;
+    width: 60%;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,194,0,1) 0%, rgba(255,148,13,1) 59.1% );
+}
+.container_B .titulo{
+    font-size: 45px;
+    color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5%;
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
+    font-family: 'Josefin Sans', sans-serif;
+}
+.container_B .sub-titulo{
+    font-size: 25px;
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    color: #f2f2f2;
+    font-family: 'Josefin Sans', sans-serif;
+    text-shadow: 2px 2px 0px #00000080;
+}
+.container_B hr{
+    background-color: #148ECC;
+    border-style: none;
+    width: 20%;
+    height: 4px;
+    border-radius: 20px;
+    margin: auto;
+}
+.container_B form{
+    width: 45%;
+    margin: auto;
+}
+.container_B label{
+    display: flex;
+    margin-top: 6%;
+    margin-left: 5%;
+    font-size: 20px;
+    color: #f2f2f2;
+    text-shadow: 1px 2px 2px #000000;
+}
+.container_B input{
+    border-radius: 20px;
+    background-color: #252525;
+    color: #f2f2f2;
+    font-size: 20px;
+    border-style: none;
+    width: 100%;
+    height: 30px;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.514);
+    outline: 0;
+    text-indent: 15px;
+}
+.container_B input::placeholder{
+    text-align: start;
+    padding-left: 5%;    
+}
+.container_B textarea{
+    width: 100%;
+    border-radius: 20px;
+    background-color: #252525;
+    color: #f2f2f2;
+    border-style: none;
+    resize: none;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.514);
+    font-size: 20px;
+    text-indent: 15px;
+    outline: 0;
+}
+.container_B textarea::placeholder{
+    text-align: start;
+    padding-left: 5%;
+    padding-top: 3%;
+}
+.div_btn_enviar{
+    height: 30px;
+    width: 30%;
+    margin: auto;
+    margin-top: 2%;
+}
+.btn_enviar{
+    width: 100%;
+    height: 100%;
+    background-color: #00000000;
+    border-style: solid;
+    border-color: #148ECC;
+    border-radius: 20px;
+    margin-left: 10%;
+    font-size: 18px;
+    box-shadow: 0 0 0;
+       
+}
+.btn_enviar p{
+    color: #252525;
+}
+.div_btn_enviar :hover{
+    background-color: #148ECC;
+    color: #F2F2F2;
+    transition: 0.3s;
+}
+
+
+/* Area simulador */
+
+.simulador{
+    height: 100vh;
+    border-radius: 15px;
+    padding-top: 7%;
+}
+.container_simu{
+    margin: auto;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(255,194,0,1) 0%, rgba(255,148,13,1) 59.1% );
+    height: 90%;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 15px 15px rgba(0, 0, 0, 0.425);
+}
+.container_simu .titulo_simu{
+    display: flex;
+    justify-content: center;
+}
+.titulo_simu  .titulo1_simu{
+    font-size: 45px;
+    color: #f2f2f2;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+    text-shadow: 2px 4px rgba(0, 0, 0, 0.514);
+    font-family: 'Josefin Sans', sans-serif;
+    margin-top: 3%;
+}
+.titulo_simu hr{
+    background-color: #148ECC;
+    width: 100%;
+    height: 4%;
+    border-radius: 20px;
+    border-style: none;
+    margin: 0;
+    margin-bottom: 45px;
+}
+input[type=number]::-webkit-inner-spin-button { 
+    -webkit-appearance: none;
+    
+}
+input[type=number] { 
+   -moz-appearance: textfield;
+   appearance: textfield;
+
+}
+.conteudo_simu input{
+    border-radius: 5px;
+}
+
+.conteudo_simu{
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    height: 60%;
+    margin: auto;
+}
+
+.simulador .container_simu .resultado_simu{
+    display: flex;
+}
+.dados_simu input{
+    border-radius: 20px;
+    background-color: #252525;
+    color: #f2f2f2;
+    font-size: 20px;
+    border-style: none;
+    width: 100%;
+    height: 30px;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.514);
+    outline: 0;
+    text-indent: 15px;
+    margin-bottom: 20px;
+}
+.dados_simu{
+    margin-right: 3.5%;
+}
+.dados_simu h2{
+    font-size: 20px;
+}
+.b-js{
+    font-weight: normal;
+}
+.container_simu button :hover{
+    background-color: #148ECC;
+    color: #F2F2F2;
+    transition: 0.6s; 
+
+    
+}
+.botao_simu{
+    background-color: #00000000;
+    border-style: solid;
+    border-color: #148ECC;
+    border-radius: 20px;
+    margin-left: 10%;
+    font-size: 18px;
+    box-shadow: 0 0 0;
+    
+}
+#analisar :hover{
+    background-color: #148ECC;
+    color: #F2F2F2;
+    transition: 0.6s;
+}
+#analisar {
+    float: left;
+    margin-left: 44%;
+}
+
+.h2-js{
+    color: #252525;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+}
+#resultado b{
+    font-size: 18px;
+}
+
+/* Area rodapé da pagina */
+
+.footer_index{
+    height: 3%;
+    width: 100%;
+    background-color: #252525;
+    border-top: solid #ffc200;
+}
+.footer_index .div_img{
+    margin: auto;
+    height: 100%;
+    width: 2%;
+    margin-top: 1%;
+}
+.footer_index img{
+    width: 100%;
+}
+.footer_index p{
+    color: #f2f2f2;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 1%;
+}
+.footer_index a{
+    margin: auto;
+}
+
+/* Correção inicio das seções */
+
+#sec_produto{
+    margin-top: 1%;
+}
+#sec_contato{
+    margin-top: 1%;
+    padding-top: 6%;
+}
+#sec_simulador{
+    margin-top: 1%;
+}
+
+
+/* Estilização grafico node */
+#bg_grafico{
+    background-color:"#404040";
+}
+#bg_grafico h2,h1{
+    color: #148ECC;
+
+}
+#bg_grafico .container2{
+    text-align: center;
+    margin-top: 10%;
+    position: absolute;
+    width: 70%;
+    background-color: #f2f2f2;
+    border-radius: 20px;
+    margin-left: 15%;
+}
+/*
+cores:
+    branco = #f2f2f2
+    preto = #252525
+    amarelo = #ffc200
+    azul = #127cb3
+*/

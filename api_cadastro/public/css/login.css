@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap');
+
+*{
+  font-family:'Josefin Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.container {
+  width: 100vw;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container_preto {
+  height: 100vh;
+  background-color: #252525;
+  width: 55%;
+  display: flex;
+  float: left;
+  flex-direction: row;
+  
+}
+
+.container_amarelo {
+  height: 100vh;
+  background-color: #ffc200;
+  width: 45%;
+  display: flex;
+  float: left;
+}
+
+.img {
+  width: 350px;
+  height: auto;
+  display: flex;
+  align-self: center;
+  margin-left: 20%;
+}
+
+input {
+  border-style: none;
+  background-color: #f2f2f2;
+  color: #252525;
+  width: 70%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+  border-bottom: #252525 2px outset;
+  font-weight: bold;
+  font-size: 18px;
+  outline: 0;
+}
+
+input::placeholder{
+    font-weight: bold;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #252525;
+    font-size: 20px ;
+}
+
+.container_form {
+  display: flex;
+  justify-content: space-around;
+}
+
+#div_senha {
+  margin-bottom: 35px;
+  background-color: #f2f2f2;
+  width: 300px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-radius: 20px;
+  box-shadow: 2px 4px #252525;
+}
+
+.container_input {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 55%;
+
+}
+
+#div_user {
+  margin-bottom: 50px;
+  background-color: #f2f2f2;
+  width: 300px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-radius: 20px;
+  box-shadow: 2px 4px #252525;
+}
+
+#div_user img {
+  height: 75%;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin-left: 2%;
+}
+
+#div_senha img {
+  height: 75%;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  margin-left: 2%;
+}
+
+#input_login{
+  font-weight: bold;
+  color: #252525;
+}
+
+.btn_login{
+  margin-top: 40px;
+  width: 90px;
+  height: 35px;
+  border-radius: 8px;
+  border-style: none;
+  box-shadow: 5px 4px #252525;
+  font-family:'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #252525;
+  text-align: center;
+}
+.container_seta{
+  height: 100px;
+  background-color:#252525;  
+}
+
+#btn_voltar{
+  width: 50px;  
+  padding: 10px;
+}

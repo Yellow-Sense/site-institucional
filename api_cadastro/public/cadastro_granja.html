@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Granja</title>
+
+    <link rel="shortcut icon" href="img/icone_topo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap">
+    <link rel="stylesheet" href="css/cadastro_granja.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+</head>
+<body>
+    <div class="banner">
+
+        <form class="amarelo" id="form_cadastro"  method="post" onsubmit="return cadastrar()">
+
+            <div class="titulo">
+                <h3 class="cliente">Cadastro granja<h3>
+            </div>
+            <div class="div-input">
+                <div class="span-cima"><span>Nome da granja*</span></div>
+                <input name="nome_granja" id="input_nome" class="input-cima" required>
+                <div class="erro" id="erro_1"></div>
+            </div>
+            <div class="div-input">
+                <div class="span-cima"><span>CNPJ*</span></div>
+                <input name="cnpj" maxlength="14" id="input_cnpj" class="input-cima" required>
+                <div class="erro" id="erro_2"></div>
+            </div>
+            
+            <div class="div-input">
+                <div class="span-cima"><span>CEP*</span></div>
+                <input name="cep" maxlength="10" id="input_cep" class="input-cima" required>
+                <div class="erro" id="erro_4"></div>
+            </div>
+            <div class="div-input">
+                <div class="span-cima"><span>Estado*</span></div>
+                <select name="estados" id="input_estado" class="input-cima" required>
+                    <option></option>
+                    <option>AC</option>
+                    <option>AL</option>
+                    <option>AM</option>
+                    <option>AP</option>
+                    <option>BA</option>
+                    <option>CE</option>
+                    <option>DF</option>
+                    <option>ES</option>
+                    <option>GO</option>
+                    <option>MA</option>
+                    <option>MT</option>
+                    <option>MS</option>
+                    <option>MG</option>
+                    <option>PA</option>
+                    <option>PB</option>
+                    <option>PR</option>
+                    <option>PE</option>
+                    <option>PI</option>
+                    <option>RJ</option>
+                    <option>RN</option>
+                    <option>RS</option>
+                    <option>RO</option>
+                    <option>RR</option>
+                    <option>SC</option>
+                    <option>SP</option>
+                    <option>SE</option>
+                    <option>TO</option>
+                </select>
+                <div class="erro" id="erro_3"></div>
+            </div>
+            <div class="div-input">
+                <div class="span-cima"><span>Numero(propriedade)*</span></div>
+                <input name="numero_propiedade" maxlength="4" id="input_numero" class="input-cima" required>
+                <div class="erro" id="erro_5"></div>
+            </div>
+            <div class="div-input">
+                <div class="span-cima"><span>Rua*</span></div>
+                <input name="rua" id="input_rua" class="input-cima" required>
+                <div class="erro" id="erro_6"></div>
+            </div>
+
+            <div class="div-input">
+                <div class="span-cima"><span>Telefone</span></div>
+                <input name="telefone" id="input_rua" class="input-cima" required>
+                <div class="erro" id="erro_6"></div>
+            </div>
+            <div id="botao">
+                <button type="submit">Cadastrar</button>
+            </div>
+        </form>
+
+        <div class="preto">
+            <img src="img/logo.png" alt="">
+        </div>
+
+    </div>
+</body>
+</html>
+<script>
+    
+    function cadastrar() {
+        // var nome = input_nome.value.trim();
+        // var cnpj = input_cnpj.value.trim();
+        // var estado = input_estado.value.trim();
+        // var cep = input_cep.value.trim();
+        // var numero = input_numero.value.trim();
+        // var rua = input_rua.value.trim();
+
+        // if (nome.length < 3) {
+        //     erro_1.innerHTML = "Campo incorreto"
+        //     alert("Nome muito curto");
+        //     input_nome.style.border = "solid";
+        //     input_nome.style.borderColor = "red";
+        // } else {
+        //     erro_1.innerHTML = ""
+        //     input_nome.style.border = "";
+        //     input_nome.style.borderColor = "";
+        // }
+
+        // if (cnpj.length < 18 ||cnpj.length > 18 ) {
+        //     erro_2.innerHTML = "Campo incorreto"
+        //     alert("cnpj incompleto");
+        //     input_cnpj.style.border = "solid";
+        //     input_cnpj.style.borderColor = "red";
+        // } else {
+        //     erro_2.innerHTML = ""
+        //     input_cnpj.style.border = "";
+        //     input_cnpj.style.borderColor = "";
+        // }
+        // if (estado.length < 2) {
+        //     erro_3.innerHTML = "Campo incorreto"
+        //     input_estado.style.border = "solid";
+        //     input_estado.style.borderColor = "red";
+        // } else {
+        //     erro_3.innerHTML = ""
+        //     input_estado.style.border = "";
+        //     input_estado.style.borderColor = "";
+        // }
+
+        // if (cep.length < 8) {
+        //     erro_4.innerHTML = "Campo incorreto"
+        //     alert("cep incompleto");
+        //     input_cep.style.border = "solid";
+        //     input_cep.style.borderColor = "red";
+        // } else {
+        //     erro_4.innerHTML = ""
+        //     input_cep.style.border = "";
+        //     input_cep.style.borderColor = "";
+        // }
+
+        // if (numero.length < 1 || numero.length > 4) {
+        //     erro_5.innerHTML = "Campo incorreto"
+        //     alert("cep incorreto");
+        //     input_numero.style.border = "solid";
+        //     input_numero.style.borderColor = "red";
+        // } else {
+        //     erro_5.innerHTML = ""
+        //     input_numero.style.border = "";
+        //     input_numero.style.borderColor = "";
+        // }
+
+        // if (rua.length < 5) {
+        //     erro_6.innerHTML = "Campo incorreto";
+        //     alert("Campo rua incompleto");
+        //     input_rua.style.border = "solid";
+        //     input_rua.style.borderColor = "red";
+        // } else {
+        //     erro_6.innerHTML = "";
+        //     input_rua.style.border = "";
+        //     input_rua.style.borderColor = "";
+        // }
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+        
+
+     fetch("/usuarios/cadastrar", {
+             method: "POST",
+             body: formulario
+         }).then(function (resposta) {
+
+             console.log("resposta: ", resposta);
+
+             if (resposta.ok) {
+                 window.alert("Cadastro realizado com sucesso!");
+                  window.location = "./login.html";
+
+
+             } else {
+                 throw ("Houve um erro ao tentar realizar o cadastro!");
+             }
+         }).catch(function (resposta) {
+             console.log(`#ERRO: ${resposta}`);
+
+       });
+
+   return false;
+    
+     }
+
+
+    //Mascaras dos inputs
+        $(document).ready(function(){
+            $('#input_cep').mask('00000-000');
+            $('#input_cnpj').mask('00.000.000/0000-00');
+        });
+    
+
+    $("#input_cep").focusout(function(){
+        //Início do Comando AJAX
+        $.ajax({
+            //O campo URL diz o caminho de onde virá os dados
+            //É importante concatenar o valor digitado no CEP
+            url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+            //Aqui você deve preencher o tipo de dados que será lido,
+            //no caso, estamos lendo JSON.
+            dataType: 'json',
+            //SUCESS é referente a função que será executada caso
+            //ele consiga ler a fonte de dados com sucesso.
+            //O parâmetro dentro da função se refere ao nome da variável
+            //que você vai dar para ler esse objeto.
+            success: function(resposta){
+                //Agora basta definir os valores que você deseja preencher
+                //automaticamente nos campos acima.
+                $("#input_rua").val(resposta.logradouro);
+                $("#input_estado").val(resposta.uf);
+                //Vamos incluir para que o Número seja focado automaticamente
+                //melhorando a experiência do usuário
+                $("#input_numero").focus();
+            }
+        
+        });
+    });
+
+
+</script>
