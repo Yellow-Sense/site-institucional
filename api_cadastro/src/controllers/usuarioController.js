@@ -65,6 +65,7 @@ function cadastrar(req, res) {
     var cnpj = req.body.cnpj;
     var cep = req.body.cep;
     var estados = req.body.estados;
+    var bairro = req.body.bairro;
     var numero_propiedade = req.body.numero_propiedade;
     var rua = req.body.rua
     var telefone = req.body.telefone;
@@ -81,6 +82,9 @@ function cadastrar(req, res) {
     else if (estados == undefined) {
         res.status(400).send("Seu estado está undefined!");
     } 
+    else if (bairro == undefined) {
+        res.status(400).send("Seu bairro está undefined!");
+    } 
     else if (numero_propiedade == undefined) {
         res.status(400).send("Seu numero da propiedade está undefined!");
     }
@@ -91,7 +95,7 @@ function cadastrar(req, res) {
         res.status(400).send("Seu telefone está undefined!");
     }
     else {
-        usuarioModel.cadastrar(nome_granja,cnpj,cep,estados,numero_propiedade,rua,telefone)
+        usuarioModel.cadastrar(nome_granja,cnpj,cep,estados,bairro,numero_propiedade,rua,telefone)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -100,7 +104,7 @@ function cadastrar(req, res) {
                 function (erro) {
                     console.log(erro);
                     console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        "\nHouve um erro ao realizar o cadastro! Erro: 1",
                         erro.sqlMessage
                     );
                     res.status(500).json(erro.sqlMessage);

@@ -18,10 +18,10 @@ function entrar(email, senha) {
     return database.executar(instrucao);
 }
 
-function cadastrar(nome_granja,cnpj,cep,estados,numero_propiedade,rua,telefone) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome_granja,cnpj,cep,estados,numero_propiedade,rua, telefone);
+function cadastrar(nome_granja,cnpj,cep,estados,bairro,numero_propiedade,rua,telefone) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome_granja,cnpj,cep,estados,bairro,numero_propiedade,rua, telefone);
     var instrucao = `
-        INSERT INTO granja (nome_granja,cnpj,cep,estado,numero_propiedade,rua,telefone) VALUES ('${nome_granja}', '${cnpj}','${cep}' ,'${estados}','${numero_propiedade}','${rua}','${telefone}');
+        INSERT INTO granja (nome,cnpj,cep,estado,bairro,numero_propiedade,rua,telefone) VALUES ('${nome_granja}','${cnpj}','${cep}','${estados}','${bairro}','${numero_propiedade}','${rua}','${telefone}')
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
