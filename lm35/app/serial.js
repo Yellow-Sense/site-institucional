@@ -67,10 +67,10 @@ function inserirBanco(data,lista){
     let valor = lista[lista.length - 1];
     let alerta = '';
 
-    /* min = 1000;             teste fkSensor
-    max = 1050;
-    const fkSensor = Math.floor(Math.random() * (max - min + 1));
-     */
+    min = 1;             
+    max = 5;
+    const fkSensor = Math.floor(Math.random(1) * (max - min + 1) + 1);
+     
     
     SerialPort.list().then(listSerialDevices => {
         
@@ -84,11 +84,11 @@ function inserirBanco(data,lista){
             alerta = 'ativado'
         }
 
-    let sql = `INSERT INTO registro(temperaturas, alerta) VALUES(?, "${alerta}")`;
+    let sql = `INSERT INTO registro(temperatura, alerta, fk_Sensor) VALUES(?, "${alerta}", "${fkSensor}")`;
     let valores = [valor];
 
     db.query(sql, [valores], function(err, result){
         if(err) throw err;
-        console.log("Medidas inseridas: " + result.affectedRows + "   alerta: "+ alerta)
+        console.log("Medidas inseridas: " + result.affectedRows + "   \n alerta: "+ alerta +  " \n id do sensor:  " + fkSensor)
     });
 })};
