@@ -59,7 +59,7 @@
             <div id="card01_temp">
                 <div id="tempAtual">
                     <img id="img_temp_atual" src="img/icones/temperatura-alta.png" alt="">
-                    <p>25°C</p>
+                    <p><span id="temp_media"></span>°C</p>
                 </div>
             </div>
             <div id="card01_alertas">
@@ -180,6 +180,38 @@
             }
         }
     });
+
+    
+    function verTemp() {
+        fetch("/usuarios/verTemp").then(function (resposta) {
+            console.log(resposta)
+            console.log("ESTOU NO THEN DO verTemp()!")
+            
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos da Temp: ", JSON.stringify(resposta));
+    
+                        var dadosSensor = resposta[resposta.indexOf(':') + 1]
+                        console.log(dadosSensor.media)
+                        // criando e manipulando elementos do HTML via JavaScript
+    
+                        temp_media.innerHTML = dadosSensor.media;
+
+    
+                });
+            } else {
+                throw ('Houve um erro na API!');
+                console.log(resposta)
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        
+    };
+
+    setInterval(function(){
+        verTemp()
+    },2000)
     
     </script>
 </html>

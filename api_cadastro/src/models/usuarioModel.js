@@ -27,8 +27,17 @@ function cadastrar(nome_granja,cnpj,cep,estados,bairro,numero_propiedade,rua,tel
     return database.executar(instrucao);
 }
 
+function verTemp() {
+    var instrucao = `
+        select round(avg(temperatura),2) as media from registro;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
+    verTemp
 };

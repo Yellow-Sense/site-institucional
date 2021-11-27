@@ -19,4 +19,8 @@ router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
 
+router.get("/verTemp", function (req, res) {
+    usuarioController.verTemp(req, res);
+});
+
 module.exports = router;
