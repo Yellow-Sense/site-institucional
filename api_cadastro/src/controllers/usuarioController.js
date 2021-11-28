@@ -2,11 +2,6 @@ var usuarioModel = require("../models/usuarioModel");
 
 var sessoes = [];
 
-function testar(req, res) {
-    console.log("ENTRAMOS NA usuarioController");
-    res.json("ESTAMOS FUNCIONANDO!");
-}
-
 function listar(req, res) {
     usuarioModel.listar()
         .then(function (resultado) {
@@ -27,7 +22,7 @@ function listar(req, res) {
 function entrar(req, res) {
     var email = req.body.email;
     var senha = req.body.senha;
-    
+
 
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
@@ -70,7 +65,22 @@ function cadastrar(req, res) {
     var rua = req.body.rua
     var telefone = req.body.telefone;
 
-    console.log("telefone que chegou novo: " + telefone);
+    cep = cep.replace('-', '')//removendo primeiro traço
+
+    cnpj = cnpj.replace('.', '')//removendo primeiro ponto
+    cnpj = cnpj.replace('.', '')//removendo segundo ponto
+    cnpj = cnpj.replace('/', '')//removendo barra
+    cnpj = cnpj.replace('-', '')//removendo traço
+
+    console.log(`**informações recebidas na função de cadastrar** \nnome da granja: ${nome_granja}
+    \nCNPJ: ${nome_granja}
+    \nCEP: ${cep}
+    \nEstado: ${estados}
+    \nBairro: ${bairro}
+    \nNumero da propriedade: ${numero_propiedade}
+    \nRua: ${rua}
+    \nTelefone: ${telefone}`
+    );
 
     if (nome_granja == undefined) {
         res.status(400).send("Seu nome da granja está undefined!");
@@ -78,24 +88,24 @@ function cadastrar(req, res) {
         res.status(400).send("Seu cnpj está undefined!");
     } else if (cep == undefined) {
         res.status(400).send("Seu cep está undefined!");
-    } 
+    }
     else if (estados == undefined) {
         res.status(400).send("Seu estado está undefined!");
-    } 
+    }
     else if (bairro == undefined) {
         res.status(400).send("Seu bairro está undefined!");
-    } 
+    }
     else if (numero_propiedade == undefined) {
         res.status(400).send("Seu numero da propiedade está undefined!");
     }
-    else if (rua  == undefined) {
+    else if (rua == undefined) {
         res.status(400).send("Sua rua está undefined!");
     }
     else if (telefone == undefined) {
         res.status(400).send("Seu telefone está undefined!");
     }
     else {
-        usuarioModel.cadastrar(nome_granja,cnpj,cep,estados,bairro,numero_propiedade,rua,telefone)
+        usuarioModel.cadastrar(nome_granja, cnpj, cep, estados, bairro, numero_propiedade, rua, telefone)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -123,10 +133,10 @@ function verTemp(req, res) {
                 res.status(204).send("Nenhum resultado encontrado!")
             }
         }).catch(function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
         );
 }
 
@@ -134,6 +144,5 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar,
     verTemp
 }

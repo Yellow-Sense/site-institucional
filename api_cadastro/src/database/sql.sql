@@ -1,60 +1,66 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/* para sql server - remoto - produção */
-
+CREATE DATABASE Yellow_Sensor ;
+USE Yellow_Sensor ;
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Table `cliente`
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
 CREATE TABLE usuario (
-	id INT PRIMARY KEY auto_increment,
-	nome VARCHAR(50),
-	telefone VARCHAR(12),
-	email VARCHAR(50),
-	senha VARCHAR(50),
+  idUsuario INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(50) ,
+  email VARCHAR(70) ,
+  senha CHAR(8),
+  fkGranja INT,
+  FOREIGN KEY (fkGranja) REFERENCES granja(idGranja)
 );
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	titulo VARCHAR(100),
-    descricao VARCHAR(150),
-	fk_usuario INT FOREIGN KEY REFERENCES usuario(id)
-); 
+-- --------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Table `granja`
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE granja (
+  idGranja INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(50),
+  estado CHAR(2),
+  cnpj CHAR(14),
+  cep CHAR(8),
+  rua VARCHAR (45),
+  bairro VARCHAR(45),
+  telefone VARCHAR(20),
+  numero_propiedade VARCHAR(4)
+);
+    
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+-- TABLE `Yellow_Sensor`.`area`
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE area (
+idArea INT PRIMARY KEY AUTO_INCREMENT,
+nome_Area VARCHAR(45),
+fk_Granja INT,
+FOREIGN KEY (fk_Granja) REFERENCES granja(idGranja)
+);
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Table `Yellow_Sensor`.`sensor`
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE sensor (
+  idSensor INT AUTO_INCREMENT PRIMARY KEY ,
+  status_sensor VARCHAR(20),
+  fk_Area INT,
+  FOREIGN KEY (fk_Area) REFERENCES area (idArea)
+)AUTO_INCREMENT = 100000;
 
-CREATE TABLE medida (
-	id INT PRIMARY KEY IDENTITY(1,1),
-	temperatura DECIMAL,
-	umidade DECIMAL,
-	momento DATETIME,
-	fk_aquario INT
+-- --------------------------------------------------------------------------------------------------------------------------------------------------------
+-- Table `registro`
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE registro (
+  idRegistro INT PRIMARY KEY  AUTO_INCREMENT,
+  diaEhora DATETIME,
+  temperatura FLOAT ,
+  alerta VARCHAR(45),
+  fk_Sensor INT ,
+  FOREIGN KEY (fk_Sensor) REFERENCES sensor(idSensor),
+  constraint check_alerta check(alerta='ativado' or alerta='desativado')
 );
 
-
-/* para workbench - local - desenvolvimento */
-CREATE DATABASE acquatec;
-
-USE acquatec;
-
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50)
-);
-
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-    descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-); 
-
-CREATE TABLE medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	temperatura DECIMAL,
-	umidade DECIMAL,
-	momento DATETIME,
-	fk_aquario INT
-);
-
-select * from usuario;
-
+select * from  usuario;
+select * from  sensor;
+select * from  granja;
+select * from  registro;

@@ -1,48 +1,51 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Cliente</title>
+    <title>Cadastro - Usuário</title>
 
     <link rel="shortcut icon" href="img/icone_topo.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap">
     <link rel="stylesheet" href="css/cadastro_cliente.css">
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
-    
+
 </head>
+
 <body>
     <div class="banner">
 
-       
-            <form class="amarelo" id="form_cadastro" method="post" onsubmit="return cadastrar()">
+        <form class="amarelo" id="form_cadastro" method="post" onsubmit="return cadastrar()">
             <div class="titulo">
-                <h3 class="cliente">Cadastro Usuario<h3>
+                <h3 class="cliente">Cadastro Usuário<h3>
             </div>
-            
+
             <div class="nome">
-                <div class="span-nome"><span>Nome empresa</span></div>
+                <div class="span-nome"><span>Nome de usuário</span></div>
                 <input id="input_nome" class="input-nome" required>
                 <div id="erro_nome"></div>
             </div>
+
             <div class="senha">
                 <div class="span-senha"><span>Senha</span></div>
                 <input id="input_senha" class="input-senha" required>
                 <div id="erro_senha"></div>
             </div>
-           
+
             <div class="email">
                 <div class="span-email"><span>E-mail</span></div>
                 <input id="input_email" class="input-email" required>
                 <div id="erro_email"></div>
             </div>
+
             <div id="botao">
                 <button type="submit">Cadastrar</button>
             </div>
         </form>
-      
+
 
         <div class="preto">
             <img src="img/logo.png" alt="">
@@ -50,11 +53,13 @@
 
     </div>
 </body>
+
 </html>
 <script>
 
-    $(document).ready(function(){
-            $('#input_telefone').mask('(99)99999-9999');
+    //mascara do telefone
+    $(document).ready(function () {
+        $('#input_telefone').mask('(99)99999-9999');
     });
 
     function cadastrar() {
@@ -83,17 +88,6 @@
             erro_senha.innerHTML = "";
             input_senha.style.border = "";
             input_senha.style.borderColor = "";
-        }
-
-        if (telefone.length < 14 || telefone.length > 14) {
-            erro_telefone.innerHTML = "Campo incorreto"
-            alert("Telefone incompleto");
-            input_telefone.style.border = "solid";
-            input_telefone.style.borderColor = "red";
-        } else {
-            erro_telefone.innerHTML = ""
-            input_telefone.style.border = "";
-            input_telefone.style.borderColor = "";
         }
 
         if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {

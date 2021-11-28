@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,10 +13,11 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 </head>
+
 <body>
     <div class="banner">
 
-        <form class="amarelo" id="form_cadastro"  method="post" onsubmit="return cadastrar()">
+        <form class="amarelo" id="form_cadastro" method="post" onsubmit="return cadastrar()">
 
             <div class="titulo">
                 <h3 class="cliente">Cadastro granja<h3>
@@ -30,7 +32,7 @@
                 <input name="cnpj" maxlength="14" id="input_cnpj" class="input-cima" required>
                 <div class="erro" id="erro_2"></div>
             </div>
-            
+
             <div class="div-input">
                 <div class="span-cima"><span>CEP*</span></div>
                 <input name="cep" maxlength="10" id="input_cep" class="input-cima" required>
@@ -102,9 +104,10 @@
 
     </div>
 </body>
+
 </html>
 <script>
-    
+
     function cadastrar() {
         // var nome = input_nome.value.trim();
         // var cnpj = input_cnpj.value.trim();
@@ -178,46 +181,46 @@
         // }
 
         var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
-        
-
-     fetch("/usuarios/cadastrar", {
-             method: "POST",
-             body: formulario
-         }).then(function (resposta) {
-
-             console.log("resposta: ", resposta);
-
-             if (resposta.ok) {
-                 window.alert("Cadastro realizado com sucesso!");
-                  window.location = "./login.html";
 
 
-             } else {
-                 throw ("Houve um erro ao tentar realizar o cadastro!");
-             }
-         }).catch(function (resposta) {
-             console.log(`#ERRO: ${resposta}`);
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
 
-       });
+            console.log("resposta: ", resposta);
 
-   return false;
-    
-     }
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "./login.html";
+
+
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+
+        });
+
+        return false;
+
+    }
 
 
     //Mascaras dos inputs
-        $(document).ready(function(){
-            $('#input_cep').mask('00000-000');
-            $('#input_cnpj').mask('00.000.000/0000-00');
-        });
-    
+    $(document).ready(function () {
+        $('#input_cep').mask('00000-000');
+        $('#input_cnpj').mask('00.000.000/0000-00');
+    });
 
-    $("#input_cep").focusout(function(){
+
+    $("#input_cep").focusout(function () {
         //Início do Comando AJAX
         $.ajax({
             //O campo URL diz o caminho de onde virá os dados
             //É importante concatenar o valor digitado no CEP
-            url: 'https://viacep.com.br/ws/'+$(this).val()+'/json/unicode/',
+            url: 'https://viacep.com.br/ws/' + $(this).val() + '/json/unicode/',
             //Aqui você deve preencher o tipo de dados que será lido,
             //no caso, estamos lendo JSON.
             dataType: 'json',
@@ -225,7 +228,7 @@
             //ele consiga ler a fonte de dados com sucesso.
             //O parâmetro dentro da função se refere ao nome da variável
             //que você vai dar para ler esse objeto.
-            success: function(resposta){
+            success: function (resposta) {
                 //Agora basta definir os valores que você deseja preencher
                 //automaticamente nos campos acima.
                 $("#input_rua").val(resposta.logradouro);
@@ -234,7 +237,7 @@
                 //melhorando a experiência do usuário
                 $("#input_numero").focus();
             }
-        
+
         });
     });
 

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    
+
     <!-- Referenciando estilização externa do site (CSS)  -->
     <link rel="stylesheet" href="css/style-dashboard.css">
     <link rel="shortcut icon" href="img/icone_topo.ico" type="image/x-icon">
@@ -18,42 +19,50 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
-        window.fwSettings={
-        'widget_id':73000000613
+        window.fwSettings = {
+            'widget_id': 73000000613
         };
-        !function(){if("function"!=typeof window.FreshworksWidget){var n=function(){n.q.push(arguments)};n.q=[],window.FreshworksWidget=n}}() 
+        !function () {
+            if ("function" != typeof window.FreshworksWidget) {
+                var n = function () {
+                    n.q.push(arguments)
+                };
+                n.q = [], window.FreshworksWidget = n
+            }
+        }()
     </script>
-    <script type='text/javascript' src='https://widget.freshworks.com/widgets/73000000613.js' async defer></script>   
+    <script type='text/javascript' src='https://widget.freshworks.com/widgets/73000000613.js' async defer></script>
 
 </head>
+
 <body>
     <!-- Menu lateral  -->
     <div class="Menu_Dashboard">
         <div class="container">
-                <div style="margin-top: 0;" class="box_icon_select">
-                    <img class="home_icon" src="img/icones/pagina-inicial.png" alt="">
-                    <p>Home</p>
-                </div>
-                <div onclick="window.location.href = 'gmensal.html'" class="box_icon">
-                    <img class="graficoM_icon" src="img/icones/graficos.png" alt="">
-                    <p>Mensal</p>
-                </div>
-                <div onclick="window.location.href = 'ganual.html'" class="box_icon">
-                    <img class="graficoA_icon" src="img/icones/graficos.png" alt="">
-                    <p>Anual</p>
-                </div>
-                <div class="logout">
-                    <a href="login.html">
-                        <img class="logout_icon" src="img/icones/logout.png" alt="">
-                    </a>
-                </div>
+            <div style="margin-top: 0;" class="box_icon_select">
+                <img class="home_icon" src="img/icones/pagina-inicial.png" alt="">
+                <p>Home</p>
+            </div>
+            <div onclick="window.location.href = 'gmensal.html'" class="box_icon">
+                <img class="graficoM_icon" src="img/icones/graficos.png" alt="">
+                <p>Mensal</p>
+            </div>
+            <div onclick="window.location.href = 'ganual.html'" class="box_icon">
+                <img class="graficoA_icon" src="img/icones/graficos.png" alt="">
+                <p>Anual</p>
+            </div>
+            <div class="logout">
+                <a href="login.html">
+                    <img class="logout_icon" src="img/icones/logout.png" alt="">
+                </a>
+            </div>
         </div>
     </div>
-    
+
     <!-- Conteudo  -->
     <div id="container_dashboard">
-            <p id="txt_msg">Bom dia, nome_granja</p>
-            <hr id="hr_msg">
+        <p id="txt_msg">Bom dia, nome_granja</p>
+        <hr id="hr_msg">
 
         <div id="card01">
             <div id="card01_temp">
@@ -115,7 +124,7 @@
                 <canvas id="myChart02" width="100" height="48"></canvas>
             </div>
         </div>
-    
+
     </div>
 </body>
 <script>
@@ -123,11 +132,11 @@
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['Dia 01', 'Dia 02', 'Dia 03', 'Dia 04', 'Dia 05', 'Dia 06','Dia 07', 'Dia 08', 'Dia 09', 'Dia 10', 'Dia 11', 'Dia 12','Dia 13', 'Dia 14', 'Dia 15', 'Dia 16', 'Dia 17', 'Dia 18','Dia 19', 'Dia 20', 'Dia 21', 'Dia 22', 'Dia 23', 'Dia 24','Dia 25', 'Dia 26', 'Dia 27', 'Dia 28','Dia 29', 'Dia 30','Dia 31' ],
+            labels: ['Dia 01', 'Dia 02', 'Dia 03', 'Dia 04', 'Dia 05', 'Dia 06', 'Dia 07', 'Dia 08', 'Dia 09', 'Dia 10', 'Dia 11', 'Dia 12', 'Dia 13', 'Dia 14', 'Dia 15', 'Dia 16', 'Dia 17', 'Dia 18', 'Dia 19', 'Dia 20', 'Dia 21', 'Dia 22', 'Dia 23', 'Dia 24', 'Dia 25', 'Dia 26', 'Dia 27', 'Dia 28', 'Dia 29', 'Dia 30', 'Dia 31'],
             datasets: [{
                 label: 'Temperatura Média Janeiro',
-            fill: 'start',
-                data: [15, 25, 23, 30, 32, 35,20, 35, 40, 40, 20, 25,15, 25, 23, 30, 32, 35,20, 35, 40, 40, 20, 25,35,20, 35, 40, 40, 20, 25],
+                fill: 'start',
+                data: [15, 25, 23, 30, 32, 35, 20, 35, 40, 40, 20, 25, 15, 25, 23, 30, 32, 35, 20, 35, 40, 40, 20, 25, 35, 20, 35, 40, 40, 20, 25],
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.2)',
                 ],
@@ -149,10 +158,10 @@
     var myChart02 = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
             datasets: [{
                 label: 'Temperatura Média anual',
-                data: [12, 19, 3, 5, 2, 3,12, 19, 3, 5, 2, 3],
+                data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -181,23 +190,22 @@
         }
     });
 
-    
+
     function verTemp() {
         fetch("/usuarios/verTemp").then(function (resposta) {
             console.log(resposta)
             console.log("ESTOU NO THEN DO verTemp()!")
-            
+
             if (resposta.ok) {
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos da Temp: ", JSON.stringify(resposta));
-    
-                        var dadosSensor = resposta[resposta.indexOf(':') + 1]
-                        console.log(dadosSensor.media)
-                        // criando e manipulando elementos do HTML via JavaScript
-    
-                        temp_media.innerHTML = dadosSensor.media;
 
-    
+                    var dadosSensor = resposta[resposta.indexOf(':') + 1]
+                    console.log(dadosSensor.media)
+
+                    temp_media.innerHTML = dadosSensor.media;
+
+
                 });
             } else {
                 throw ('Houve um erro na API!');
@@ -206,12 +214,13 @@
         }).catch(function (resposta) {
             console.error(resposta);
         });
-        
+
     };
 
-    setInterval(function(){
+    setInterval(function () {
         verTemp()
-    },2000)
-    
-    </script>
+    }, 2000)
+
+</script>
+
 </html>
