@@ -56,6 +56,10 @@
 
 <script>
     function validacao() {
+
+    }
+
+    function entrar() {
         var usuario = input_usuario.value.trimStart().trimEnd();
         var senha = input_senha.value.trimStart().trimEnd();
         var url = document.URL;
@@ -86,52 +90,49 @@
 
             // formulario_login.action = url.replace('login.html', 'dashboard.html');
 
+            var formulario = new URLSearchParams(new FormData(document.getElementById("formulario_login")));
 
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                body: formulario
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.idUsuario;
+                        sessionStorage.TIPO_USUARIO = json.fkGranja;
+
+                        if (sessionStorage.TIPO_USUARIO == "null") {
+                            window.location = "./lista.html";
+                        } else {
+                            window.location = "./dashboard.html";
+                        }
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        div_erro.innerHTML = texto;
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
         }
-    }
 
-    function entrar() {
 
-        var formulario = new URLSearchParams(new FormData(document.getElementById("formulario_login")));
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            body: formulario
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
-                    sessionStorage.TIPO_USUARIO = json.fkGranja;
-
-                    if (sessionStorage.TIPO_USUARIO == "null") {
-                        window.location = "./lista.html";
-                    } else {
-                        window.location = "./dashboard.html";
-                    }
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    div_erro.innerHTML = texto;
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
 
         return false;
     }
