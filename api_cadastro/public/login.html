@@ -12,39 +12,39 @@
 
 <body>
 
-   
+
     <section id="preto">
-        <div class="container_preto">      
+        <div class="container_preto">
             <div class="container_seta">
-               <a href="index.html"> <img id="btn_voltar" src="img/icones/botao-voltar.png" > </a>
-            </div>  
-                     <img class="img" src="img/logo.png">    
+                <a href="index.html"> <img id="btn_voltar" src="img/icones/botao-voltar.png"> </a>
+            </div>
+            <img class="img" src="img/logo.png">
         </div>
     </section>
 
     <section id="amarelo">
         <div class="container_amarelo">
-                <div class="container_form">
-                    <form id="formulario_login" class="formulario" >
-                        <label for="usuario">
-                            <div class="container_input">
-                                <div id="div_user">
-                                    <img src="img/icones/user_icon.png">
-                                    <input id="input_usuario" type="text" placeholder="Usuário">
-                                </div><br>
+            <div class="container_form">
+                <form id="formulario_login" onsubmit="return entrar()" method="post" class="formulario">
+                    <label for="usuario">
+                        <div class="container_input">
+                            <div id="div_user">
+                                <img src="img/icones/user_icon.png">
+                                <input id="input_usuario" name="email" type="text" placeholder="Usuário">
+                            </div><br>
 
-                                <div id="div_senha">
-                                    <img src="img/icones/password_icon.png">
-                                    <input id="input_senha" type="password" placeholder="Senha">
-                                </div>
-                           
-                            <button onclick="validacao()" id='botao'  class="btn_login" >    
-                                    ENTRAR
-                                </button> </a> 
+                            <div id="div_senha">
+                                <img src="img/icones/password_icon.png">
+                                <input id="input_senha" name="senha" type="password" placeholder="Senha">
                             </div>
-                    </form>
-                </div>
-           
+
+                            <button type='submit' id='botao' class="btn_login">
+                                ENTRAR
+                            </button> </a>
+                        </div>
+                </form>
+            </div>
+
             </label>
         </div>
     </section>
@@ -55,27 +55,84 @@
 </html>
 
 <script>
-    function validacao(){
+    function validacao() {
         var usuario = input_usuario.value.trimStart().trimEnd();
         var senha = input_senha.value.trimStart().trimEnd();
         var url = document.URL;
 
-        if(usuario.length == 0){
+        if (usuario.length == 0) {
             alert("Campo usuario vazio")
+            return false;
         }
-        else if (usuario.indexOf('@') == -1 ){
+        else if (usuario.indexOf('@') == -1) {
             alert("Usuario Invalido, falta @")
-          } 
-          else if (usuario.indexOf('.com') == -1 ){
-            alert("Usuario Vazio, falta .com")
-          } 
-          else if (senha.length == 0 ){
-            alert("Senha vazio")
-          }
-
-        else {
-            formulario_login.action = url.replace('login.html', 'dashboard.html');
-        
+            return false;
         }
+        else if (usuario.indexOf('.com') == -1) {
+            alert("Usuario Vazio, falta .com")
+            return false;
+        }
+        else if (senha.length == 0) {
+            alert("Senha vazio")
+            return false;
+        } else {
+            var formulario = new URLSearchParams(new FormData(document.getElementById("formulario_login")));
+
+            var email = formulario.get("email");
+            var senha = formulario.get("senha");
+
+            console.log("FORM LOGIN: ", email);
+            console.log("FORM SENHA: ", senha);
+
+            // formulario_login.action = url.replace('login.html', 'dashboard.html');
+
+
+        }
+    }
+
+    function entrar() {
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("formulario_login")));
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
+                    sessionStorage.TIPO_USUARIO = json.fkGranja;
+
+                    if (sessionStorage.TIPO_USUARIO == "null") {
+                        window.location = "./lista.html";
+                    } else {
+                        window.location = "./dashboard.html";
+                    }
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    div_erro.innerHTML = texto;
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
     }
 </script>
