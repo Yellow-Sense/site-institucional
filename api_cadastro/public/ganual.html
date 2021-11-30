@@ -60,15 +60,7 @@
 
             <div class="div_combo">
                 <h4>Ano de produção</h4>
-                <select name="" id="">
-                    <option value="">2021</option>
-                    <option value="">2021</option>
-                    <option value="">2021</option>
-                    <option value="">2021</option>
-                    <option value="">2021</option>
-                    <option value="">2021</option>
-                    <option value="">2021</option>
-                    <option value="">2021</option>
+                <select onchange="pegar_ano();" name="" id="slc_ano">
                 </select>
             </div>
         </div>
@@ -76,6 +68,18 @@
     </div>
 </body>
 <script>
+    var ano_atual = slc_ano.value;
+
+    function pegar_ano() {
+        for (var j = 0; j < 12; j++) {
+            myChart02.data.datasets[0].data[j] = 0;
+            console.log(myChart02.data.datasets[0].data[j]);
+            myChart02.update();
+        }
+        ano_atual = slc_ano.value;
+        graficoA2();
+    }
+
     var ctx = document.getElementById('myChart02').getContext('2d');
     var myChart02 = new Chart(ctx, {
         type: 'bar',
@@ -83,7 +87,6 @@
             labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
             datasets: [{
                 label: 'Temperatura Média anual',
-                data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -112,6 +115,84 @@
         }
     });
 
+    function graficoA2() {
+        console.log("ESTE É O ANO ATUAL SELECIONA: " + ano_atual);
+        var corpo = {
+            idGranja: sessionStorage.TIPO_USUARIO,
+            ano: ano_atual
+        }
+        fetch("/usuarios/graficoA2", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO graficoA2()!")
+
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos da graficoA2: ", JSON.stringify(resposta[0].mediaA2));
+
+
+                    for (var c = 0; c < resposta.length; c++) {
+                        myChart02.data.datasets[0].data[c] = Number(resposta[c].mediaA2)
+                        // myChart02.data.datasets[0].data.push(Number(resposta[c].mediaA2));
+                        myChart02.update();
+
+
+                    }
+                });
+            } else {
+                console.log(resposta)
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        return false;
+    };
+
+    function listar_anos() {
+
+        var corpo = {
+            idGranja: sessionStorage.TIPO_USUARIO
+        }
+        fetch("/usuarios/listar_anos", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO listar_anos()!")
+
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos da listar_anos: ", JSON.stringify(resposta));
+
+                    console.log("EXIBINDO " + resposta[0].ano);
+                    for (var c = 0; c < resposta.length; c++) {
+                        slc_ano.options[slc_ano.options.length] = new Option(resposta[c].ano, resposta[c].ano);;
+                    }
+                    pegar_ano();
+                    graficoA2();
+                });
+            } else {
+                console.log(resposta)
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        return false;
+    };
+    listar_anos();
+
+
+
+
 </script>
+
 
 </html>

@@ -136,7 +136,6 @@
             datasets: [{
                 label: 'Temperatura Média Janeiro',
                 fill: 'start',
-                data: [15, 25, 23, 30, 32, 35, 20, 35, 40, 40, 20, 25, 15, 25, 23, 30, 32, 35, 20, 35, 40, 40, 20, 25, 35, 20, 35, 40, 40, 20, 25],
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.2)',
                 ],
@@ -161,7 +160,7 @@
             labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
             datasets: [{
                 label: 'Temperatura Média anual',
-                data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
+
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -190,6 +189,73 @@
         }
     });
 
+    function graficoM() {
+        var corpo = {
+            idGranja: sessionStorage.TIPO_USUARIO
+        }
+        fetch("/usuarios/graficoM", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO graficoM()!")
+
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos da graficoM: ", JSON.stringify(resposta));
+
+                    console.log("EXIBINDO " + resposta[1].mediaM);
+                    for (var c = 0; c < resposta.length; c++) {
+                        myChart.data.datasets[0].data.push(Number(resposta[c].mediaM));
+                        myChart.update();
+                    }
+                });
+            } else {
+                console.log(resposta)
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        return false;
+    };
+    graficoM();
+
+    function graficoA() {
+        var corpo = {
+            idGranja: sessionStorage.TIPO_USUARIO
+        }
+        fetch("/usuarios/graficoA", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO graficoA()!")
+
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos da graficoA: ", JSON.stringify(resposta));
+
+                    console.log("EXIBINDO " + resposta[1].mediaA);
+                    for (var c = 0; c < resposta.length; c++) {
+                        myChart02.data.datasets[0].data.push(Number(resposta[c].mediaA));
+                        myChart02.update();
+                    }
+                });
+            } else {
+                console.log(resposta)
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        return false;
+    };
+    graficoA();
 
     function verTemp() {
         fetch("/usuarios/verTemp").then(function (resposta) {
@@ -217,9 +283,9 @@
 
     };
 
-    setInterval(function () {
-        verTemp()
-    }, 2000)
+    // setInterval(function () {
+    //     verTemp()
+    // }, 2000)
 
 </script>
 

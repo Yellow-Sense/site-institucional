@@ -155,10 +155,119 @@ function verTemp(req, res) {
         );
 }
 
+function graficoM(req, res) {
+    var idGranja = req.body.idGranja;
+
+    if (idGranja == undefined) {
+        res.status(400).send("Seu numero da propiedade está undefined!");
+    } else {
+        usuarioModel.graficoM(idGranja)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length > 0) {
+                        res.status(200).json(resultado);
+                    } else {
+                        res.status(204).send("Nenhum resultado encontrado!")
+                    }
+                }).catch(function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+                );
+    }
+}
+
+function graficoA(req, res) {
+    var idGranja = req.body.idGranja;
+
+    if (idGranja == undefined) {
+        res.status(400).send("Seu numero da propiedade está undefined!");
+    } else {
+        usuarioModel.graficoA(idGranja)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length > 0) {
+                        res.status(200).json(resultado);
+                    } else {
+                        res.status(204).send("Nenhum resultado encontrado!")
+                    }
+                }).catch(function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+                );
+    }
+}
+
+function graficoA2(req, res) {
+    var idGranja = req.body.idGranja;
+    var ano = req.body.ano;
+
+    if (idGranja == undefined) {
+        res.status(400).send("Seu numero da propiedade está undefined!");
+    } else {
+        usuarioModel.graficoA2(idGranja,ano)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length > 0) {
+                        res.status(200).json(resultado);
+                    } else {
+                        res.status(204).send("Nenhum resultado encontrado!")
+                    }
+                }).catch(function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+                );
+    }
+}
+
+function listar_anos(req, res) {
+    var idGranja = req.body.idGranja;
+
+    if (idGranja == undefined) {
+        res.status(400).send("Seu numero da propiedade está undefined!");
+    } else {
+        usuarioModel.listar_anos(idGranja)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length > 0) {
+                        res.status(200).json(resultado);
+                    } else {
+                        res.status(204).send("Nenhum resultado encontrado!")
+                    }
+                }).catch(function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+                );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
     verTemp,
-    listarGranjas
+    listarGranjas,
+    graficoM,
+    graficoA,
+    graficoA2,
+    listar_anos
 }

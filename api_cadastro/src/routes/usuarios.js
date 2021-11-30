@@ -27,4 +27,20 @@ router.get("/verTemp", function (req, res) {
     usuarioController.verTemp(req, res);
 });
 
+router.post("/graficoM", function (req, res) {
+    usuarioController.graficoM(req, res);
+});
+
+router.post("/graficoA", function (req, res) {
+    usuarioController.graficoA(req, res);
+});
+
+router.post("/graficoA2", function (req, res) {
+    usuarioController.graficoA2(req, res);
+});
+
+router.post("/listar_anos", function (req, res) {
+    usuarioController.listar_anos(req, res);
+});
+
 module.exports = router;

@@ -25,8 +25,8 @@ function entrar(email, senha) {
     return database.executar(instrucao);
 }
 
-function cadastrar(nome_granja,cnpj,cep,estados,bairro,numero_propiedade,rua,telefone) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome_granja,cnpj,cep,estados,bairro,numero_propiedade,rua, telefone);
+function cadastrar(nome_granja, cnpj, cep, estados, bairro, numero_propiedade, rua, telefone) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome_granja, cnpj, cep, estados, bairro, numero_propiedade, rua, telefone);
     var instrucao = `
         INSERT INTO granja (nome,cnpj,cep,estado,bairro,numero_propiedade,rua,telefone) VALUES ('${nome_granja}','${cnpj}','${cep}','${estados}','${bairro}','${numero_propiedade}','${rua}','${telefone}')
     `;
@@ -42,10 +42,66 @@ function verTemp() {
     return database.executar(instrucao);
 }
 
+function graficoM(idGranja) {
+    var instrucao = `
+    select round(avg(temperatura)) as mediaM from registro
+        join sensor on idSensor = fk_sensor
+        join area on idArea = fk_area
+        join granja idGranja on fk_Granja
+        where fk_Granja = ${idGranja} and MONTH(diaEhora) = MONTH(current_date())
+        group by DAY (diaEhora);
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function graficoA(idGranja) {
+    var instrucao = `
+        select round(avg(temperatura)) as mediaA from registro
+	        join sensor on idSensor = fk_sensor
+            join area on idArea = fk_area
+            join granja idGranja on fk_Granja
+            where fk_Granja = ${idGranja} and YEAR(diaEhora) = YEAR(current_date())
+            group by MONTH(diaEhora);
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function graficoA2(idGranja,ano) {
+    var instrucao = `
+        select round(avg(temperatura)) as mediaA2 from registro
+	        join sensor on idSensor = fk_sensor
+            join area on idArea = fk_area
+            join granja idGranja on fk_Granja
+            where fk_Granja = ${idGranja} and YEAR(diaEhora) = ${ano}
+            group by MONTH(diaEhora);
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function listar_anos(idGranja) {
+    var instrucao = `
+        select YEAR(diaEhora) as ano from registro
+            join sensor on idSensor = fk_sensor
+            join area on idArea = fk_area
+            join granja idGranja on fk_Granja
+            where fk_Granja = ${idGranja}
+            group by YEAR(diaEhora);
+        `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
     verTemp,
-    listarGranjas
+    listarGranjas,
+    graficoM,
+    graficoA,
+    graficoA2,
+    listar_anos,
 };
