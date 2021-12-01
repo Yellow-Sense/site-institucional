@@ -64,7 +64,7 @@
 
         <div class="div_card_mensal">
             <div class="titulo_card">
-                <p>Escolha um mês para visualizar</p>
+                <p id="p_mes">Escolha um mês para visualizar</p>
             </div>
             <div class="box_card">
                 <canvas id="myChart" width="100" height="48"></canvas>
@@ -72,20 +72,20 @@
 
             <div class="div_btn_mes">
                 <div class="l1">
-                    <button onclick="pegar_mes(1)">Janeiro</button>
-                    <button onclick="pegar_mes(2)">Fevereiro</button>
-                    <button onclick="pegar_mes(3)">Março</button>
-                    <button onclick="pegar_mes(4)">Abril</button>
-                    <button onclick="pegar_mes(5)">Maio</button>
-                    <button onclick="pegar_mes(6)">Junho</button>
+                    <button id="btn1" onclick="pegar_mes(1);">Janeiro</button>
+                    <button id="btn2" onclick="pegar_mes(2)">Fevereiro</button>
+                    <button id="btn3" onclick="pegar_mes(3)">Março</button>
+                    <button id="btn4" onclick="pegar_mes(4)">Abril</button>
+                    <button id="btn5" onclick="pegar_mes(5)">Maio</button>
+                    <button id="btn6" onclick="pegar_mes(6)">Junho</button>
                 </div>
                 <div class="l2">
-                    <button onclick="pegar_mes(7)">Julho</button>
-                    <button onclick="pegar_mes(8)">Agosto</button>
-                    <button onclick="pegar_mes(9)">Setembro</button>
-                    <button onclick="pegar_mes(10)">Outubro</button>
-                    <button onclick="pegar_mes(11)">Novembro</button>
-                    <button onclick="pegar_mes(12)">Dezembro</button>
+                    <button id="btn7" onclick="pegar_mes(7)">Julho</button>
+                    <button id="btn8" onclick="pegar_mes(8)">Agosto</button>
+                    <button id="btn9" onclick="pegar_mes(9)">Setembro</button>
+                    <button id="btn10" onclick="pegar_mes(10)">Outubro</button>
+                    <button id="btn11" onclick="pegar_mes(11)">Novembro</button>
+                    <button id="btn12" onclick="pegar_mes(12)">Dezembro</button>
                 </div>
             </div>
         </div>
@@ -100,6 +100,32 @@ function pegar_mes(mes) {
             myChart.update();
         }
         mes_atual = mes;
+        if(mes_atual == 1){
+            p_mes.innerHTML = btn1.innerHTML;
+        }else if(mes_atual == 2){
+            p_mes.innerHTML = btn2.innerHTML;
+        }else if(mes_atual == 3){
+            p_mes.innerHTML = btn3.innerHTML;
+        }else if(mes_atual == 4){
+            p_mes.innerHTML = btn4.innerHTML;
+        }else if(mes_atual == 5){
+            p_mes.innerHTML = btn5.innerHTML;
+        }else if(mes_atual == 6){
+            p_mes.innerHTML = btn6.innerHTML;
+        }else if(mes_atual == 7){
+            p_mes.innerHTML = btn7.innerHTML;
+        }else if(mes_atual == 8){
+            p_mes.innerHTML = btn8.innerHTML;
+        }else if(mes_atual == 9){
+            p_mes.innerHTML = btn9.innerHTML;
+        }else if(mes_atual == 10){
+            p_mes.innerHTML = btn10.innerHTML;
+        }else if(mes_atual == 11){
+            p_mes.innerHTML = btn11.innerHTML;
+        }else if(mes_atual == 12){
+            p_mes.innerHTML = btn12.innerHTML;
+        }
+
         graficoM2();
     }
 
