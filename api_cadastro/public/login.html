@@ -8,6 +8,18 @@
     <title>Yellow Sensor </title>
     <link rel="stylesheet" href="css/login.css">
     <link rel="shortcut icon" href="img/icone_topo.ico" type="image/x-icon">
+
+    <script>
+
+        //verificação para ver se o usuário já esta logado pela session
+        if (sessionStorage.ID_USUARIO != undefined) {
+            if (sessionStorage.TIPO_USUARIO == 'null') {
+                window.location.href = "lista.html";
+            }else{
+                window.location.href = "dashboard.html";
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -38,6 +50,9 @@
                                 <input id="input_senha" name="senha" type="password" placeholder="Senha">
                             </div>
 
+                            <div id="div_erro" style="color:#EB1C23">
+                            </div>
+
                             <button type='submit' id='botao' class="btn_login">
                                 ENTRAR
                             </button> </a>
@@ -55,9 +70,6 @@
 </html>
 
 <script>
-    function validacao() {
-
-    }
 
     function entrar() {
         var usuario = input_usuario.value.trimStart().trimEnd();
@@ -65,19 +77,19 @@
         var url = document.URL;
 
         if (usuario.length == 0) {
-            alert("Campo usuario vazio")
+            div_erro.innerHTML = 'Campo usuario vazio'
             return false;
         }
         else if (usuario.indexOf('@') == -1) {
-            alert("Usuario Invalido, falta @")
+            div_erro.innerHTML = 'Usuario Invalido, falta @'
             return false;
         }
         else if (usuario.indexOf('.com') == -1) {
-            alert("Usuario Vazio, falta .com")
+            div_erro.innerHTML = 'Usuario invalido, falta .com'
             return false;
         }
         else if (senha.length == 0) {
-            alert("Senha vazio")
+            div_erro.innerHTML = 'Campo de senha vazio'
             return false;
         } else {
             var formulario = new URLSearchParams(new FormData(document.getElementById("formulario_login")));
@@ -131,8 +143,6 @@
                 console.log(erro);
             })
         }
-
-
 
         return false;
     }

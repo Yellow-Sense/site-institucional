@@ -18,6 +18,19 @@
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <script>
+        //verificação para ver se o usuário já esta logado pela session
+        if (sessionStorage.ID_USUARIO != undefined) {
+            if (sessionStorage.TIPO_USUARIO == 'null') {
+                window.location.href = "lista.html";
+            }else{
+                window.location.href = "dashboard.html";
+            }
+        }else{
+            window.location.href = "login.html";
+        }
+    </script>
+
 </head>
 
 <body>
@@ -37,7 +50,7 @@
                 <p>Anual</p>
             </div>
             <div class="logout">
-                <a href="login.html">
+                <a onclick="sessionStorage.clear();" href="login.html">
                     <img class="logout_icon" src="img/icones/logout.png" alt="">
                 </a>
             </div>

@@ -19,6 +19,20 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
+
+        //verificação para ver se o usuário já esta logado pela session
+        if (sessionStorage.ID_USUARIO != undefined) {
+            if (sessionStorage.TIPO_USUARIO == 'null') {
+                window.location.href = "lista.html";
+            }else{
+                window.location.href = "dashboard.html";
+            }
+        }else{
+            window.location.href = "login.html";
+        }
+
+        //configuração da api do helpDesk
+
         window.fwSettings = {
             'widget_id': 73000000613
         };
@@ -30,6 +44,8 @@
                 n.q = [], window.FreshworksWidget = n
             }
         }()
+
+
     </script>
     <script type='text/javascript' src='https://widget.freshworks.com/widgets/73000000613.js' async defer></script>
 
@@ -51,8 +67,8 @@
                 <img class="graficoA_icon" src="img/icones/graficos.png" alt="">
                 <p>Anual</p>
             </div>
-            <div class="logout">
-                <a href="login.html">
+            <div class="logout" >
+                <a href="login.html" onclick="sessionStorage.clear();">
                     <img class="logout_icon" src="img/icones/logout.png" alt="">
                 </a>
             </div>

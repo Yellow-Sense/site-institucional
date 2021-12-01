@@ -15,6 +15,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <script>
+        //verificação para ver se o usuário já esta logado pela session
+        if (sessionStorage.ID_USUARIO != undefined) {
+            if (sessionStorage.TIPO_USUARIO == 'null') {
+                window.location.href = "lista.html";
+            }else{
+                window.location.href = "dashboard.html";
+            }
+        }else{
+            window.location.href = "login.html";
+        }
+    </script>
 
 </head>
 
@@ -47,7 +59,10 @@
         </div>
         <div class="div_btn" onclick="window.location.href = 'cadastro_granja.html' ">
             <img src="img/icones/novo_usuario.png" alt="">
+            
         </div>
+        <img style="width: 50px; height: 50px; margin-left: 5%; " onclick="sessionStorage.clear(); window.location.href='login.html'" class="logout_icon" src="img/icones/logout.png" alt="">
+
     </div>
 </body>
 <script>
