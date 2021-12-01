@@ -72,20 +72,20 @@
 
             <div class="div_btn_mes">
                 <div class="l1">
-                    <button>Janeiro</button>
-                    <button>Fevereiro</button>
-                    <button>Março</button>
-                    <button>Abril</button>
-                    <button>Maio</button>
-                    <button>Junho</button>
+                    <button onclick="pegar_mes(1)">Janeiro</button>
+                    <button onclick="pegar_mes(2)">Fevereiro</button>
+                    <button onclick="pegar_mes(3)">Março</button>
+                    <button onclick="pegar_mes(4)">Abril</button>
+                    <button onclick="pegar_mes(5)">Maio</button>
+                    <button onclick="pegar_mes(6)">Junho</button>
                 </div>
                 <div class="l2">
-                    <button>Julho</button>
-                    <button>Agosto</button>
-                    <button>Setembro</button>
-                    <button>Outubro</button>
-                    <button>Novembro</button>
-                    <button>Dezembro</button>
+                    <button onclick="pegar_mes(7)">Julho</button>
+                    <button onclick="pegar_mes(8)">Agosto</button>
+                    <button onclick="pegar_mes(9)">Setembro</button>
+                    <button onclick="pegar_mes(10)">Outubro</button>
+                    <button onclick="pegar_mes(11)">Novembro</button>
+                    <button onclick="pegar_mes(12)">Dezembro</button>
                 </div>
             </div>
         </div>
@@ -93,15 +93,24 @@
     </div>
 </body>
 <script>
+function pegar_mes(mes) {
+        for (var j = 0; j < 31; j++) {
+            myChart.data.datasets[0].data[j] = 0;
+            console.log(myChart.data.datasets[0].data[j]);
+            myChart.update();
+        }
+        mes_atual = mes;
+        graficoM2();
+    }
+
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
             labels: ['Dia 01', 'Dia 02', 'Dia 03', 'Dia 04', 'Dia 05', 'Dia 06', 'Dia 07', 'Dia 08', 'Dia 09', 'Dia 10', 'Dia 11', 'Dia 12', 'Dia 13', 'Dia 14', 'Dia 15', 'Dia 16', 'Dia 17', 'Dia 18', 'Dia 19', 'Dia 20', 'Dia 21', 'Dia 22', 'Dia 23', 'Dia 24', 'Dia 25', 'Dia 26', 'Dia 27', 'Dia 28', 'Dia 29', 'Dia 30', 'Dia 31'],
             datasets: [{
-                label: 'Temperatura Média Janeiro',
+                label: 'Temperatura Média do mês',
                 fill: 'start',
-                data: [15, 25, 23, 30, 32, 35, 20, 35, 40, 40, 20, 25, 15, 25, 23, 30, 32, 35, 20, 35, 40, 40, 20, 25, 35, 20, 35, 40, 40, 20, 25],
                 backgroundColor: [
                     'rgba(54, 162, 235, 0.2)',
                 ],
@@ -119,41 +128,43 @@
             }
         }
     });
-    var ctx = document.getElementById('myChart02').getContext('2d');
-    var myChart02 = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-            datasets: [{
-                label: 'Temperatura Média anual',
-                data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
+    
+
+    function graficoM2() {
+        console.log("ESTE É O MES ATUAL SELECIONA: " + mes_atual);
+        var corpo = {
+            idGranja: sessionStorage.TIPO_USUARIO,
+            mes: mes_atual
         }
-    });
+        fetch("/usuarios/graficoM2", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO graficoM2()!")
+
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos da graficoM2: ", JSON.stringify(resposta[0].mediaM2));
+
+                    for (var c = 0; c < resposta.length; c++) {
+                        myChart.data.datasets[0].data[c] = Number(resposta[c].mediaM2)
+                        myChart.update();
+
+
+                    }
+                });
+            } else {
+                console.log(resposta)
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        return false;
+    };
 
 </script>
 

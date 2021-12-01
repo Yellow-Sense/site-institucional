@@ -31,6 +31,10 @@ router.post("/graficoM", function (req, res) {
     usuarioController.graficoM(req, res);
 });
 
+router.post("/graficoM2", function (req, res) {
+    usuarioController.graficoM2(req, res);
+});
+
 router.post("/graficoA", function (req, res) {
     usuarioController.graficoA(req, res);
 });

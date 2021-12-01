@@ -81,6 +81,19 @@ function graficoA2(idGranja,ano) {
     return database.executar(instrucao);
 }
 
+function graficoM2(idGranja,mes) {
+    var instrucao = `
+        select round(avg(temperatura)) as mediaM2 from registro
+	        join sensor on idSensor = fk_sensor
+            join area on idArea = fk_area
+            join granja idGranja on fk_Granja
+            where fk_Granja = ${idGranja} and YEAR(diaEhora) = YEAR(current_date()) and MONTH(diaEhora) = ${mes} 
+            group by DAY(diaEhora);
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function listar_anos(idGranja) {
     var instrucao = `
         select YEAR(diaEhora) as ano from registro
@@ -101,6 +114,7 @@ module.exports = {
     verTemp,
     listarGranjas,
     graficoM,
+    graficoM2,
     graficoA,
     graficoA2,
     listar_anos,

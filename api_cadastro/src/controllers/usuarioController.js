@@ -234,6 +234,35 @@ function graficoA2(req, res) {
     }
 }
 
+function graficoM2(req, res) {
+    var idGranja = req.body.idGranja;
+    var mes = req.body.mes;
+
+    if (idGranja == undefined) {
+        res.status(400).send("idGranja está undefined!");
+    }else if (mes == undefined) {
+        res.status(400).send("Mes está undefined!");
+    } else {
+        usuarioModel.graficoM2(idGranja,mes)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length > 0) {
+                        res.status(200).json(resultado);
+                    } else {
+                        res.status(204).send("Nenhum resultado encontrado!")
+                    }
+                }).catch(function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+                );
+    }
+}
+
 function listar_anos(req, res) {
     var idGranja = req.body.idGranja;
 
@@ -267,6 +296,7 @@ module.exports = {
     verTemp,
     listarGranjas,
     graficoM,
+    graficoM2,
     graficoA,
     graficoA2,
     listar_anos
