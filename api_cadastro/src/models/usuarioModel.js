@@ -34,6 +34,15 @@ function cadastrar(nome_granja, cnpj, cep, estados, bairro, numero_propiedade, r
     return database.executar(instrucao);
 }
 
+function cadastrarCliente(nome_usuario, senha, email, storage) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar_cliente():", nome_usuario, senha, email, storage);
+    var instrucao = `
+        INSERT INTO usuario (nome,email,senha,fkGranja) VALUES ('${nome_usuario}', '${senha}', '${email}', '${storage}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function verTemp() {
     var instrucao = `
         select round(avg(temperatura),2) as media from registro;
@@ -110,6 +119,7 @@ function listar_anos(idGranja) {
 module.exports = {
     entrar,
     cadastrar,
+    cadastrarCliente,
     listar,
     verTemp,
     listarGranjas,

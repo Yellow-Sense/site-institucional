@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Usuário</title>
+    <title>Cadastro - Cliente</title>
 
     <link rel="shortcut icon" href="img/icone_topo.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap">
@@ -15,32 +15,31 @@
 
 </head>
 
-<body>
+<body onload="session_storage.value = sessionStorage.IDCAD">
     <div class="banner">
 
-        <form class="amarelo" id="form_cadastro" method="post" onsubmit="return cadastrar()">
+        <form class="amarelo" id="form_cadastro" onsubmit="return cadastrar()" method="post">
             <div class="titulo">
-                <h3 class="cliente">Cadastro Usuário<h3>
+                <h3 class="cliente">Cadastro Usuario<h3>
             </div>
 
             <div class="nome">
-                <div class="span-nome"><span>Nome de usuário</span></div>
-                <input id="input_nome" class="input-nome" required>
+                <div class="span-nome"><span>Nome empresa</span></div>
+                <input name="nome_usuario" id="input_nome" class="input-nome" required>
                 <div id="erro_nome"></div>
             </div>
-
             <div class="senha">
                 <div class="span-senha"><span>Senha</span></div>
-                <input id="input_senha" class="input-senha" required>
+                <input name="senha" id="input_senha" class="input-senha" required>
                 <div id="erro_senha"></div>
             </div>
 
             <div class="email">
                 <div class="span-email"><span>E-mail</span></div>
-                <input id="input_email" class="input-email" required>
+                <input name="email" id="input_email" class="input-email" required>
+                <input name="storage" id="session_storage" style="display: none;">
                 <div id="erro_email"></div>
             </div>
-
             <div id="botao">
                 <button type="submit">Cadastrar</button>
             </div>
@@ -57,49 +56,86 @@
 </html>
 <script>
 
-    //mascara do telefone
-    $(document).ready(function () {
-        $('#input_telefone').mask('(99)99999-9999');
-    });
+
+   
 
     function cadastrar() {
-        var nome = input_nome.value.trim();
-        var senha = input_senha.value.trim();
-        var telefone = input_telefone.value.trim();
-        var email = input_email.value.trim();
+         var nome = input_nome.value.trim();
+         var senha = input_senha.value.trim();
+         var email = input_email.value.trim();
+         var validon = false;
+         var validos = false;
+         var validoe = false;
 
-        if (nome.length < 3) {
-            erro_nome.innerHTML = "Campo incorreto";
-            alert("nome muito curto");
-            input_nome.style.border = "solid";
-            input_nome.style.borderColor = "red";
-        } else {
-            erro_nome.innerHTML = "";
-            input_nome.style.border = "";
-            input_nome.style.borderColor = "";
-        }
+         if (nome.length < 3) {
+             erro_nome.innerHTML = "Campo incorreto";
+             alert("nome muito curto");
+             input_nome.style.border = "solid";
+             input_nome.style.borderColor = "red";
 
-        if (senha.length < 4) {
-            erro_senha.innerHTML = "Campo incorreto";
-            alert("senha muito curta");
-            input_senha.style.border = "solid";
-            input_senha.style.borderColor = "red";
-        } else {
-            erro_senha.innerHTML = "";
-            input_senha.style.border = "";
-            input_senha.style.borderColor = "";
-        }
+         } else {
+             erro_nome.innerHTML = "";
+             input_nome.style.border = "";
+             input_nome.style.borderColor = "";
+             validon = true;
+         }
 
-        if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
-            alert("E-mail Incorreto");
-            erro_email.innerHTML = "Campo incorreto"
-            input_email.style.border = "solid";
-            input_email.style.borderColor = "red";
-        } else {
-            erro_email.innerHTML = ""
-            input_email.style.border = "";
-            input_email.style.borderColor = "";
-        }
+         if (senha.length < 4) {
+             erro_senha.innerHTML = "Campo incorreto";
+             alert("senha muito curta");
+             input_senha.style.border = "solid";
+             input_senha.style.borderColor = "red";
+         } else {
+             erro_senha.innerHTML = "";
+             input_senha.style.border = "";
+             input_senha.style.borderColor = "";
+             validos = true;
+         }
+
+         if (email.indexOf("@") == -1 || email.indexOf(".com") == -1) {
+             alert("E-mail Incorreto");
+             erro_email.innerHTML = "Campo incorreto"
+             input_email.style.border = "solid";
+             input_email.style.borderColor = "red";
+         } else {
+             erro_email.innerHTML = ""
+             input_email.style.border = "";
+             input_email.style.borderColor = "";
+             validoe = true;
+         }
+        
+         if(validon == true && validoe == true && validoe == true ) {
+
+            var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+            fetch("/usuarios/cadastrarCliente", {
+                method: "POST",
+                body: formulario
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    window.alert("Cadastro realizado com sucesso!");
+                    window.location = "./login.html";
+
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+            return false;
+
+         }
+
+
+
     }
+
+
 
 </script>
