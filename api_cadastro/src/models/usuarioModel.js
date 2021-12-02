@@ -16,19 +16,32 @@ function listarGranjas() {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-
-    function pesquisa_granja(nome_granja) {
-        console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarResgate()");
-        var instrucao = `
-            SELECT nome,estado,cnpj,telefone,rua,idGranja FROM granja where nome = '${nome_granja}';
-        `;
-        console.log("Executando a instrução SQL: \n" + instrucao);
-        return database.executar(instrucao);
-}
 function entrar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
         SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function verNomeGranja(idGranja){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idGranja)
+    var instrucao = `
+        SELECT g.nome as nome FROM granja as g join usuario on idGranja = ${idGranja} ;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function contarPorArea(idGranja){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", idGranja)
+    var instrucao = `
+        select round(avg(temperatura),2) as media_temp from registro 
+        join sensor on fk_Sensor = idSensor
+        join area on idArea = fk_Area
+        join granja on ${idGranja} = idGranja
+        where day(diaEhora) = day(current_date()) group by nome_Area
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -54,7 +67,7 @@ function cadastrarCliente(nome_usuario, senha, email, storage) {
 
 function verTemp() {
     var instrucao = `
-        select round(avg(temperatura),2) as media from registro;
+        select round(avg(temperatura),1) as media from registro;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -77,7 +90,7 @@ function graficoA(idGranja) {
     var instrucao = `
         select round(avg(temperatura)) as mediaA from registro
 	        join sensor on idSensor = fk_sensor
-            join area on idArea = fk_area
+            join area on idArea = fk_Area
             join granja idGranja on fk_Granja
             where fk_Granja = ${idGranja} and YEAR(diaEhora) = YEAR(current_date())
             group by MONTH(diaEhora);
@@ -125,6 +138,38 @@ function listar_anos(idGranja) {
     return database.executar(instrucao);
 }
 
+function verTempArea_A(){
+    var instrucao = `
+    select round(avg(temperatura),2) as media from registro 
+		join sensor on fk_Sensor = idSensor
+        join area on idArea = fk_Area where nome_Area = 'Area A' and day(diaEhora) = day(current_date());
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function verTempArea_B(){
+    var instrucao = `
+    select round(avg(temperatura),2) as media from registro 
+		join sensor on fk_Sensor = idSensor
+        join area on idArea = fk_Area where nome_Area = 'Area B'  and day(diaEhora) = day(current_date());
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function verTempArea_C(){
+    var instrucao = `
+    select round(avg(temperatura),2) as media from registro 
+		join sensor on fk_Sensor = idSensor
+        join area on idArea = fk_Area where nome_Area = 'Area C'  and day(diaEhora) = day(current_date());
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+
+
 module.exports = {
     entrar,
     cadastrar,
@@ -132,10 +177,14 @@ module.exports = {
     listar,
     verTemp,
     listarGranjas,
-    pesquisa_granja,
     graficoM,
     graficoM2,
     graficoA,
     graficoA2,
     listar_anos,
+    verTempArea_A,
+    verTempArea_B,
+    verTempArea_C,
+    verNomeGranja,
+    contarPorArea,
 };

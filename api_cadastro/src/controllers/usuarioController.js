@@ -34,24 +34,6 @@ function listarGranjas(req, res) {
         );
 }
 
-function pesquisa_granja(req, res) {
-    var nome_granja = req.body.nome_granja;
-    usuarioModel.pesquisa_granja(nome_granja)
-        .then(function (resultado) {
-            if (resultado.length > 0) {
-                res.status(200).json(resultado);
-            } else {
-                res.status(204).send("Nenhum resultado encontrado!")
-            }
-        }).catch(
-            function (erro) {
-                console.log(erro);
-                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-}
-
 function entrar(req, res) {
     var email = req.body.email;
     var senha = req.body.senha;
@@ -206,6 +188,72 @@ function verTemp(req, res) {
         );
 }
 
+function verTempArea_A(req, res) {
+    usuarioModel.verTempArea_A()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+        );
+}
+
+function verTempArea_B(req, res) {
+    usuarioModel.verTempArea_B()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+        );
+}
+
+function verTempArea_C(req, res) {
+    usuarioModel.verTempArea_C()
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+        );
+}
+
+function contarPorArea(req, res) {
+    var idGranja = req.body.idGranja;
+
+    usuarioModel.contarPorArea(idGranja )
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        }
+        );
+}
+
 function graficoM(req, res) {
     var idGranja = req.body.idGranja;
 
@@ -258,6 +306,32 @@ function graficoA(req, res) {
     }
 }
 
+function verNomeGranja(req, res) {
+    var idGranja = req.body.idGranja;
+
+    if (idGranja == undefined) {
+        res.status(400).send("Seu numero da propiedade está undefined!");
+    } else {
+        usuarioModel.verNomeGranja(idGranja)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length > 0) {
+                        res.status(200).json(resultado);
+                    } else {
+                        res.status(204).send("Nenhum resultado encontrado!")
+                    }
+                }).catch(function (erro) {
+                    console.log(erro);
+                    console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+                );
+    }
+}
+
 function graficoA2(req, res) {
     var idGranja = req.body.idGranja;
     var ano = req.body.ano;
@@ -265,7 +339,7 @@ function graficoA2(req, res) {
     if (idGranja == undefined) {
         res.status(400).send("Seu numero da propiedade está undefined!");
     } else {
-        usuarioModel.graficoA2(idGranja,ano)
+        usuarioModel.graficoA2(idGranja, ano)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
@@ -291,10 +365,10 @@ function graficoM2(req, res) {
 
     if (idGranja == undefined) {
         res.status(400).send("idGranja está undefined!");
-    }else if (mes == undefined) {
+    } else if (mes == undefined) {
         res.status(400).send("Mes está undefined!");
     } else {
-        usuarioModel.graficoM2(idGranja,mes)
+        usuarioModel.graficoM2(idGranja, mes)
             .then(
                 function (resultado) {
                     console.log(`\nResultados encontrados: ${resultado.length}`);
@@ -340,17 +414,23 @@ function listar_anos(req, res) {
     }
 }
 
+
+
 module.exports = {
     entrar,
     cadastrar,
     cadastrarCliente,
     listar,
-    pesquisa_granja,
     verTemp,
     listarGranjas,
     graficoM,
     graficoM2,
     graficoA,
     graficoA2,
-    listar_anos
+    listar_anos,
+    verTempArea_A,
+    verTempArea_B,
+    verTempArea_C,
+    verNomeGranja,
+    contarPorArea,
 }

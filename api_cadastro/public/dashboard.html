@@ -49,7 +49,7 @@
 
 </head>
 
-<body>
+<body onload="verNomeGranja()">
     <!-- Menu lateral  -->
     <div class="Menu_Dashboard">
         <div class="container">
@@ -75,7 +75,7 @@
 
     <!-- Conteudo  -->
     <div id="container_dashboard">
-        <p id="txt_msg">Bom dia, nome_granja</p>
+        <p id="txt_msg">Bom dia, <span id="nome_granja"></span></p>
         <hr id="hr_msg">
 
         <div id="card01">
@@ -89,23 +89,22 @@
                 <p id="titulo_alertas">Alertas</p>
                 <hr id="hr_alertas">
                 <div id="div_alertas">
-                    <p id="txt_alertas"><span class="area">Area A:</span> Temperatura abaixo do recomendado</p>
-                    <p id="txt_alertas"><span class="area">Area B:</span> Temperatura acima do recomendado</p>
-                    <p id="txt_alertas"><span class="area">Area C:</span> Temperatura abaixo do recomendado</p>
-                    <p id="txt_alertas"><span class="area">Area D:</span> Temperatura acima do recomendado</p>
+                    <p id="txt_alertas"><span id="area_a" class="area"></span></p>
+                    <p id="txt_alertas"><span id="area_b" class="area"></span></p>
+                    <p id="txt_alertas"><span id="area_c" class="area"></span></p>
                 </div>
             </div>
             <div class="card_quant_alertas">
                 <div class="container">
                     <div class="div_box_qtd">
                         <div class="box_temp_ideal">
-                            <p>5</p>
+                            <p id="qtd_temp_ideal">0</p>
                         </div>
                         <div class="box_temp_alerta">
-                            <p>2</p>
+                            <p id="qtd_temp_alerta">0</p>
                         </div>
                         <div class="box_temp_critico">
-                            <p>1</p>
+                            <p id="qtd_temp_critico">0</p>
                         </div>
                     </div>
 
@@ -142,6 +141,9 @@
     </div>
 </body>
 <script>
+
+
+
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'line',
@@ -220,7 +222,7 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos da graficoM: ", JSON.stringify(resposta));
 
-                    console.log("EXIBINDO " + resposta[1].mediaM);
+                    console.log("EXIBINDO " + resposta[0].mediaM);
                     for (var c = 0; c < resposta.length; c++) {
                         myChart.data.datasets[0].data.push(Number(resposta[c].mediaM));
                         myChart.update();
@@ -254,7 +256,7 @@
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos da graficoA: ", JSON.stringify(resposta));
 
-                    console.log("EXIBINDO " + resposta[1].mediaA);
+                    console.log("EXIBINDO " + resposta[0].mediaA);
                     for (var c = 0; c < resposta.length; c++) {
                         myChart02.data.datasets[0].data.push(Number(resposta[c].mediaA));
                         myChart02.update();
@@ -297,9 +299,229 @@
 
     };
 
-    // setInterval(function () {
-    //     verTemp()
-    // }, 2000)
+    function verTempArea_A() {
+        fetch("/usuarios/verTempArea_A").then(function (resposta) {
+            console.log(resposta)
+            console.log("ESTOU NO THEN DO verTemp_A()!")
+
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos da Temp: ", JSON.stringify(resposta));
+
+                    var dadosSensor = resposta[resposta.indexOf(':') + 1]
+                    console.log(dadosSensor.media)
+
+                    if(dadosSensor.media < 10 ||  dadosSensor.media > 33){
+                        area_a.innerHTML = 'Area: A - Temperatura em estado crítico'
+                    }
+                    else if(dadosSensor.media < 15 || dadosSensor.media > 28){
+                        area_a.innerHTML = 'Area: A -Temperatura em estado de alerta'
+                    }
+                    else {
+                        area_a.innerHTML = '';
+                    }
+
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+                console.log(resposta)
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+
+    };
+
+
+    function verTempArea_B() {
+        fetch("/usuarios/verTempArea_B").then(function (resposta) {
+            console.log(resposta)
+            console.log("ESTOU NO THEN DO verTemp_B()!")
+
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos da Temp: ", JSON.stringify(resposta));
+
+                    var dadosSensor = resposta[resposta.indexOf(':') + 1]
+                    console.log(dadosSensor.media)
+
+                    if(dadosSensor.media < 10 ||  dadosSensor.media > 33){
+                        area_b.innerHTML = ' Area: B - Temperatura em estado crítico'
+                    }
+                    else if(dadosSensor.media < 15 || dadosSensor.media > 28){
+                        area_b.innerHTML = 'Area: B - Temperatura em estado de alerta'
+                    }
+                    else {
+                        area_b.innerHTML = '';
+                    }
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+                console.log(resposta)
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+
+    };
+
+
+    function verTempArea_C() {
+        fetch("/usuarios/verTempArea_C").then(function (resposta) {
+            console.log(resposta)
+            console.log("ESTOU NO THEN DO verTemp_C()!")
+
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos da Temp: ", JSON.stringify(resposta));
+
+                    var dadosSensor = resposta[resposta.indexOf(':') + 1]
+                    console.log(dadosSensor.media)
+
+                    if(dadosSensor.media < 10 ||  dadosSensor.media > 33){
+                        area_c.innerHTML = 'Area: C - Temperatura em estado crítico'
+                    }
+                    else if(dadosSensor.media < 15 || dadosSensor.media > 28){
+                        area_c.innerHTML = 'Area: C - Temperatura em estado de alerta'
+                    }
+                    else {
+                        area_c.innerHTML = '';
+                    }
+
+                });
+            } else {
+                throw ('Houve um erro na API!');
+                console.log(resposta)
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+
+    };
+
+    function contarPorArea() {
+        var corpo = {
+            idGranja: sessionStorage.TIPO_USUARIO
+        }
+        
+        fetch("/usuarios/contarPorArea",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
+            console.log(resposta)
+            console.log("ESTOU NO THEN DO contarPorArea()!")
+            
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos da contarPorArea: ", JSON.stringify(resposta));
+                    var temp_ideal = 0;
+                    var temp_alerta = 0;
+                    var temp_critica = 0;
+                    qtd_temp_ideal.innerHTML = 0;
+                    qtd_temp_alerta.innerHTML = 0;
+                    qtd_temp_critico.innerHTML = 0;
+                    
+                    var dadosSensor = resposta[resposta.indexOf(':') + 1]
+                    console.log(dadosSensor.media_temp)
+                    var dadosSensor2 = resposta[resposta.indexOf(':') + 2];
+                    console.log(dadosSensor2.media_temp)
+                    var dadosSensor3 = resposta[resposta.indexOf(':') + 3];
+                    console.log(dadosSensor3.media_temp)
+
+
+                    if(dadosSensor.media_temp >= 15 &&  dadosSensor.media_temp <= 28){
+                        temp_ideal += 1;
+                        qtd_temp_ideal.innerHTML = temp_ideal
+                    }
+                    else if(dadosSensor.media_temp < 10 ||  dadosSensor.media_temp > 33){
+                        temp_critica += 1;
+                        qtd_temp_critico.innerHTML = temp_critica
+                    }
+                    else {
+                        temp_alerta += 1;
+                        qtd_temp_alerta.innerHTML = temp_alerta
+                    }
+
+                    if(dadosSensor2.media_temp >= 15 &&  dadosSensor2.media_temp <= 28){
+                        temp_ideal += 1;
+                        qtd_temp_ideal.innerHTML = temp_ideal
+                    }
+                    else if(dadosSensor2.media_temp < 10 ||  dadosSensor2.media_temp > 33){
+                        temp_critica += 1;
+                        qtd_temp_critico.innerHTML = temp_critica
+                    }
+                    else {
+                        temp_alerta += 1;
+                        qtd_temp_alerta.innerHTML = temp_alerta
+                    }
+
+                    if(dadosSensor3.media_temp >= 15 &&  dadosSensor3.media_temp <= 28){
+                        temp_ideal += 1;
+                        qtd_temp_ideal.innerHTML = temp_ideal
+                    }
+                    else if(dadosSensor3.media_temp < 10 ||  dadosSensor3.media_temp > 33){
+                        temp_critica += 1;
+                        qtd_temp_critico.innerHTML = temp_critica
+                    }
+                    else {
+                        temp_alerta += 1;
+                        qtd_temp_alerta.innerHTML = temp_alerta
+                    }
+                    
+                    
+                });
+            } else {
+                throw ('Houve um erro na API!');
+                console.log(resposta)
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+
+    };
+
+    function verNomeGranja() {
+        var corpo = {
+            idGranja: sessionStorage.TIPO_USUARIO
+        }
+        fetch("/usuarios/verNomeGranja", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO verNomeGranja()!")
+
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do nome da granja: ", JSON.stringify(resposta));
+
+                    console.log("EXIBINDO " + resposta.nome);
+                    nome_granja.innerHTML = resposta[0].nome
+                });
+            } else {
+                console.log(resposta)
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+        return false;
+    };
+
+      setInterval(function () {
+         verTemp(),
+         verTempArea_A(),
+         verTempArea_C(),
+         verTempArea_B(),
+         contarPorArea()
+        }, 2000) 
 
 </script>
 
