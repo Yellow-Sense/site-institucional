@@ -373,11 +373,18 @@ body{
     height: 75%;
     margin: auto;
     overflow:auto; 
+
+}
+
+#div_tabela{
+    width: 100%;
+    margin-top: 0%;
 }
 .containerR table{
     width: 100%;
     border-collapse: collapse;
     border-color:#6B0D10;
+    height: 5%;
     margin-top: -1.5%;
 }
 .containerR table th{

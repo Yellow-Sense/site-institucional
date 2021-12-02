@@ -19,10 +19,10 @@
         //verificação para ver se o usuário já esta logado pela session
         if (sessionStorage.ID_USUARIO != undefined) {
             if (sessionStorage.TIPO_USUARIO == 'null') {
-            }else{
+            } else {
                 window.location.href = "dashboard.html";
             }
-        }else{
+        } else {
             window.location.href = "login.html";
         }
     </script>
@@ -38,8 +38,8 @@
                 <hr>
             </div>
             <div class="div_pesquisa">
-                <input type="text">
-                <img src="img/icones/lupa.png" alt="" onclick="alert('foi')">
+                <input id="input_nome_granja" type="text">
+                <img src="img/icones/lupa.png" alt="" onclick="pesquisa_granja()">
             </div>
         </div>
         <div class="containerR">
@@ -53,15 +53,19 @@
                     <th>Rua</th>
                     <th></th>
                 </tr>
-
+            <tr id="div_tabela">
+            
+            </table>
             </table>
 
         </div>
         <div class="div_btn" onclick="window.location.href = 'cadastro_granja.html' ">
             <img src="img/icones/novo_usuario.png" alt="">
-            
+
         </div>
-        <img style="width: 50px; height: 50px; margin-left: 5%; " onclick="sessionStorage.clear(); window.location.href='login.html'" class="logout_icon" src="img/icones/logout.png" alt="">
+        <img style="width: 50px; height: 50px; margin-left: 5%; "
+            onclick="sessionStorage.clear(); window.location.href='login.html'" class="logout_icon"
+            src="img/icones/logout.png" alt="">
 
     </div>
 </body>
@@ -81,12 +85,13 @@
                         linhaTitulo.innerHTML = "Nenhum resultado encontrado."
                         throw "Nenhum resultado encontrado!!";
                     }
-                
+
                     for (let i = 0; i < resposta.length; i++) {
                         var registro = resposta[i];
-
+                      
                         if ((i + 1) % 2 == 0) {
-                            tabela.innerHTML += `<tr>
+                          
+                            div_tabela.innerHTML += `<tr>
                             <td style="background-color:#404040">${registro.nome}</td>
                             <td style="background-color:#404040">${registro.estado}</td>
                             <td style="background-color:#404040">${registro.cnpj}</td>
@@ -98,7 +103,76 @@
                             </td>
                         <tr>`;
                         } else {
-                            tabela.innerHTML += `<tr>
+                            div_tabela.innerHTML += `<tr>
+                            <td>${registro.nome}</td>
+                            <td>${registro.estado}</td>
+                            <td>${registro.cnpj}</td>
+                            <td>${registro.telefone}</td>
+                            <td>${registro.rua}</td>
+                            <td>
+                                <img src="img/icones/nova_granja.png" 
+                                onclick="window.location.href ='cadastro_granja.html'; sessionStorage.IDCAD = ${registro.idGranja}">
+                            </td>
+                        <tr>`;
+                        }
+
+                    }
+
+                });
+
+            } else {
+                console.log("Dados recebidos: ", JSON.stringify(resposta));
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+        return false;
+    }
+
+
+    function pesquisa_granja() {
+        div_tabela.innerHTML = '';
+        var corpo = {
+            nome_granja: input_nome_granja.value
+        }
+        fetch("/usuarios/pesquisa_granja", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(corpo)
+
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO pesquisa_granja()!")
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos do lista de granjas: ", JSON.stringify(resposta));
+
+                    if (resposta.status == 204) {
+                        linhaTitulo.innerHTML = "Nenhum resultado encontrado."
+                        throw "Nenhum resultado encontrado!!";
+                    }
+                   
+                    
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var registro = resposta[i];
+                        
+                        if ((i + 1) % 2 == 0) {
+                             
+                            div_tabela.innerHTML += `<tr>
+                            <td style="background-color:#404040">${registro.nome}</td>
+                            <td style="background-color:#404040">${registro.estado}</td>
+                            <td style="background-color:#404040">${registro.cnpj}</td>
+                            <td style="background-color:#404040">${registro.telefone}</td>
+                            <td style="background-color:#404040">${registro.rua}</td>
+                            <td style="background-color:#404040">
+                                <img src="img/icones/nova_granja.png" 
+                                onclick="window.location.href ='cadastro_cliente.html'; sessionStorage.IDCAD = ${registro.idGranja}">
+                            </td>
+                        <tr>`;
+                        } else {
+                            div_tabela.innerHTML += `<tr>
                             <td>${registro.nome}</td>
                             <td>${registro.estado}</td>
                             <td>${registro.cnpj}</td>
