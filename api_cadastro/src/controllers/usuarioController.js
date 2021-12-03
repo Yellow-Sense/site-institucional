@@ -34,6 +34,24 @@ function listarGranjas(req, res) {
         );
 }
 
+function pesquisa_granja(req, res) {
+    var nome_granja = req.body.nome_granja;
+    usuarioModel.pesquisa_granja(nome_granja)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 function entrar(req, res) {
     var email = req.body.email;
     var senha = req.body.senha;
@@ -428,6 +446,7 @@ module.exports = {
     listar,
     verTemp,
     listarGranjas,
+    pesquisa_granja,
     graficoM,
     graficoM2,
     graficoA,

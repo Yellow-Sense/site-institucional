@@ -15,6 +15,10 @@ router.get("/listarGranjas", function (req, res) {
     usuarioController.listarGranjas(req, res);
 });
 
+router.post("/pesquisa_granja", function (req, res) {
+    usuarioController.pesquisa_granja(req, res);
+});
+
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
 })

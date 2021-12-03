@@ -2,32 +2,31 @@
 <html lang="pt">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lista de granjas</title>
 
     <!-- Referenciando estilização externa do site (CSS)  -->
-    <link rel="stylesheet" href="css/style-dashboard.css">
-    <link rel="shortcut icon" href="img/icone_topo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style-dashboard.css" />
+    <link rel="shortcut icon" href="img/icone_topo.ico" type="image/x-icon" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet" />
     <script>
         //verificação para ver se o usuário já esta logado pela session
         if (sessionStorage.ID_USUARIO != undefined) {
-            if (sessionStorage.TIPO_USUARIO == 'null') {
-            }else{
+            if (sessionStorage.TIPO_USUARIO == "null") {
+            } else {
                 window.location.href = "dashboard.html";
             }
-        }else{
+        } else {
             window.location.href = "login.html";
         }
     </script>
-    <script type='text/javascript' src='https://widget.freshworks.com/widgets/73000000613.js' async defer></script>
-
+    <script type="text/javascript" src="https://widget.freshworks.com/widgets/73000000613.js" async defer></script>
 </head>
 
 <body id="body_dashboard">
@@ -35,58 +34,60 @@
         <div class="div_top">
             <div class="titulo">
                 <h1 class="titulo_registros">Bem vindo, admin</h1>
-                <hr>
+                <hr />
             </div>
             <div class="div_pesquisa">
-                <input type="text">
-                <img src="img/icones/lupa.png" alt="" onclick="alert('foi')">
+                <input id="input_nome_granja" type="text" />
+                <img src="img/icones/lupa.png" alt="" onclick="pesquisa_granja()" />
             </div>
         </div>
         <div class="containerR">
             <br>
             <table id="tabela">
-                <tr id="linhaTitulo">
-                    <th>Nome</th>
-                    <th>Estado</th>
-                    <th>CNPJ</th>
-                    <th>telefone</th>
-                    <th>Rua</th>
-                    <th></th>
-                </tr>
-
+                    <tr id="linhaTitulo">
+                        <th>Nome</th>
+                        <th>Estado</th>
+                        <th>CNPJ</th>
+                        <th>telefone</th>
+                        <th>Rua</th>
+                        <th></th>
+                    </tr>
+                    <tr id="div_tabela">
+                    </tr>
             </table>
-
         </div>
         <div class="div_btn" onclick="window.location.href = 'cadastro_granja.html' ">
-            <img src="img/icones/novo_usuario.png" alt="">
-            
+            <img src="img/icones/novo_usuario.png" alt="" />
         </div>
-        <img style="width: 50px; height: 50px; margin-left: 5%; " onclick="sessionStorage.clear(); window.location.href='login.html'" class="logout_icon" src="img/icones/logout.png" alt="">
-
+        <img style="width: 50px; height: 50px; margin-left: 5%"
+            onclick="sessionStorage.clear(); window.location.href='login.html'" class="logout_icon"
+            src="img/icones/logout.png" alt="" />
     </div>
 </body>
 <script>
     listarGranjas();
 
-
-
     function listarGranjas() {
-        fetch("/usuarios/listarGranjas").then(function (resposta) {
-            console.log("ESTOU NO THEN DO listarGranjas()!")
-            if (resposta.ok) {
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos do lista de granjas: ", JSON.stringify(resposta));
+        fetch("/usuarios/listarGranjas")
+            .then(function (resposta) {
+                console.log("ESTOU NO THEN DO listarGranjas()!");
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log(
+                            "Dados recebidos do lista de granjas: ",
+                            JSON.stringify(resposta)
+                        );
 
-                    if (resposta.status == 204) {
-                        linhaTitulo.innerHTML = "Nenhum resultado encontrado."
-                        throw "Nenhum resultado encontrado!!";
-                    }
-                
-                    for (let i = 0; i < resposta.length; i++) {
-                        var registro = resposta[i];
+                        if (resposta.status == 204) {
+                            linhaTitulo.innerHTML = "Nenhum resultado encontrado.";
+                            throw "Nenhum resultado encontrado!!";
+                        }
 
-                        if ((i + 1) % 2 == 0) {
-                            tabela.innerHTML += `<tr>
+                        for (let i = 0; i < resposta.length; i++) {
+                            var registro = resposta[i];
+
+                            if ((i + 1) % 2 == 0) {
+                                tabela.innerHTML += `<tr>
                             <td style="background-color:#404040">${registro.nome}</td>
                             <td style="background-color:#404040">${registro.estado}</td>
                             <td style="background-color:#404040">${registro.cnpj}</td>
@@ -97,8 +98,8 @@
                                 onclick="window.location.href ='cadastro_cliente.html'; sessionStorage.IDCAD = ${registro.idGranja}">
                             </td>
                         <tr>`;
-                        } else {
-                            tabela.innerHTML += `<tr>
+                            } else {
+                                tabela.innerHTML += `<tr>
                             <td>${registro.nome}</td>
                             <td>${registro.estado}</td>
                             <td>${registro.cnpj}</td>
@@ -106,21 +107,96 @@
                             <td>${registro.rua}</td>
                             <td>
                                 <img src="img/icones/nova_granja.png" 
+                                onclick="window.location.href ='cadastro_granja.html'; sessionStorage.IDCAD = ${registro.idGranja}">
+                            </td>
+                        <tr>`;
+                            }
+                        }
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            })
+            .catch(function (erro) {
+                console.log(erro);
+            });
+        return false;
+    }
+
+    function pesquisa_granja() {
+
+        tabela.innerHTML = `<tr id="linhaTitulo">
+                        <th>Nome</th>
+                        <th>Estado</th>
+                        <th>CNPJ</th>
+                        <th>telefone</th>
+                        <th>Rua</th>
+                        <th></th>
+                    </tr>`;
+
+        var corpo = {
+            nome_granja: input_nome_granja.value,
+        };
+        fetch("/usuarios/pesquisa_granja", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(corpo),
+        })
+            .then(function (resposta) {
+                console.log("ESTOU NO THEN DO pesquisa_granja()!");
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+                        console.log(
+                            "Dados recebidos do lista de granjas: ",
+                            JSON.stringify(resposta)
+                        );
+
+                        if (resposta.status == 204) {
+                            linhaTitulo.innerHTML = "Nenhum resultado encontrado.";
+                            throw "Nenhum resultado encontrado!!";
+                        }
+
+                        for (let i = 0; i < resposta.length; i++) {
+                            var registro = resposta[i];
+
+
+                            if ((i + 1) % 2 == 0) {
+
+                                tabela.innerHTML += `<tr>
+                            <td style="background-color:#404040">${registro.nome}</td>
+                            <td style="background-color:#404040">${registro.estado}</td>
+                            <td style="background-color:#404040">${registro.cnpj}</td>
+                            <td style="background-color:#404040">${registro.telefone}</td>
+                            <td style="background-color:#404040">${registro.rua}</td>
+                            <td style="background-color:#404040">
+                                <img src="img/icones/nova_granja.png" 
                                 onclick="window.location.href ='cadastro_cliente.html'; sessionStorage.IDCAD = ${registro.idGranja}">
                             </td>
                         <tr>`;
+                            } else {
+                                tabela.innerHTML += `<tr>
+                            <td>${registro.nome}</td>
+                            <td>${registro.estado}</td>
+                            <td>${registro.cnpj}</td>
+                            <td>${registro.telefone}</td>
+                            <td>${registro.rua}</td>
+                            <td>
+                                <img src="img/icones/nova_granja.png" 
+                                onclick="window.location.href ='cadastro_granja.html'; sessionStorage.IDCAD = ${registro.idGranja}">
+                            </td>
+                        <tr>`;
+                            }
                         }
-
-                    }
-
-                });
-
-            } else {
-                console.log("Dados recebidos: ", JSON.stringify(resposta));
-            }
-        }).catch(function (erro) {
-            console.log(erro);
-        })
+                    });
+                } else {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
+                }
+            })
+            .catch(function (erro) {
+                console.log(erro);
+            });
         return false;
     }
 </script>
