@@ -87,6 +87,11 @@ function cadastrar(req, res) {
     cnpj = cnpj.replace('/', '')//removendo barra
     cnpj = cnpj.replace('-', '')//removendo traço
 
+    telefone = telefone.replace('(', '')//removendo parenteses
+    telefone = telefone.replace(')', '')//removendo parenteses
+    telefone = telefone.replace(' ', '')//removendo espaço
+    telefone = telefone.replace('-', '')//removendo traço
+
     console.log(`**informações recebidas na função de cadastrar** \nnome da granja: ${nome_granja}
     \nCNPJ: ${nome_granja}
     \nCEP: ${cep}

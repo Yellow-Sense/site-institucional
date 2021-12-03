@@ -36,7 +36,7 @@
             <div class="div-input">
                 <div class="span-cima"><span>CEP*</span></div>
                 <input name="cep" maxlength="10" id="input_cep" class="input-cima" required>
-                <div class="erro" id="erro_4"></div>
+                <div class="erro" id="erro_3"></div>
             </div>
             <div class="div-input">
                 <div class="span-cima"><span>Estado*</span></div>
@@ -70,28 +70,28 @@
                     <option>SE</option>
                     <option>TO</option>
                 </select>
-                <div class="erro" id="erro_3"></div>
+                <div class="erro" id="erro_4"></div>
             </div>
             <div class="div-input">
                 <div class="span-cima"><span>bairro*</span></div>
-                <input name="bairro" maxlength="30" id="input_numero" class="input-cima" required>
+                <input name="bairro" maxlength="30" id="input_bairro" class="input-cima" required>
                 <div class="erro" id="erro_5"></div>
             </div>
             <div class="div-input">
                 <div class="span-cima"><span>Numero(propriedade)*</span></div>
                 <input name="numero_propiedade" maxlength="4" id="input_numero" class="input-cima" required>
-                <div class="erro" id="erro_5"></div>
+                <div class="erro" id="erro_6"></div>
             </div>
             <div class="div-input">
                 <div class="span-cima"><span>Rua*</span></div>
                 <input name="rua" id="input_rua" class="input-cima" required>
-                <div class="erro" id="erro_6"></div>
+                <div class="erro" id="erro_7"></div>
             </div>
 
             <div class="div-input">
                 <div class="span-cima"><span>Telefone</span></div>
-                <input name="telefone" id="input_rua" class="input-cima" required>
-                <div class="erro" id="erro_6"></div>
+                <input name="telefone" id="input_telefone" class="input-cima" required>
+                <div class="erro" id="erro_8"></div>
             </div>
             <div id="botao">
                 <button type="submit">Cadastrar</button>
@@ -109,109 +109,146 @@
 <script>
 
     function cadastrar() {
-        // var nome = input_nome.value.trim();
-        // var cnpj = input_cnpj.value.trim();
-        // var estado = input_estado.value.trim();
-        // var cep = input_cep.value.trim();
-        // var numero = input_numero.value.trim();
-        // var rua = input_rua.value.trim();
+        var nome = input_nome.value.trim();
+        var cnpj = input_cnpj.value.trim();
+        var cep = input_cep.value.trim();
+        var estado = input_estado.value.trim();
+        var bairro = input_bairro.value.trim();
+        var numero = input_numero.value.trim();
+        var rua = input_rua.value.trim();
+        var telefone = input_telefone.value.trim();
+        
+        var valido_nome = false;
+        var valido_cnpj = false;
+        var valido_cep = false;
+        var valido_bairro = false;
+        var valido_numero = false;
+        var valido_rua = false;
+        var valido_telefone = false;
+        
 
-        // if (nome.length < 3) {
-        //     erro_1.innerHTML = "Campo incorreto"
-        //     alert("Nome muito curto");
-        //     input_nome.style.border = "solid";
-        //     input_nome.style.borderColor = "red";
-        // } else {
-        //     erro_1.innerHTML = ""
-        //     input_nome.style.border = "";
-        //     input_nome.style.borderColor = "";
-        // }
+        if (nome.length < 3) {
+            erro_1.innerHTML = "Campo incorreto";
+            alert("nome muito curto");
+            input_nome.style.border = "solid";
+            input_nome.style.borderColor = "red";
 
-        // if (cnpj.length < 18 ||cnpj.length > 18 ) {
-        //     erro_2.innerHTML = "Campo incorreto"
-        //     alert("cnpj incompleto");
-        //     input_cnpj.style.border = "solid";
-        //     input_cnpj.style.borderColor = "red";
-        // } else {
-        //     erro_2.innerHTML = ""
-        //     input_cnpj.style.border = "";
-        //     input_cnpj.style.borderColor = "";
-        // }
-        // if (estado.length < 2) {
-        //     erro_3.innerHTML = "Campo incorreto"
-        //     input_estado.style.border = "solid";
-        //     input_estado.style.borderColor = "red";
-        // } else {
-        //     erro_3.innerHTML = ""
-        //     input_estado.style.border = "";
-        //     input_estado.style.borderColor = "";
-        // }
+        } else {
+            erro_1.innerHTML = "";
+            input_nome.style.border = "";
+            input_nome.style.borderColor = "";
+            valido_nome = true;
+        }
 
-        // if (cep.length < 8) {
-        //     erro_4.innerHTML = "Campo incorreto"
-        //     alert("cep incompleto");
-        //     input_cep.style.border = "solid";
-        //     input_cep.style.borderColor = "red";
-        // } else {
-        //     erro_4.innerHTML = ""
-        //     input_cep.style.border = "";
-        //     input_cep.style.borderColor = "";
-        // }
+        if (cnpj.length < 14) {
+            erro_2.innerHTML = "Campo incorreto";
+            alert("CNPJ muito curta");
+            input_cnpj.style.border = "solid";
+            input_cnpj.style.borderColor = "red";
+        } else {
+            erro_2.innerHTML = "";
+            input_cnpj.style.border = "";
+            input_cnpj.style.borderColor = "";
+            valido_cnpj = true;
+        }
 
-        // if (numero.length < 1 || numero.length > 4) {
-        //     erro_5.innerHTML = "Campo incorreto"
-        //     alert("cep incorreto");
-        //     input_numero.style.border = "solid";
-        //     input_numero.style.borderColor = "red";
-        // } else {
-        //     erro_5.innerHTML = ""
-        //     input_numero.style.border = "";
-        //     input_numero.style.borderColor = "";
-        // }
+        if (cep.length < 6) {
+            erro_3.innerHTML = "Campo incorreto";
+            alert("CEP muito curto");
+            input_cep.style.border = "solid";
+            input_cep.style.borderColor = "red";
+        } else {
+            erro_3.innerHTML = "";
+            input_cep.style.border = "";
+            input_cep.style.borderColor = "";
+            valido_cep = true;
+        }
 
-        // if (rua.length < 5) {
-        //     erro_6.innerHTML = "Campo incorreto";
-        //     alert("Campo rua incompleto");
-        //     input_rua.style.border = "solid";
-        //     input_rua.style.borderColor = "red";
-        // } else {
-        //     erro_6.innerHTML = "";
-        //     input_rua.style.border = "";
-        //     input_rua.style.borderColor = "";
-        // }
+        if (bairro.length < 4) {
+            erro_5.innerHTML = "Campo incorreto";
+            alert("Bairro muito curto");
+            input_bairro.style.border = "solid";
+            input_bairro.style.borderColor = "red";
+        } else {
+            erro_5.innerHTML = "";
+            input_bairro.style.border = "";
+            input_bairro.style.borderColor = "";
+            valido_bairro = true;
+        }
 
-        var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+        if (numero.length < 2) {
+            erro_6.innerHTML = "Campo incorreto";
+            alert("Numero muito curto");
+            input_numero.style.border = "solid";
+            input_numero.style.borderColor = "red";
+        } else {
+            erro_6.innerHTML = "";
+            input_numero.style.border = "";
+            input_numero.style.borderColor = "";
+            valido_numero = true;
+        }
+
+        if (rua.length < 8) {
+            erro_7.innerHTML = "Campo incorreto";
+            alert("Rua muito curta");
+            input_rua.style.border = "solid";
+            input_rua.style.borderColor = "red";
+        } else {
+            erro_7.innerHTML = "";
+            input_rua.style.border = "";
+            input_rua.style.borderColor = "";
+            valido_rua = true;
+        }
+
+        if (telefone.length < 14) {
+            erro_8.innerHTML = "Campo incorreto";
+            alert("Telefone muito curto");
+            input_telefone.style.border = "solid";
+            input_telefone.style.borderColor = "red";
+        } else {
+            erro_8.innerHTML = "";
+            input_telefone.style.border = "";
+            input_telefone.style.borderColor = "";
+            valido_telefone = true;
+        }
 
 
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            body: formulario
-        }).then(function (resposta) {
 
-            console.log("resposta: ", resposta);
+        if (valido_nome == true && valido_cnpj == true && valido_cep == true && valido_bairro == true && valido_numero == true && valido_rua == true && valido_telefone) {
+            var formulario = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+            fetch("/usuarios/cadastrar", {
+                method: "POST",
+                body: formulario
+            }).then(function (resposta) {
 
-            if (resposta.ok) {
-                window.alert("Cadastro realizado com sucesso!");
-                window.location = "./login.html";
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    window.alert("Cadastro realizado com sucesso!");
+                    window.location = "./login.html";
 
 
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
 
-        });
+            });
+        }
 
-        return false;
+
+            return false;
 
     }
+
 
 
     //Mascaras dos inputs
     $(document).ready(function () {
         $('#input_cep').mask('00000-000');
         $('#input_cnpj').mask('00.000.000/0000-00');
+        $('#input_telefone').mask('(00) 00000-0000');
     });
 
 
